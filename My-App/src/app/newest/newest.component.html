@@ -1,0 +1,126 @@
+<body>
+
+    <div class="text-center">
+      <div class="row content">
+        <div class="col-sm-10 text-right">
+            
+         <h1 ><i class="fas fa-plus"></i>ספרים חדשים</h1>
+  
+          <div class="book">
+            <img src="../../assets/images/old-library-book.jpg" alt="שם הספר">
+            <div class="content">
+              <h1>שם הספר</h1>
+              <i class="fas fa-exchange-alt">פנוי</i>
+              <i class="far fa-heart">אהבתי</i>
+              <i class="fas fa-info-circle" data-toggle="modal" data-target="#myModal">מידע</i>
+            </div>
+          </div>
+          <div class="book">
+            <img src="../../assets/images/old-library-book.jpg" alt="שם הספר">
+            <div class="content">
+              <h1>שם הספר</h1>
+              <i class="fas fa-exchange-alt">פנוי</i>
+              <i class="far fa-heart">אהבתי</i>
+              <i class="fas fa-info-circle" data-toggle="modal" data-target="#myModal">מידע</i>
+            </div>
+          </div>
+          <div class="book">
+            <img src="../../assets/images/old-library-book.jpg" alt="שם הספר">
+            <div class="content">
+              <h1>שם הספר</h1>
+              <i class="fas fa-exchange-alt">פנוי</i>
+              <i class="far fa-heart">אהבתי</i>
+              <i class="fas fa-info-circle" data-toggle="modal" data-target="#myModal">מידע</i>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-2 sidenav text-right" >
+          <div class="dropdown">
+            <button ondblclick="document.getElementById('myDropdown').style.display='none'"onclick="document.getElementById('myDropdown').style.display='block'" class="dropbtn">שם מחבר </button>
+            <div id="myDropdown" class="dropdown-content" style="display: none;">
+              <input type="text" placeholder="Search.." id="myInput" >
+              <a href="#about">חיים ולדר</a>
+              <a href="#base">יצחק פנגר</a>
+            </div>
+          </div>
+          <hr>
+          <h3>סוג ספר</h3>
+          <label class="container">קודש
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="container">בישול
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="container">מתח
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="container">השקפה
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <hr>
+          <h3>מגדר</h3>
+          <label class="container">זכר
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="container">נקבה
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <hr>
+          <h3>קהל יעד</h3>
+          <label class="container">ילדים
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="container">נוער
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="container">מבוגרים
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <hr>
+          <h3>מוגבל</h3>
+          <label class="container">נשוי
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="container">רווק
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <hr>
+        </div>
+      </div>
+    </div>
+  </body>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"> שם הספר</h4>
+        </div>
+        <div class="modal-body text-right">
+          <li><i class="fas fa-book">סוג הספר </i></li>
+          <li><i class="fas fa-users">קהל יעד </i></li>
+          <li><i class="fas fa-file-alt">מספר העמודים</i></li>
+          <li><i class="far fa-edit">שם המחבר </i></li>
+          <li><i class="fas fa-exchange-alt">פנוי</i></li>
+          <li><i class="fas fa-user-edit">ביקורת</i></li>
+        </div>
+        <div class="modal-footer">
+          <i class="far fa-heart">אהבתי</i>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
