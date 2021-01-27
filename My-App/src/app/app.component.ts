@@ -8,11 +8,13 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'super'
   show: boolean = true;
-  modalShow: boolean = true;
+  modalShow: boolean = false;
   showThis() {
     this.show = false;
+    this.modalShow = false;
   }
-  modal(flag: number) {
+  showModal(flag: number) {
+    console.log(flag);
     if (flag == 1)
       this.modalShow = true;
     else

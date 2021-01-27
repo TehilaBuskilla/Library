@@ -47,8 +47,7 @@ CREATE TABLE Audiences(
 CodeAudience bigint identity(1,1)primary key,
 KindAudience varchar(50) not null,
 Age int not null,
-StatusCode bigint  foreign key references StatusUser(CodeStatus),
-GenderCode bigint  foreign key references Genders(CodeGender),
+
 
 )
 
@@ -64,6 +63,8 @@ NameBook varchar(50) not null,
 AuthorCode bigint  foreign key references Authors(CodeAuthor),
 KindBookCode bigint foreign key references KindsOfBooks(CodeKindBook),
 AudienceCode bigint foreign key references Audiences(CodeAudience),
+StatusCode bigint  foreign key references StatusUser(CodeStatus),
+GenderCode bigint  foreign key references Genders(CodeGender),
 LengthBook int not null,
 IsBorrowed bit,
 )
@@ -89,58 +90,6 @@ FOREIGN KEY ([UserId]) REFERENCES [dbo].[Users] ([IdUser]),
 
 
 /*insert*/
-/*KindsOfBooks*/
-insert into [KindsOfBooks] values('kodesh')
-insert into [KindsOfBooks] values('Tension')
-insert into [KindsOfBooks] values('emotion')
-
-/*Genders*/
-insert into [Genders] values('male')
-insert into [KindsOfBooks] values('female')
-
-/*StatusUser*/
-insert into [StatusUser] values('Bachelor')
-insert into [KindsOfBooks] values('Married')
-
-/*Users*/---
-insert into [StatusUser] values('Yaakov Cohen',30)
-insert into [StatusUser] values('Moshe Levi',12)
-insert into [StatusUser] values('David Israel',45)
-
-/*KindsOfBooksForUsers*/---
-
-/*Authors*/
-insert into [Authors] values('Ester Toker')
-insert into [Authors] values('Pnina Shteren')
-insert into [Authors] values('Chaim Valder')
-
-/*AuthorsForUsers*/---
-
-/*StatusForUsers*/---
-
-/*Audiences*/---
-insert into [Authors] values('Adults',50)
-insert into [Authors] values('Young people',25)
-insert into [Authors] values('Children',10)
-
-/*AudiencesForUsers*/---
-
-/*ReadingBooks*/---
-insert into [ReadingBooks] values('The silence',300,0)
-insert into [ReadingBooks] values('The mistake',400,0)
-insert into [ReadingBooks] values('The girl',350,0)
-
-/*ProfileBook*/---
-
-/*BorrowedBooks*/---
-insert into [ReadingBooks] values(convert(date,'01-01-2006',104),0)
-
-
-
-
-
-
-
 
 
 

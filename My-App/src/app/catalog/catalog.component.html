@@ -1,11 +1,69 @@
-<body>
 
+<div>
   <div class="text-center">
     <div class="row content">
+      <div class="col-sm-2 sidenav text-right" >
+        <div class="dropdown">
+          <button ondblclick="document.getElementById('myDropdown').style.display='none'"onclick="document.getElementById('myDropdown').style.display='block'" class="dropbtn">שם מחבר </button>
+          <div id="myDropdown" class="dropdown-content" style="display: none;">
+            <input type="text" placeholder="Search.." id="myInput" >
+            <a href="#about">חיים ולדר</a>
+            <a href="#base">יצחק פנגר</a>
+          </div>
+        </div>
+        <hr>
+        <h3>סוג ספר</h3>
+        <i  id="n" class="fas fa-plus" style="display: none;"></i>
+        <label class="container" onclick="document.getElementById('n').style.display='block'">קודש
+          <input type="checkbox">
+         
+        </label>
+        <label class="container">בישול
+          <input type="checkbox">
+         
+        </label>
+        <label class="container">מתח
+          <input type="checkbox">
+         
+        </label>
+        <label class="container">השקפה
+          <input type="checkbox">
+         
+        </label>
+        <hr>
+        <h3>מגדר</h3>
+        <label class="container">זכר
+          <input type="checkbox">
+         
+        </label>
+        <label class="container">נקבה
+          <input type="checkbox">
+        </label>
+        <hr>
+        <h3>קהל יעד</h3>
+        <label class="container">ילדים
+          <input type="checkbox">
+        </label>
+        <label class="container">נוער
+          <input type="checkbox">
+        </label>
+        <label class="container">מבוגרים
+          <input type="checkbox">
+        </label>
+        <hr>
+        <h3>מוגבל</h3>
+        <label class="container">נשוי
+          <input type="checkbox">
+        </label>
+        <label class="container">רווק
+          <input type="checkbox">
+        </label>
+        <hr>
+      </div>
       <div class="col-sm-10 text-right">
         <h1 ><i class="fas fa-book-reader"></i> ספרים בספריה</h1>
         <form>
-         <input type="text" name="search" placeholder="..חפש">
+         <input type="text" name="search" placeholder="חפש ספר...">
         </form>
 
         <div class="book">
@@ -36,72 +94,9 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-2 sidenav text-right" >
-        <div class="dropdown">
-          <button ondblclick="document.getElementById('myDropdown').style.display='none'"onclick="document.getElementById('myDropdown').style.display='block'" class="dropbtn">שם מחבר </button>
-          <div id="myDropdown" class="dropdown-content" style="display: none;">
-            <input type="text" placeholder="Search.." id="myInput" >
-            <a href="#about">חיים ולדר</a>
-            <a href="#base">יצחק פנגר</a>
-          </div>
-        </div>
-        <hr>
-        <h3>סוג ספר</h3>
-        <label class="container">קודש
-          <input type="checkbox">
-          <span class="checkmark"></span>
-        </label>
-        <label class="container">בישול
-          <input type="checkbox">
-          <span class="checkmark"></span>
-        </label>
-        <label class="container">מתח
-          <input type="checkbox">
-          <span class="checkmark"></span>
-        </label>
-        <label class="container">השקפה
-          <input type="checkbox">
-          <span class="checkmark"></span>
-        </label>
-        <hr>
-        <h3>מגדר</h3>
-        <label class="container">זכר
-          <input type="checkbox">
-          <span class="checkmark"></span>
-        </label>
-        <label class="container">נקבה
-          <input type="checkbox">
-          <span class="checkmark"></span>
-        </label>
-        <hr>
-        <h3>קהל יעד</h3>
-        <label class="container">ילדים
-          <input type="checkbox">
-          <span class="checkmark"></span>
-        </label>
-        <label class="container">נוער
-          <input type="checkbox">
-          <span class="checkmark"></span>
-        </label>
-        <label class="container">מבוגרים
-          <input type="checkbox">
-          <span class="checkmark"></span>
-        </label>
-        <hr>
-        <h3>מוגבל</h3>
-        <label class="container">נשוי
-          <input type="checkbox">
-          <span class="checkmark"></span>
-        </label>
-        <label class="container">רווק
-          <input type="checkbox">
-          <span class="checkmark"></span>
-        </label>
-        <hr>
-      </div>
     </div>
   </div>
-</body>
+</div>
 <!-- Modal -->
 <div class="modal fade" id="myModal" role="dialog">
   <div class="modal-dialog modal-sm">

@@ -19,8 +19,6 @@
         <EntityTypeShape EntityType="LibraryDBModel.StatusUser" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
         <EntityTypeShape EntityType="LibraryDBModel.Users" Width="1.5" PointX="3.5" PointY="3.375" IsExpanded="true" />
         <AssociationConnector Association="LibraryDBModel.FK__Audiences__Audie__56E8E7AB" ManuallyRouted="false" />
-        <AssociationConnector Association="LibraryDBModel.FK__Audiences__Gende__540C7B00" ManuallyRouted="false" />
-        <AssociationConnector Association="LibraryDBModel.FK__Audiences__Statu__531856C7" ManuallyRouted="false" />
         <AssociationConnector Association="LibraryDBModel.FK__ReadingBo__Audie__5CA1C101" ManuallyRouted="false" />
         <AssociationConnector Association="LibraryDBModel.FK__Audiences__UserI__0D44F85C" ManuallyRouted="false" />
         <AssociationConnector Association="LibraryDBModel.FK__AuthorsFo__Autho__4B7734FF" ManuallyRouted="false" />
@@ -36,6 +34,8 @@
         <AssociationConnector Association="LibraryDBModel.FK__StatusFor__Statu__4F47C5E3" ManuallyRouted="false" />
         <AssociationConnector Association="LibraryDBModel.FK__StatusFor__UserI__0C50D423" ManuallyRouted="false" />
         <AssociationConnector Association="LibraryDBModel.FK__Users__StatusCod__09746778" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK__ReadingBo__Gende__1A9EF37A" />
+        <AssociationConnector Association="LibraryDBModel.FK__ReadingBo__Statu__19AACF41" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

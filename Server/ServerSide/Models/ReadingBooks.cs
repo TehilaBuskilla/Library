@@ -28,6 +28,8 @@ namespace Models
         public Nullable<long> AudienceCode { get; set; }
         public int LengthBook { get; set; }
         public Nullable<bool> IsBorrowed { get; set; }
+        public Nullable<long> StatusCode { get; set; }
+        public Nullable<long> GenderCode { get; set; }
     
         public virtual Audiences Audiences { get; set; }
         public virtual Authors Authors { get; set; }
@@ -36,5 +38,7 @@ namespace Models
         public virtual KindsOfBooks KindsOfBooks { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProfileBook> ProfileBook { get; set; }
+        public virtual Genders Genders { get; set; }
+        public virtual StatusUser StatusUser { get; set; }
     }
 }

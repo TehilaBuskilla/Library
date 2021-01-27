@@ -54,8 +54,8 @@
     <Compile Include="AudiencesBLL.cs" />
     <Compile Include="AudiencesForUsersBLL.cs" />
     <Compile Include="AuthorsBLL.cs" />
-    <Compile Include="AuthorsForUsers.cs" />
-    <Compile Include="BorrowedBooks.cs" />
+    <Compile Include="AuthorsForUsersBLL.cs" />
+    <Compile Include="BorrowedBooksBLL.cs" />
     <Compile Include="GendersBLL.cs" />
     <Compile Include="KindsOfBooksBLL.cs" />
     <Compile Include="KindsOfBooksForUsersBLL.cs" />

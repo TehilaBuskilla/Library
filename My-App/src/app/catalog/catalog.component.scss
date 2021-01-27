@@ -1,0 +1,252 @@
+
+// nav
+  
+//  template//
+   /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+   .row.content {height: 1500px}
+    
+   /* Set gray background color and 100% height */
+   .sidenav {
+     background-color: #f1f1f1;
+     height: 100%;
+   }
+   
+   /* Set black background color, white text and some padding */
+   footer {
+     background-color: #555;
+     color: white;
+     padding: 15px;
+   }
+   
+   /* On small screens, set height to 'auto' for sidenav and grid */
+   @media screen and (max-width: 767px) {
+     .sidenav {
+       height: auto;
+       padding: 15px;
+     }
+     .row.content {height: auto;} 
+   }
+// side menu
+@mixin vertical-align($position) {
+  position:$position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@mixin all-transition($time)
+{
+    transition: all $time;
+    -webkit-transition: all $time;
+}
+body
+{
+    margin: 0;
+  font-family: 'Muli', sans-serif;
+}
+.menu {
+
+    font-weight: 100;
+    background: #efefef;
+    width: 20%;
+    height: 100%;
+    padding-left: 30px;
+    position: fixed;
+    z-index: 100;
+    -webkit-box-shadow: -3px 0px 5px 0px rgba(0,0,0,0.2);
+    box-shadow: -3px 0px 5px 0px rgba(0,0,0,0.2);
+    right: -130px;
+    @include all-transition(0.3s);
+    color: #222;
+
+    &:hover, &:focus
+    {
+        transform: translate3d(-130px, 0, 0);
+        animation-timing-function: 1s ease-in;
+    }
+        .nav
+    {
+        @include vertical-align(absolute);
+    font-weight: 100;
+
+        li
+        {
+                padding-bottom: 30px;
+                list-style-type: none;
+
+                a
+                {
+                    display: block;
+                    text-decoration: none;
+                    color: inherit;
+                    @include all-transition(0.3s);
+
+                    &:hover
+                    {
+                        color: #aaa;
+                    }
+                }
+        }
+
+
+    }
+
+}
+
+.row.content {height: 1000px}
+     
+/* Set gray background color and 100% height */
+.sidenav {
+  background-color: #f1f1f1;
+  height: 100%;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+  background-color: #555;
+  color: white;
+  padding: 15px;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+  .sidenav {
+    height: auto;
+    padding: 15px;
+  }
+  .row.content {height: auto;} 
+  
+}
+.btn{
+    margin: 2%;
+}
+.dropdown-menu li{
+   width:109px ; 
+}
+ul{
+   
+    width:109px ; 
+}
+.form-control{
+width: 15%;
+
+}
+.col-sm-3 sidenav{
+  display: block;
+  margin: 0px;
+}
+//search-box
+div#searchBox {
+  float: none;
+  text-align: center;
+  color: #777;
+  margin-top: 4em;
+}
+
+#searchform {
+  border-bottom: 1px solid #ccc;
+  padding: 8px 0 0;
+}
+
+#searchform input {
+  border: 0px;
+  background: transparent;
+  padding: 8px 10px 5px;
+  outline: none;
+}
+
+.mobile-form #searchform {
+  padding-top: 2.5px;
+  width: 215px;
+}
+
+div#searchBox #searchform {
+  border: 1px solid #ddd;
+  width: 23%;
+  padding-top: 1px;
+  display: inline-block;
+}
+
+div#searchBox #searchform input {
+  padding: 5px;
+  display: block;
+}
+
+#searchBox i.fa.fa-search {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.sb-icon-search,
+.sb-search-submit {
+  width: 30px;
+  height: 30px;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0;
+  margin: 0;
+  line-height: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.sb-search-submit {
+  background: #fff;
+  /* IE needs this */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  /* IE 8 */
+  filter: alpha(opacity=0);
+  /* IE 5-7 */
+  opacity: 0;
+  color: transparent;
+  border: none;
+  outline: none;
+  z-index: 100;
+}
+
+div#searchBox #searchform .sb-icon-search {
+  /* color: #fff; */
+  /* background: #3f91c3; */
+  z-index: 90;
+  /* font-size: 22px; */
+  font-family: 'FontAwesome';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  top: -1px;
+}
+
+div#searchBox #searchform .sb-icon-search:before {
+  content: "\f002";
+}
+
+span#noEasy {
+  display: block;
+  /* overflow: hidden; */
+  position: relative;
+  width: 30px;
+  height: 30px;
+  float: left;
+  padding-left: 3px;
+}
+
+span#noEasy input {
+  width: 30px;
+  padding: 0 !important;
+}
+
+input#sbox {
+  line-height: 31px;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+span#noEasy:hover {
+  color: #444;
+}
+//search-box

@@ -24,13 +24,9 @@ namespace Models
         public long CodeAudience { get; set; }
         public string KindAudience { get; set; }
         public int Age { get; set; }
-        public Nullable<long> StatusCode { get; set; }
-        public Nullable<long> GenderCode { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AudiencesForUsers> AudiencesForUsers { get; set; }
-        public virtual Genders Genders { get; set; }
-        public virtual StatusUser StatusUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ReadingBooks> ReadingBooks { get; set; }
     }

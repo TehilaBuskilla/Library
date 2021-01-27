@@ -5,20 +5,20 @@
       <li><a [routerLink]="['/myespecially_for_you']" (click)="showThis()"><i class="fas fa-user-shield"></i>במיוחד בשבילך</a></li>
       <li><a [routerLink]="['/mynewest']" (click)="showThis()" ><i class="fas fa-plus"></i>החדשים שלנו</a></li>
       <li><a [routerLink]="['/myquestions_returns']" (click)="showThis()"><i class="fas fa-exchange-alt"></i>השאלות והחזרות</a></li>
-      <li><a [routerLink]="['/mycatalog']" (click)="modal(1)" onclick="document.getElementById('id01').style.display='block'"><i class="fas fa-sign-in-alt"></i>
+      <li><a [routerLink]="['/']" (click)="showModal(1)"><i class="fas fa-sign-in-alt"></i>
           הרשמה/התחברות</a></li>
     </ul>
   </nav>
-  <div class="container"(click)="modal(0)" >
+  <div class= "content" (click)="showModal(0)" >
   <router-outlet></router-outlet>
-  <app-catalog *ngIf="show"></app-catalog>
 
 </div>
-  <div id="id01" class="modal" *ngIf="modalShow">
+  <div *ngIf="modalShow" class="modal">
     <div  class="login-wrap" >
       <div class="login-html">
-        <span onclick="document.getElementById('id01').style.display='none'"
-        class="w3-button w3-display-topright">&times;</span>
+        <!-- <span {/*onclick="document.getElementById('id01').style.display='none'*/}" -->
+         <span (click)="showModal(0)"
+        class="icon-x">&times;</span>
         <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">התחבר</label>
         <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">הרשם</label>
         <div class="login-form">

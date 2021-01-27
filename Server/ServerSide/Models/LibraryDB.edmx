@@ -12,8 +12,6 @@
           <Property Name="CodeAudience" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="KindAudience" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Age" Type="int" Nullable="false" />
-          <Property Name="StatusCode" Type="bigint" />
-          <Property Name="GenderCode" Type="bigint" />
         </EntityType>
         <EntityType Name="AudiencesForUsers">
           <Key>
@@ -92,6 +90,8 @@
           <Property Name="AudienceCode" Type="bigint" />
           <Property Name="LengthBook" Type="int" Nullable="false" />
           <Property Name="IsBorrowed" Type="bit" />
+          <Property Name="StatusCode" Type="bigint" />
+          <Property Name="GenderCode" Type="bigint" />
         </EntityType>
         <EntityType Name="StatusForUsers">
           <Key>
@@ -127,30 +127,6 @@
             </Principal>
             <Dependent Role="AudiencesForUsers">
               <PropertyRef Name="AudienceCode" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Audiences__Gende__540C7B00">
-          <End Role="Genders" Type="Self.Genders" Multiplicity="0..1" />
-          <End Role="Audiences" Type="Self.Audiences" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Genders">
-              <PropertyRef Name="CodeGender" />
-            </Principal>
-            <Dependent Role="Audiences">
-              <PropertyRef Name="GenderCode" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Audiences__Statu__531856C7">
-          <End Role="StatusUser" Type="Self.StatusUser" Multiplicity="0..1" />
-          <End Role="Audiences" Type="Self.Audiences" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="StatusUser">
-              <PropertyRef Name="CodeStatus" />
-            </Principal>
-            <Dependent Role="Audiences">
-              <PropertyRef Name="StatusCode" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -274,6 +250,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__ReadingBo__Gende__1A9EF37A">
+          <End Role="Genders" Type="Self.Genders" Multiplicity="0..1" />
+          <End Role="ReadingBooks" Type="Self.ReadingBooks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genders">
+              <PropertyRef Name="CodeGender" />
+            </Principal>
+            <Dependent Role="ReadingBooks">
+              <PropertyRef Name="GenderCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__ReadingBo__KindB__5BAD9CC8">
           <End Role="KindsOfBooks" Type="Self.KindsOfBooks" Multiplicity="0..1" />
           <End Role="ReadingBooks" Type="Self.ReadingBooks" Multiplicity="*" />
@@ -283,6 +271,18 @@
             </Principal>
             <Dependent Role="ReadingBooks">
               <PropertyRef Name="KindBookCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ReadingBo__Statu__19AACF41">
+          <End Role="StatusUser" Type="Self.StatusUser" Multiplicity="0..1" />
+          <End Role="ReadingBooks" Type="Self.ReadingBooks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusUser">
+              <PropertyRef Name="CodeStatus" />
+            </Principal>
+            <Dependent Role="ReadingBooks">
+              <PropertyRef Name="StatusCode" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -352,14 +352,6 @@
             <End Role="Audiences" EntitySet="Audiences" />
             <End Role="AudiencesForUsers" EntitySet="AudiencesForUsers" />
           </AssociationSet>
-          <AssociationSet Name="FK__Audiences__Gende__540C7B00" Association="Self.FK__Audiences__Gende__540C7B00">
-            <End Role="Genders" EntitySet="Genders" />
-            <End Role="Audiences" EntitySet="Audiences" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Audiences__Statu__531856C7" Association="Self.FK__Audiences__Statu__531856C7">
-            <End Role="StatusUser" EntitySet="StatusUser" />
-            <End Role="Audiences" EntitySet="Audiences" />
-          </AssociationSet>
           <AssociationSet Name="FK__Audiences__UserI__0D44F85C" Association="Self.FK__Audiences__UserI__0D44F85C">
             <End Role="Users" EntitySet="Users" />
             <End Role="AudiencesForUsers" EntitySet="AudiencesForUsers" />
@@ -400,8 +392,16 @@
             <End Role="Authors" EntitySet="Authors" />
             <End Role="ReadingBooks" EntitySet="ReadingBooks" />
           </AssociationSet>
+          <AssociationSet Name="FK__ReadingBo__Gende__1A9EF37A" Association="Self.FK__ReadingBo__Gende__1A9EF37A">
+            <End Role="Genders" EntitySet="Genders" />
+            <End Role="ReadingBooks" EntitySet="ReadingBooks" />
+          </AssociationSet>
           <AssociationSet Name="FK__ReadingBo__KindB__5BAD9CC8" Association="Self.FK__ReadingBo__KindB__5BAD9CC8">
             <End Role="KindsOfBooks" EntitySet="KindsOfBooks" />
+            <End Role="ReadingBooks" EntitySet="ReadingBooks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ReadingBo__Statu__19AACF41" Association="Self.FK__ReadingBo__Statu__19AACF41">
+            <End Role="StatusUser" EntitySet="StatusUser" />
             <End Role="ReadingBooks" EntitySet="ReadingBooks" />
           </AssociationSet>
           <AssociationSet Name="FK__StatusFor__Statu__4F47C5E3" Association="Self.FK__StatusFor__Statu__4F47C5E3">
@@ -432,11 +432,7 @@
           <Property Name="CodeAudience" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="KindAudience" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Age" Type="Int32" Nullable="false" />
-          <Property Name="StatusCode" Type="Int64" />
-          <Property Name="GenderCode" Type="Int64" />
           <NavigationProperty Name="AudiencesForUsers" Relationship="Self.FK__Audiences__Audie__56E8E7AB" FromRole="Audiences" ToRole="AudiencesForUsers" />
-          <NavigationProperty Name="Genders" Relationship="Self.FK__Audiences__Gende__540C7B00" FromRole="Audiences" ToRole="Genders" />
-          <NavigationProperty Name="StatusUser" Relationship="Self.FK__Audiences__Statu__531856C7" FromRole="Audiences" ToRole="StatusUser" />
           <NavigationProperty Name="ReadingBooks" Relationship="Self.FK__ReadingBo__Audie__5CA1C101" FromRole="Audiences" ToRole="ReadingBooks" />
         </EntityType>
         <EntityType Name="AudiencesForUsers">
@@ -486,8 +482,8 @@
           </Key>
           <Property Name="CodeGender" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="KindGender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Audiences" Relationship="Self.FK__Audiences__Gende__540C7B00" FromRole="Genders" ToRole="Audiences" />
           <NavigationProperty Name="Users" Relationship="Self.FK__Users__GenderCod__0880433F" FromRole="Genders" ToRole="Users" />
+          <NavigationProperty Name="ReadingBooks" Relationship="LibraryDBModel.FK__ReadingBo__Gende__1A9EF37A" FromRole="Genders" ToRole="ReadingBooks" />
         </EntityType>
         <EntityType Name="KindsOfBooks">
           <Key>
@@ -536,6 +532,10 @@
           <NavigationProperty Name="BorrowedBooks" Relationship="Self.FK__BorrowedB__BookC__662B2B3B" FromRole="ReadingBooks" ToRole="BorrowedBooks" />
           <NavigationProperty Name="KindsOfBooks" Relationship="Self.FK__ReadingBo__KindB__5BAD9CC8" FromRole="ReadingBooks" ToRole="KindsOfBooks" />
           <NavigationProperty Name="ProfileBook" Relationship="Self.FK__ProfileBo__BookC__73852659" FromRole="ReadingBooks" ToRole="ProfileBook" />
+          <Property Name="StatusCode" Type="Int64" />
+          <Property Name="GenderCode" Type="Int64" />
+          <NavigationProperty Name="Genders" Relationship="LibraryDBModel.FK__ReadingBo__Gende__1A9EF37A" FromRole="ReadingBooks" ToRole="Genders" />
+          <NavigationProperty Name="StatusUser" Relationship="LibraryDBModel.FK__ReadingBo__Statu__19AACF41" FromRole="ReadingBooks" ToRole="StatusUser" />
         </EntityType>
         <EntityType Name="StatusForUsers">
           <Key>
@@ -553,9 +553,9 @@
           </Key>
           <Property Name="CodeStatus" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="KindStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Audiences" Relationship="Self.FK__Audiences__Statu__531856C7" FromRole="StatusUser" ToRole="Audiences" />
           <NavigationProperty Name="StatusForUsers" Relationship="Self.FK__StatusFor__Statu__4F47C5E3" FromRole="StatusUser" ToRole="StatusForUsers" />
           <NavigationProperty Name="Users" Relationship="Self.FK__Users__StatusCod__09746778" FromRole="StatusUser" ToRole="Users" />
+          <NavigationProperty Name="ReadingBooks" Relationship="LibraryDBModel.FK__ReadingBo__Statu__19AACF41" FromRole="StatusUser" ToRole="ReadingBooks" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -583,30 +583,6 @@
             </Principal>
             <Dependent Role="AudiencesForUsers">
               <PropertyRef Name="AudienceCode" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Audiences__Gende__540C7B00">
-          <End Role="Genders" Type="Self.Genders" Multiplicity="0..1" />
-          <End Role="Audiences" Type="Self.Audiences" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Genders">
-              <PropertyRef Name="CodeGender" />
-            </Principal>
-            <Dependent Role="Audiences">
-              <PropertyRef Name="GenderCode" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Audiences__Statu__531856C7">
-          <End Role="StatusUser" Type="Self.StatusUser" Multiplicity="0..1" />
-          <End Role="Audiences" Type="Self.Audiences" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="StatusUser">
-              <PropertyRef Name="CodeStatus" />
-            </Principal>
-            <Dependent Role="Audiences">
-              <PropertyRef Name="StatusCode" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -808,14 +784,6 @@
             <End Role="Audiences" EntitySet="Audiences" />
             <End Role="AudiencesForUsers" EntitySet="AudiencesForUsers" />
           </AssociationSet>
-          <AssociationSet Name="FK__Audiences__Gende__540C7B00" Association="Self.FK__Audiences__Gende__540C7B00">
-            <End Role="Genders" EntitySet="Genders" />
-            <End Role="Audiences" EntitySet="Audiences" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Audiences__Statu__531856C7" Association="Self.FK__Audiences__Statu__531856C7">
-            <End Role="StatusUser" EntitySet="StatusUser" />
-            <End Role="Audiences" EntitySet="Audiences" />
-          </AssociationSet>
           <AssociationSet Name="FK__ReadingBo__Audie__5CA1C101" Association="Self.FK__ReadingBo__Audie__5CA1C101">
             <End Role="Audiences" EntitySet="Audiences" />
             <End Role="ReadingBooks" EntitySet="ReadingBooks" />
@@ -876,7 +844,39 @@
             <End Role="StatusUser" EntitySet="StatusUser" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
+          <AssociationSet Name="FK__ReadingBo__Gende__1A9EF37A" Association="LibraryDBModel.FK__ReadingBo__Gende__1A9EF37A">
+            <End Role="Genders" EntitySet="Genders" />
+            <End Role="ReadingBooks" EntitySet="ReadingBooks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ReadingBo__Statu__19AACF41" Association="LibraryDBModel.FK__ReadingBo__Statu__19AACF41">
+            <End Role="StatusUser" EntitySet="StatusUser" />
+            <End Role="ReadingBooks" EntitySet="ReadingBooks" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK__ReadingBo__Gende__1A9EF37A">
+          <End Type="LibraryDBModel.Genders" Role="Genders" Multiplicity="0..1" />
+          <End Type="LibraryDBModel.ReadingBooks" Role="ReadingBooks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genders">
+              <PropertyRef Name="CodeGender" />
+            </Principal>
+            <Dependent Role="ReadingBooks">
+              <PropertyRef Name="GenderCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ReadingBo__Statu__19AACF41">
+          <End Type="LibraryDBModel.StatusUser" Role="StatusUser" Multiplicity="0..1" />
+          <End Type="LibraryDBModel.ReadingBooks" Role="ReadingBooks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusUser">
+              <PropertyRef Name="CodeStatus" />
+            </Principal>
+            <Dependent Role="ReadingBooks">
+              <PropertyRef Name="StatusCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -889,9 +889,7 @@
                 <ScalarProperty Name="CodeAudience" ColumnName="CodeAudience" />
                 <ScalarProperty Name="KindAudience" ColumnName="KindAudience" />
                 <ScalarProperty Name="Age" ColumnName="Age" />
-                <ScalarProperty Name="StatusCode" ColumnName="StatusCode" />
-                <ScalarProperty Name="GenderCode" ColumnName="GenderCode" />
-              </MappingFragment>
+                </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AudiencesForUsers">
@@ -971,6 +969,8 @@
           <EntitySetMapping Name="ReadingBooks">
             <EntityTypeMapping TypeName="LibraryDBModel.ReadingBooks">
               <MappingFragment StoreEntitySet="ReadingBooks">
+                <ScalarProperty Name="GenderCode" ColumnName="GenderCode" />
+                <ScalarProperty Name="StatusCode" ColumnName="StatusCode" />
                 <ScalarProperty Name="CodeBook" ColumnName="CodeBook" />
                 <ScalarProperty Name="NameBook" ColumnName="NameBook" />
                 <ScalarProperty Name="AuthorCode" ColumnName="AuthorCode" />

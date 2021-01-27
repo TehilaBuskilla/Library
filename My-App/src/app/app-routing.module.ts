@@ -7,6 +7,7 @@ import { QuestionsReturnsComponent } from './questions-returns/questions-returns
  
 
 const routes: Routes = [
+{ path:'',component:CatalogComponent},
 { path:'mycatalog',component:CatalogComponent},
 { path:'mynewest',component:NewestComponent},
 { path:'myespecially_for_you',component:EspeciallyForYouComponent},

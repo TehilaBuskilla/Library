@@ -1,0 +1,46 @@
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <a class="navbar-brand" href="#"><img src="\assets\open-book-wooden-table.jpg" class="imageLogo"></a>
+        <li><a [routerLink]="['/mycatalog']" >הספרים שלנו</a></li>
+        <li><a href="#" >במיוחד בשבילך</a></li>
+        <li><a href="#">החדשים שלנו</a></li>
+        <li><a href="#">השאלות והחזרות</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a (click)="showThis()" [routerLink]="['/mylogin']"> הרשמה/התחברות</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<!-- <div class="container-fluid text-center" *ngIf="show">    
+  <div class="row content">
+    
+    
+    
+      
+     
+    
+  </div>
+</div> -->
+<router-outlet></router-outlet>
+<footer class="container-fluid text-center">
+  <p class="copyrights">© כל הזכויות שמורות</p>
+</footer>
+
+
+</body>
+
+
+

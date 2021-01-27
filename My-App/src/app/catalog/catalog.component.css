@@ -6,6 +6,8 @@ body{
 }
 h1{
   text-align: center;
+  height: 18%;
+  width: 100%;
 }
 .book {
   position: relative;
@@ -30,9 +32,7 @@ h1{
   width: 90%;
   padding: 1%;
 }
-i{
-  margin: 5%;
-}
+
 .modal{
   top:20%;
 }
@@ -133,7 +133,7 @@ input[type=text]:focus {
   width: 50%;
 }
 .dropbtn {
-  background-color: #27d4b2;
+  background-color: rgb(46 248 108 / 80%);
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -143,7 +143,12 @@ input[type=text]:focus {
 }
 
 .dropbtn:hover, .dropbtn:focus {
-  background-color: #1ab394;
+  background-color: #565756;
+}
+.container:hover, .dropbtn:focus{
+background-color: gray;
+width: 70%;
+
 }
 
 #myInput {
@@ -183,3 +188,7 @@ width: 160px;
 .dropdown a:hover {background-color: #ddd;}
 
 .show {display: block;}
+i{
+  margin: 5%;
+  cursor: pointer;
+}
