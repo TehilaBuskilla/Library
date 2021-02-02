@@ -19,10 +19,18 @@ namespace GUI
             InitializeComponent();
         }
         AudiencesBLL AudiencesBLL = new AudiencesBLL();
+        GendersBLL GendersBLL = new GendersBLL();
+
+
+
+
         private void button1_Click(object sender, EventArgs e)
         {
-            AudiencesBLL.Add(new AudiencesBLL() { KindAudience =textBox1.Text});
+            AudiencesBLL.Add(new Audiences() { KindAudience =textBox1.Text});
             ShowDetails();
+            
+            ShowDetails();
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -32,7 +40,10 @@ namespace GUI
 
         private void ShowDetails()
         {
+        
+
             listBox1.Items.Clear();
+          
             comboBox1.Items.Clear();
             listBox1.Items.AddRange(AudiencesBLL.Get().Select(a=>a.KindAudience).ToArray());
             comboBox1.Items.AddRange(AudiencesBLL.Get().Select(a => a.KindAudience).ToArray());
@@ -49,6 +60,11 @@ namespace GUI
             audience = AudiencesBLL.Get().Find(a => a.KindAudience==comboBox1.SelectedItem.ToString());
             AudiencesBLL.Delete(audience);
             ShowDetails();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

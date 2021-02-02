@@ -10,23 +10,92 @@ namespace DAL
    public class StatusUserDAL
     {
 
-        LibraryDBEntities DB = new LibraryDBEntities();
-        public void Add(StatusUser statusUser)
+        //שליפה להכל
+        public static List<StatusUser> GetAll()
         {
-            DB.StatusUser.Add(statusUser);
-            DB.SaveChanges();
-        }
-
-        public List<StatusUser> Get()
-        {
-            return DB.StatusUser.ToList();
+            using (var context = new LibraryDBEntities())
+            {
+                List<StatusUser> listStatusUser = context.StatusUser.ToList();
+                return listStatusUser;
+            }
 
         }
 
-        public void Delete(StatusUser statusUser)
+        //שליפת נתון
+
+        //public static Get()
+        // {
+        //using (var context = new LibraryDBEntities())
+        //{
+        //    return context.StatusUser.
+        //}
+        //  }
+        //הוספה
+        public static int Add(StatusUser statusUser)
         {
-            DB.StatusUser.Remove(statusUser);
-            DB.SaveChanges();
+            using (var context = new LibraryDBEntities())
+            {
+                context.StatusUser.Add(statusUser);
+                context.SaveChanges();
+                int code = 0;
+                foreach (StatusUser item in context.StatusUser)
+                {
+                    code = item.CodeStatus;
+                }
+                return code;
+            }
+
+        }
+
+        //מחיקה
+
+        public static bool Delete(int code)
+        {
+            using (var context = new LibraryDBEntities())
+            {
+                try
+                {
+                    StatusUser toDel = context.StatusUser.FirstOrDefault(x => x.CodeStatus == code);
+                    if (toDel != null)
+                    {
+                        context.Entry(toDel).State = System.Data.Entity.EntityState.Deleted;
+                        context.SaveChanges();
+                    }
+                    return true;
+                }
+                catch { return false; }
+            }
+
+        }
+
+
+
+
+        //עדכון
+        public static bool Update(StatusUser statusUser)
+        {
+            try
+            {
+                using (var context = new LibraryDBEntities())
+                {
+
+
+                    StatusUser old = context.StatusUser.FirstOrDefault(x => x.CodeStatus == statusUser.CodeStatus);
+                    if (old != null)
+                    {
+                        old.KindStatus = statusUser.KindStatus;
+                        
+                        context.SaveChanges();
+                    }
+
+                }
+                return true;
+            }
+
+            catch
+            {
+                return false;
+            }
         }
     }
 }

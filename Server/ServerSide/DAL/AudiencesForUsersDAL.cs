@@ -9,23 +9,95 @@ namespace DAL
 {
    public class AudiencesForUsersDAL
     {
-        LibraryDBEntities DB = new LibraryDBEntities();
-        public void Add(AudiencesForUsers audienceForUser)
+        //שליפה להכל
+        public static List<AudiencesForUsers> GetAll()
         {
-            DB.AudiencesForUsers.Add(audienceForUser);
-            DB.SaveChanges();
-        }
-
-        public List<AudiencesForUsers> Get()
-        {
-            return DB.AudiencesForUsers.ToList();
+            using (var context = new LibraryDBEntities())
+            {
+                List<AudiencesForUsers> listAudiencesForUsers = context.AudiencesForUsers.ToList();
+                return listAudiencesForUsers;
+            }
 
         }
 
-        public void Delete(AudiencesForUsers audienceForUser)
+
+        //שליפת נתון
+
+        //public static Get()
+        // {
+        //using (var context = new LibraryDBEntities())
+        //{
+        //    return context.Audiences.
+        //}
+        //  }
+        //הוספה
+        public static int Add(AudiencesForUsers audienceForUser)
         {
-            DB.AudiencesForUsers.Remove(audienceForUser);
-            DB.SaveChanges();
+            using (var context = new LibraryDBEntities())
+            {
+                context.AudiencesForUsers.Add(audienceForUser);
+                context.SaveChanges();
+                int code = 0;
+                foreach (AudiencesForUsers item in context.AudiencesForUsers)
+                {
+                    code = item.CodeAudiencesForUsers;
+                }
+                return code;
+            }
+
         }
+
+        //מחיקה
+
+        public static bool Delete(int code)
+        {
+            using (var context = new LibraryDBEntities())
+            {
+                try
+                {
+                    AudiencesForUsers toDel = context.AudiencesForUsers.FirstOrDefault(x => x.CodeAudiencesForUsers == code);
+                    if (toDel != null)
+                    {
+                        context.Entry(toDel).State = System.Data.Entity.EntityState.Deleted;
+                        context.SaveChanges();
+                    }
+                    return true;
+                }
+                catch { return false; }
+            }
+
+        }
+
+
+
+
+        //עדכון
+        public static bool Update(AudiencesForUsers audienceForUser)
+        {
+            try
+            {
+                using (var context = new LibraryDBEntities())
+                {
+
+
+                    AudiencesForUsers old = context.AudiencesForUsers.FirstOrDefault(x => x.CodeAudiencesForUsers == audienceForUser.CodeAudiencesForUsers);
+                    if (old != null)
+                    {
+                        old.AudienceCode = audienceForUser.AudienceCode;
+                        old.UserId = audienceForUser.UserId;
+                        context.SaveChanges();
+                    }
+
+                }
+                return true;
+            }
+
+            catch
+            {
+                return false;
+            }
+        }
+
+
     }
 }

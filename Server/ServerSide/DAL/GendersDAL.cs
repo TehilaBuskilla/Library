@@ -9,23 +9,92 @@ namespace DAL
 {
    public class GendersDAL
     {
-        LibraryDBEntities DB = new LibraryDBEntities();
-        public void Add(Genders gender)
+        //שליפה להכל
+        public static List<Genders> GetAll()
         {
-            DB.Genders.Add(gender);
-            DB.SaveChanges();
-        }
-
-        public List<Genders> Get()
-        {
-            return DB.Genders.ToList();
+            using (var context = new LibraryDBEntities())
+            {
+                List<Genders> listGenders = context.Genders.ToList();
+                return listGenders;
+            }
 
         }
 
-        public void Delete(Genders gender)
+        //שליפת נתון
+
+        //public static Get()
+        // {
+        //using (var context = new LibraryDBEntities())
+        //{
+        //    return context.Genders.
+        //}
+        //  }
+        //הוספה
+        public static int Add(Genders gender)
         {
-            DB.Genders.Remove(gender);
-            DB.SaveChanges();
+            using (var context = new LibraryDBEntities())
+            {
+                context.Genders.Add(gender);
+                context.SaveChanges();
+                int code = 0;
+                foreach (Genders item in context.Genders)
+                {
+                    code = item.CodeGender;
+                }
+                return code;
+            }
+
+        }
+
+        //מחיקה
+
+        public static bool Delete(int code)
+        {
+            using (var context = new LibraryDBEntities())
+            {
+                try
+                {
+                    Genders toDel = context.Genders.FirstOrDefault(x => x.CodeGender == code);
+                    if (toDel != null)
+                    {
+                        context.Entry(toDel).State = System.Data.Entity.EntityState.Deleted;
+                        context.SaveChanges();
+                    }
+                    return true;
+                }
+                catch { return false; }
+            }
+
+        }
+
+
+
+
+        //עדכון
+        public static bool Update(Genders gender)
+        {
+            try
+            {
+                using (var context = new LibraryDBEntities())
+                {
+
+
+                    Genders old = context.Genders.FirstOrDefault(x => x.CodeGender == gender.CodeGender);
+                    if (old != null)
+                    {
+                        old.KindGender= gender.KindGender;
+                       
+                        context.SaveChanges();
+                    }
+
+                }
+                return true;
+            }
+
+            catch
+            {
+                return false;
+            }
         }
     }
 }

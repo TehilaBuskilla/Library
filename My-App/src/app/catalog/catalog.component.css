@@ -47,7 +47,7 @@ h1{
  }
  /* סינון */
 .container {
-  display: block;
+  display: inline-block;
   position: relative;
   padding-left: 35px;
   margin-bottom: 12px;
@@ -66,6 +66,7 @@ h1{
   cursor: pointer;
   height: 0;
   width: 0;
+  
 }
 
 /* Create a custom checkbox */
@@ -145,11 +146,14 @@ input[type=text]:focus {
 .dropbtn:hover, .dropbtn:focus {
   background-color: #565756;
 }
-.container:hover, .dropbtn:focus{
-background-color: gray;
-width: 70%;
+.container:hover{
 
+width: 70%;
 }
+i{
+  display: inline-block;
+}
+
 
 #myInput {
  border-inline:border-box;

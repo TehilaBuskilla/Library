@@ -9,23 +9,92 @@ namespace DAL
 {
    public class AuthorsDAL
     {
-        LibraryDBEntities DB = new LibraryDBEntities();
-        public void Add(Authors author)
+        //שליפה להכל
+        public static List<Authors> GetAll()
         {
-            DB.Authors.Add(author);
-            DB.SaveChanges();
-        }
-
-        public List<Authors> Get()
-        {
-            return DB.Authors.ToList();
+            using (var context = new LibraryDBEntities())
+            {
+                List<Authors> listAuthors = context.Authors.ToList();
+                return listAuthors;
+            }
 
         }
 
-        public void Delete(Authors author)
+        //שליפת נתון
+
+        //public static Get()
+        // {
+        //using (var context = new LibraryDBEntities())
+        //{
+        //    return context.Authors.
+        //}
+        //  }
+        //הוספה
+        public static int Add(Authors author)
         {
-            DB.Authors.Remove(author);
-            DB.SaveChanges();
+            using (var context = new LibraryDBEntities())
+            {
+                context.Authors.Add(author);
+                context.SaveChanges();
+                int code = 0;
+                foreach (Authors item in context.Authors)
+                {
+                    code = item.CodeAuthor;
+                }
+                return code;
+            }
+
+        }
+
+        //מחיקה
+
+        public static bool Delete(int code)
+        {
+            using (var context = new LibraryDBEntities())
+            {
+                try
+                {
+                    Authors toDel = context.Authors.FirstOrDefault(x => x.CodeAuthor == code);
+                    if (toDel != null)
+                    {
+                        context.Entry(toDel).State = System.Data.Entity.EntityState.Deleted;
+                        context.SaveChanges();
+                    }
+                    return true;
+                }
+                catch { return false; }
+            }
+
+        }
+
+
+
+
+        //עדכון
+        public static bool Update(Authors author)
+        {
+            try
+            {
+                using (var context = new LibraryDBEntities())
+                {
+
+
+                    Authors old = context.Authors.FirstOrDefault(x => x.CodeAuthor == author.CodeAuthor);
+                    if (old != null)
+                    {
+                        old.NameAuthor = author.NameAuthor;
+                       
+                        context.SaveChanges();
+                    }
+
+                }
+                return true;
+            }
+
+            catch
+            {
+                return false;
+            }
         }
     }
 }

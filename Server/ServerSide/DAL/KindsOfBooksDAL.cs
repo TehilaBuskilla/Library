@@ -9,23 +9,92 @@ namespace DAL
 {
    public class KindsOfBooksDAL
     {
-        LibraryDBEntities DB = new LibraryDBEntities();
-        public void Add(KindsOfBooks kindOfBook)
+        //שליפה להכל
+        public static List<KindsOfBooks> GetAll()
         {
-            DB.KindsOfBooks.Add(kindOfBook);
-            DB.SaveChanges();
-        }
-
-        public List<KindsOfBooks> Get()
-        {
-            return DB.KindsOfBooks.ToList();
+            using (var context = new LibraryDBEntities())
+            {
+                List<KindsOfBooks> listKindsOfBooks = context.KindsOfBooks.ToList();
+                return listKindsOfBooks;
+            }
 
         }
 
-        public void Delete(KindsOfBooks kindOfBook)
+        //שליפת נתון
+
+        //public static Get()
+        // {
+        //using (var context = new LibraryDBEntities())
+        //{
+        //    return context.KindsOfBooks.
+        //}
+        //  }
+        //הוספה
+        public static int Add(KindsOfBooks kindsOfBook)
         {
-            DB.KindsOfBooks.Remove(kindOfBook);
-            DB.SaveChanges();
+            using (var context = new LibraryDBEntities())
+            {
+                context.KindsOfBooks.Add(kindsOfBook);
+                context.SaveChanges();
+                int code = 0;
+                foreach (KindsOfBooks item in context.KindsOfBooks)
+                {
+                    code = item.CodeKindBook;
+                }
+                return code;
+            }
+
+        }
+
+        //מחיקה
+
+        public static bool Delete(int code)
+        {
+            using (var context = new LibraryDBEntities())
+            {
+                try
+                {
+                    KindsOfBooks toDel = context.KindsOfBooks.FirstOrDefault(x => x.CodeKindBook == code);
+                    if (toDel != null)
+                    {
+                        context.Entry(toDel).State = System.Data.Entity.EntityState.Deleted;
+                        context.SaveChanges();
+                    }
+                    return true;
+                }
+                catch { return false; }
+            }
+
+        }
+
+
+
+
+        //עדכון
+        public static bool Update(KindsOfBooks kindsOfBook)
+        {
+            try
+            {
+                using (var context = new LibraryDBEntities())
+                {
+
+
+                    KindsOfBooks old = context.KindsOfBooks.FirstOrDefault(x => x.CodeKindBook == kindsOfBook.CodeKindBook);
+                    if (old != null)
+                    {
+                        old.KindBook = kindsOfBook.KindBook;
+                       
+                        context.SaveChanges();
+                    }
+
+                }
+                return true;
+            }
+
+            catch
+            {
+                return false;
+            }
         }
     }
 }
