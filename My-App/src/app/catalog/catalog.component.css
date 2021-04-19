@@ -1,18 +1,18 @@
 body{ 
   text-align: center;
   margin: auto;
-  font-family: Arial;
+  font-family: "Varela Round", sans-serif;
   font-size: 17px;
 }
 h1{
   text-align: center;
-  height: 18%;
+  height: 12%;
   width: 100%;
 }
 .book {
   position: relative;
   width: 30%;
-  height: 35% ;
+  height: 16.5% ;
   margin: 1%;
   float: right;
 }
@@ -21,11 +21,13 @@ h1{
   vertical-align: middle;
   width: 100%;
   
+  
 }
 
 .book .content {
   position: absolute;
-  bottom: 0;
+  top: 0;
+  right:0;
   background: rgb(0, 0, 0); /* Fallback color */
   background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
   color: #f1f1f1;
@@ -46,11 +48,15 @@ h1{
    float: right;
  }
  /* סינון */
-.container {
-  display: inline-block;
+ .list{
+   display: flex;
+   width: 100%;
+   flex-direction: column;
+ }
+.list-item {
+ 
   position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
+  padding:10px 2px;
   cursor: pointer;
   font-size: 22px;
   -webkit-user-select: none;
@@ -60,14 +66,21 @@ h1{
 }
 
 /* Hide the browser's default checkbox */
-.container input {
-  position: absolute;
-  opacity: 0;
+
+
+.list-item label{
+  width: 100%;
   cursor: pointer;
-  height: 0;
-  width: 0;
+}
+
+.list-item:hover,
+.list-item label:hover{
+  background-color:burlywood;
+  color: white;
   
 }
+
+
 
 /* Create a custom checkbox */
 .checkmark {
@@ -82,12 +95,11 @@ h1{
 /* On mouse-over, add a grey background color */
 .container:hover input ~ .checkmark {
   background-color: #ccc;
+  
 }
 
 /* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
-  background-color:#27d4b2;
-}
+
 
 /* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
@@ -122,19 +134,21 @@ input[type=text] {
   background-color: white;
   background-image: url(../../assets/images/הורדה.png);
   background-size: 37px;
-  background-position: 5px 5px; 
+  /* background-position: 5px 5px;  */
   background-repeat: no-repeat;
   padding: 12px 20px 12px 40px;
-  -webkit-transition: width 0.4s ease-in-out;
-  transition: width 0.4s ease-in-out;
+   -webkit-transition: width 0.4s ease-in-out; 
+   transition: width 0.4s ease-in-out; 
   margin-bottom: 2%;
+  position: relative;
+  top: 13px;
 }
 
 input[type=text]:focus {
-  width: 50%;
+  width: 73%;
 }
 .dropbtn {
-  background-color: rgb(46 248 108 / 80%);
+  background-color: rgba(194,167,126,.9);
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -195,4 +209,9 @@ width: 160px;
 i{
   margin: 5%;
   cursor: pointer;
+}
+
+.selected {
+  background-color:  burlywood;
+  color:rgb(255, 255, 255)
 }

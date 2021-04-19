@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="579cccc6ffd24a5ab3c8deedf5977340" Name="Diagram1">
+        <EntityTypeShape EntityType="LibraryDBModel.Audiences" Width="1.5" PointX="6" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.AudiencesForUsers" Width="1.5" PointX="8.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.Authors" Width="1.5" PointX="6" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.AuthorsForUsers" Width="1.5" PointX="8.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.BorrowedBooks" Width="1.5" PointX="11.25" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.Genders" Width="1.5" PointX="3.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.KindsOfBooks" Width="1.5" PointX="6" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.KindsOfBooksForUsers" Width="1.5" PointX="8.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.ProfileBook" Width="1.5" PointX="5.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.ReadingBooks" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.StatusForUsers" Width="1.5" PointX="6" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.StatusUser" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.Users" Width="1.5" PointX="6" PointY="4.125" IsExpanded="true" />
+        <AssociationConnector Association="LibraryDBModel.FK__Audiences__Audie__3429BB53" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK__ReadingBo__Audie__7908F585" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK__Audiences__UserI__351DDF8C" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK__AuthorsFo__Autho__324172E1" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK__ReadingBo__Autho__79FD19BE" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK__AuthorsFo__UserI__3335971A" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK__BorrowedB__BookC__361203C5" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK__BorrowedB__UserI__370627FE" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK__ReadingBo__Gende__7AF13DF7" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK__Users__GenderCod__37FA4C37" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK__KindsOfBo__KindB__1F2E9E6D" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK__ReadingBo__KindB__7BE56230" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK__KindsOfBo__UserI__2022C2A6" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK__ProfileBo__BookC__55BFB948" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK__ReadingBo__Statu__7CD98669" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK__StatusFor__Statu__65F62111" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK__StatusFor__UserI__66EA454A" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK__Users__StatusCod__38EE7070" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

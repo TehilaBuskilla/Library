@@ -1,16 +1,18 @@
 body{ 
     text-align: center;
     margin: auto;
-    font-family: Arial;
+    font-family: "Varela Round", sans-serif;
     font-size: 17px;
   }
   h1{
-      text-align: center;
+    text-align: center;
+    height: 12%;
+    width: 100%;
   }
   .book {
     position: relative;
     width: 30%;
-    height: 35% ;
+    height: 20% ;
     margin: 1%;
     float: right;
   }
@@ -23,7 +25,7 @@ body{
   
   .book .content {
     position: absolute;
-    bottom: 0;
+    top: 0;
     background: rgb(0, 0, 0); /* Fallback color */
     background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
     color: #f1f1f1;
@@ -42,11 +44,35 @@ body{
       
    /* Set gray background color and 100% height */
    .sidenav {
-  
-     height: 100%;
-     float: right;
-   }
+
+    height: 100%;
+    float: right;
+  }
    /* סינון */
+   .list-item {
+ 
+    position: relative;
+    padding:10px 2px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .list-item label{
+    width: 100%;
+    cursor: pointer;
+  }
+  
+  .list-item:hover,
+  .list-item label:hover{
+    background-color:burlywood;
+    color: white;
+    
+  }
+  
   .container {
     display: block;
     position: relative;
@@ -85,9 +111,7 @@ body{
   }
   
   /* When the checkbox is checked, add a blue background */
-  .container input:checked ~ .checkmark {
-    background-color:#27d4b2;
-  }
+  
   
   /* Create the checkmark/indicator (hidden when not checked) */
   .checkmark:after {
@@ -115,25 +139,28 @@ body{
   }
   input[type=text] {
     width: 130px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    background-color: white;
-    background-image: url(../../assets/images/הורדה.png);
-    background-size: 37px;
-    background-position: 5px 5px; 
-    background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url(../../assets/images/הורדה.png);
+  background-size: 37px;
+  /* background-position: 5px 5px;  */
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+   -webkit-transition: width 0.4s ease-in-out; 
+   transition: width 0.4s ease-in-out; 
+  margin-bottom: 2%;
+  position: relative;
+  top: 13px;
   }
   
   input[type=text]:focus {
-    width: 50%;
+    width: 73%;
   }
   .dropbtn {
-    background-color: #27d4b2;
+    background-color: rgba(194,167,126,.9);
     color: white;
     padding: 16px;
     font-size: 16px;
@@ -143,7 +170,7 @@ body{
   }
   
   .dropbtn:hover, .dropbtn:focus {
-    background-color: #1ab394;
+    background-color:#565756;
   }
   
   #myInput {
