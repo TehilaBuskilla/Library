@@ -1,14 +1,20 @@
+import { Audiences } from "./audiences";
+import { Authors } from "./authors";
+import { Genders } from "./genders";
+import { KindsOfBooks } from "./kindsOfBooks";
+import { StatusForUsers } from "./statusForUsers";
+
 export class ReadingBooks {
     constructor(
-        public codeBook?: number,
-        public nameBook?: string,
-        public authorCode?: number,
-        public kindBookCode?: number,
-        public audienceCode?: number,
-        public lengthBook?: number,
-        public isBorrowed?: boolean,
-        public statusCode?: number,
-        public genderCode?: number
+        public CodeBook?: number,
+        public NameBook?: string,
+        public Author?: Authors,
+        public KindOfBook?: KindsOfBooks,
+        public Audience?: Audiences,
+        public LengthBook?: number,
+        public IsBorrowed?: boolean,
+        public Status?: StatusForUsers,
+        public Gender?: Genders
     ) {
 
     }

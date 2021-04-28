@@ -15,7 +15,11 @@ export class AudiencesForUsersService {
   {
     return this.myhttp.get<AudiencesForUsers[]>(this.url+"GetAll");
   }
-
+getById(id:number):Observable<AudiencesForUsers[]>
+{
+  return this.myhttp.get<AudiencesForUsers[]>(this.url+"getById"+id);
+  
+}
   Post(newAudienceForUser:AudiencesForUsers):Observable<number>
   {
     return this.myhttp.post<number>(this.url+"Post",newAudienceForUser);

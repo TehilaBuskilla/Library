@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UsersService {
-  url="http://localhost:65319/api/Users/";
+  url='http://localhost:65319/api/Users/';
 
   constructor(private myhttp:HttpClient,private myrouter: Router) { }
 
@@ -20,8 +20,10 @@ export class UsersService {
   Post(newUser:Users):Observable<number>
   {
     
-    return this.myhttp.post<number>(this.url+"Post",newUser);
+    return this.myhttp.post<number>(`${this.url}Post`,newUser);
   }
+
+  
 
   Put(upUser:Users):Observable<boolean>
   {

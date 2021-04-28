@@ -9,7 +9,7 @@ using BLL;
 
 namespace API.Controllers
 {
-    [RoutePrefix("api/Users")]
+    [Route("api/Users")]
 
     public class UsersController : ApiController
     {
@@ -35,7 +35,8 @@ namespace API.Controllers
 
         //הוספה
         // POST: api/Users
-        [Route("{newUser}")]
+  
+        [Route("Post")]
         [HttpPost]
         public int Post(UsersDTO newUser)
         {

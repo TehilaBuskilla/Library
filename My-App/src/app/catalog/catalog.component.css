@@ -166,6 +166,7 @@ width: 70%;
 }
 i{
   display: inline-block;
+
 }
 
 
@@ -209,9 +210,23 @@ width: 160px;
 i{
   margin: 5%;
   cursor: pointer;
+  
 }
 
 .selected {
   background-color:  burlywood;
   color:rgb(255, 255, 255)
+}
+
+#meida{
+  position: relative;
+  right: 70%;
+}
+
+.he{
+  direction: rtl;
+
+}
+.he li{
+  list-style-type: none;
 }

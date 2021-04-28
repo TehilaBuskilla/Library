@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Audiences } from '../class/audiences';
+import { AudiencesForUsers } from '../class/audiencesForUsers';
+import { AuthorsForUsers } from '../class/authorsForUsers';
 import { ReadingBooks } from '../class/readingBooks';
+import { AudiencesForUsersService } from '../services/audiences-for-users.service';
+import { AudiencesService } from '../services/audiences.service';
 import { KindsOfBooksService } from '../services/kinds-of-books.service';
 import { ReadingBooksService } from '../services/reading-books.service';
 
@@ -10,29 +15,45 @@ import { ReadingBooksService } from '../services/reading-books.service';
 })
 export class CatalogComponent implements OnInit {
 
-  book:ReadingBooks
-  
-  categories =[]
-  selectedcategory:any = {id:0, name:''}
+  book: ReadingBooks
+
+  categoriesOfKind = []
+  selectedCategoryOfKind: any = { id: 0, name: '' }
+  categoriesOfAudience=[]
+  selectedCategoryOfAudience: any = { id: 0, name: '' }
+  listAuthorsForUsers:Array<AuthorsForUsers>=new Array<AuthorsForUsers>();
+  listAudiencesForUsers:Array<AudiencesForUsers>=new Array<AudiencesForUsers>();
+
+
   constructor(private kindOfBookSer: KindsOfBooksService,
-    private readingBookSer:ReadingBooksService,
-    ) { }
+    private readingBookSer: ReadingBooksService,
+    private audienceSer:AudiencesService,
+  ) { }
 
-    listBooks:Array<ReadingBooks>=new Array<ReadingBooks>();
+  listBooks: Array<ReadingBooks> = new Array<ReadingBooks>();
+  listAudience:Array<Audiences>=new Array <Audiences>();
+
   ngOnInit(): void {
-   this.categories= this.kindOfBookSer.list;
-   this.readingBookSer.GetAll().subscribe(x=>{this.listBooks=x;
-
-  });
-  //  this.book.isBorrowed
+    this.categoriesOfKind = this.kindOfBookSer.list;
+    this.readingBookSer.GetAll().subscribe(x => { this.listBooks = x});
+    this.categoriesOfAudience=this.audienceSer.list;
+    this.audienceSer.GetAll().subscribe(x => { this.listAudience = x});
+    //  this.book.isBorrowed
   }
 
-  selectitem(id){
-    console.log(this.categories, id)
+  selectitem(id) {
     
-    this.selectedcategory= this.categories.find(c=>c.id===id)
-    console.log(this.selectedcategory.id)
+
+    this.selectedCategoryOfKind = this.categoriesOfKind.find(c => c.id === id)
   }
   
+  selectitem1(id){
+    this.selectedCategoryOfAudience = this.categoriesOfAudience.find(c => c.id === id)
+
+  }
+  saveInfo(book:ReadingBooks){
+  
+  }
+
 
 }

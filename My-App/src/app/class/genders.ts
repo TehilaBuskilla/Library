@@ -1,7 +1,7 @@
 export class Genders {
     constructor(
-        public codeGender?: number,
-        public kindGender?: number,
+        public CodeGender?: number,
+        public KindGender?: number,
     ) {
 
     }

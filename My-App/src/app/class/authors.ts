@@ -1,7 +1,7 @@
 export class Authors {
     constructor(
-        public codeAuthor?: number,
-        public nameAuthor?: string,
+        public CodeAuthor?: number,
+        public NameAuthor?: string,
     ) {
 
     }

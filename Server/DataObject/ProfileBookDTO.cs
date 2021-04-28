@@ -10,7 +10,7 @@ namespace DataObject
     {
         public int CodeProfileBook { get; set; }
 
-        public int BookCode { get; set; }
+        public ReadingBooksDTO BookCode { get; set; }
 
         public int KindBook { get; set; }
 

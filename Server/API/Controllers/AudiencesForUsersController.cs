@@ -23,14 +23,13 @@ namespace API.Controllers
             return AudiencesForUsersBLL.GetAll();
         }
 
-        //שליפה ע"י נתון
-        // GET: api/AudiencesForUsers/5
-        //[Route("Get/{}")]
-        //[HttpGet]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
+        
+        [Route("getById/{id}")]
+        [HttpGet]
+        public List<AudiencesForUsersDTO> getById(int id)
+        {
+            return AudiencesForUsersBLL.getById(id);
+        }
 
         //הוספה
         // POST: api/AudiencesForUsers

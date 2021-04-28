@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataObject;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,15 +8,53 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-   public class ReadingBooksDAL
+    public class ReadingBooksDAL
     {
         //שליפה להכל
-        public static List<ReadingBooks> GetAll()
+        public static List<ReadingBooksDTO> GetAll()
         {
             using (var context = new LibraryDBEntities())
             {
+                List<ReadingBooksDTO> listReadingBooksDTO = new List<ReadingBooksDTO>();
                 List<ReadingBooks> listReadingBooks = context.ReadingBooks.ToList();
-                return listReadingBooks;
+                foreach (var item in listReadingBooks)
+                {
+                    listReadingBooksDTO.Add(new ReadingBooksDTO
+                    {
+                        CodeBook = item.CodeBook,
+                        NameBook = item.NameBook,
+                        IsBorrowed = item.IsBorrowed,
+                        LengthBook = item.LengthBook,
+                        Author = new AuthorsDTO
+                        {
+                            CodeAuthor = item.Authors.CodeAuthor,
+                            NameAuthor = item.Authors.NameAuthor
+                        },
+                        KindOfBook = new KindsOfBooksDTO
+                        {
+                            CodeKindBook = item.KindsOfBooks.CodeKindBook,
+                            KindBook = item.KindsOfBooks.KindBook
+                        },
+                        Gender = new GendersDTO {
+                            CodeGender = item.Genders.CodeGender,
+                            KindGender = item.Genders.KindGender
+                        },
+                        Audience = new AudiencesDTO
+                        {
+                            KindAudience = item.Audiences.KindAudience,
+                            Age = item.Audiences.Age,
+                            CodeAudience = item.Audiences.CodeAudience
+                        },
+                        StatusUser = new StatusUserDTO
+                        {
+                            CodeStatus = item.StatusUser.CodeStatus,
+                            KindStatus = item.StatusUser.KindStatus
+                        },
+                        
+
+                    });
+                }
+                return listReadingBooksDTO;
             }
 
         }

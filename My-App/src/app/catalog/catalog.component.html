@@ -1,78 +1,79 @@
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 
 <div>
   <div class="text-center">
     <div class="row content">
-      <div class="col-sm-2 sidenav text-right" >
+      <div class="col-sm-2 sidenav text-right">
         <div class="dropdown">
-          <button ondblclick="document.getElementById('myDropdown').style.display='none'"onclick="document.getElementById('myDropdown').style.display='block'" class="dropbtn">שם מחבר </button>
+          <button ondblclick="document.getElementById('myDropdown').style.display='none'"
+            onclick="document.getElementById('myDropdown').style.display='block'" class="dropbtn">שם מחבר </button>
           <div id="myDropdown" class="dropdown-content" style="display: none;">
-            <input type="text" placeholder="חיפוש..." id="myInput" >
+            <input type="text" placeholder="חיפוש..." id="myInput" ngModel="test">
             <a href="#about">חיים ולדר</a>
             <a href="#base">יצחק פנגר</a>
           </div>
         </div>
         <form>
           <input type="text" name="search" placeholder="חפש ספר...">
-         </form>
+        </form>
         <hr>
         <h3>סוג ספר</h3>
-        <i  id="n" class="fas fa-plus" style="display: none;"></i>
+        <i id="n" class="fas fa-plus" style="display: none;"></i>
 
         <div class="list">
-          <div  *ngFor="let item of categories" class="list-item" [ngClass]="{selected:selectedcategory.id == item.id}">
-          <label [data-value]="item.id"   (click)="selectitem(item.id)">{{item.name}}</label>
+          <div *ngFor="let item of categoriesOfKind" class="list-item" [ngClass]="{selected:selectedCategoryOfKind.id == item.id}">
+            <label [attr.data-value]="item.id" (click)="selectitem(item.id)">{{item.name}}</label>
           </div>
         </div>
-        
-        <div class="list">
-        <hr>
-        <h3>קהל יעד</h3>
-        <label class="list-item">ילדים</label>
-        
-        <label class="list-item" >נוער</label> 
-        
-        <label class="list-item">מבוגרים</label>
 
-        
+        <div class="list">
+          <hr>
+          <h3>קהל יעד</h3>
+          <div *ngFor="let item of categoriesOfAudience" class="list-item" [ngClass]="{selected:selectedCategoryOfAudience.id==item.id}">
+               <label [attr.data-value]="item.id" (click)="selectitem1(item.id)"> {{item.name}} </label>
+          </div>
+          
+
+
         </div>
         <hr>
       </div>
       <div class="col-sm-10 text-right">
-        <h1 ><i class="fas fa-book-reader"></i> ספרים בספריה</h1>
-        
+        <h1><i class="fas fa-book-reader"></i> ספרים בספריה</h1>
+
 
         <div class="book" *ngFor="let item of listBooks">
           <img src="../../assets/images/old-library-book.jpg" alt="שם הספר">
-          <div class="content" >
+          <div class="content">
             <h1>{{item.NameBook}} </h1>
-            <i class="fas fa-exchange-alt">{{item.IsBorrowed}}</i>
-            
-            <i class="fas fa-info-circle" data-toggle="modal" data-target="#myModal">מידע</i>
+            <i class="fas fa-info-circle" data-toggle="modal" data-target="#myModal" id="meida" (click)="saveInfo(item)">מידע</i>
+            <i class="far fa-thumbs-up">אהבתי</i>
           </div>
-          
+          <!-- Modal -->
+          <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-sm">
+              <div class="modal-content">
+                <div>
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" >&times;</button>
+                    <h4 class="modal-title"> שם הספר:{{item.NameBook}}</h4>
+                  </div>
+                  <div class="modal-body text-right he">
+                    <li><i class="fas fa-book"></i>סוג ספר:{{item.KindOfBook.KindBook}}</li>
+                    <li><i class="fas fa-users"> </i>קהל יעד:{{item.Audience.KindAudience}}</li>
+                    <li> <i class="fas fa-file-alt" ></i> אורך ספר:  {{item.LengthBook}}</li>
+                    <li><i class="far fa-edit" ></i>שם המחבר:{{item.Author.NameAuthor}}</li>
+                    <li><i class="fas fa-exchange-alt"></i>פנוי: {{item.IsBorrowed|hebrewBoolean: true}}</li>
+                    <li><i class="fas fa-user-edit"></i>ביקורת</li>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
-        
+
       </div>
-    </div>
-  </div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="myModal" role="dialog" >
-  <div class="modal-dialog modal-sm" >
-    <div class="modal-content"  >
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" >&times;</button>
-        <h4 class="modal-title"> שם הספר</h4>
-      </div>
-      <div class="modal-body text-right" >
-        <li><i class="fas fa-book">סוג ספר </i></li>
-        <li><i class="fas fa-users">קהל יעד </i></li>
-        <li><i class="fas fa-file-alt">אורך ספר</i></li>
-        <li><i class="far fa-edit">שם המחבר </i></li>
-        <li><i class="fas fa-exchange-alt">פנוי</i></li>
-        <li><i class="fas fa-user-edit">ביקורת</i></li>
-      </div>
-     
     </div>
   </div>
 </div>

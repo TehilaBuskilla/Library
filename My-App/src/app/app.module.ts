@@ -20,6 +20,7 @@ import { ReadingBooksService } from './services/reading-books.service';
 import { StatusUserService } from './services/status-user.service';
 import { UsersService } from './services/users.service';
 import { FormsModule } from '@angular/forms';
+import { HebrewBooleanPipe } from './pipes/hebrew.boolean.pipe';
 
 
 
@@ -31,6 +32,7 @@ import { FormsModule } from '@angular/forms';
     EspeciallyForYouComponent,
     NewestComponent,
     QuestionsReturnsComponent,
+    HebrewBooleanPipe,
     
     
   ],

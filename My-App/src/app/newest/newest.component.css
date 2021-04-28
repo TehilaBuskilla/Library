@@ -210,3 +210,15 @@ body{
   .dropdown a:hover {background-color: #ddd;}
   
   .show {display: block;}
+
+  .he{
+    direction: rtl;
+  
+  }
+  .he li{
+    list-style-type: none;
+  }
+  #meida{
+    position: relative;
+    right: 70%;
+  }

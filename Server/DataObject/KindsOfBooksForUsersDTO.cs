@@ -9,7 +9,9 @@ namespace DataObject
    public class KindsOfBooksForUsersDTO
     {
         public int CodeKindsOfBooksForUsers { get; set; }
-        public int UserId { get; set; }
-        public int KindBookCode { get; set; }
+
+        public UsersDTO UserId { get; set; }
+
+        public KindsOfBooksDTO KindOfBook { get; set; }
     }
 }

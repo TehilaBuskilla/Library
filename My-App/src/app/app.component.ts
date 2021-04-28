@@ -10,7 +10,8 @@ import { UsersService } from './services/users.service';
 
 export class AppComponent {
   constructor(private userSer:UsersService){}
-  user:Users=new Users();
+  newUser:Users=new Users();
+  existUser:Users=new Users();
   title = 'super'
   show: boolean = true;
   modalShow: boolean = false;
@@ -27,14 +28,22 @@ export class AppComponent {
   }
   
   signUp(){
-    
+    this.userSer.Post(this.newUser).subscribe(
+      IdUser=>{
+        this.newUser.IdUser=IdUser
+        if(IdUser==0)
+        console.log("בחר שם אחר שם משתמש זה כבר קיים")
+        else
+        console.log(IdUser,this.newUser.NameUser)
+      }
+    )
 
-     this.userSer.Post(this.user);
+     
      
   }
 
   signIn(){
-    this.userSer.SignIn(this.user).subscribe(x=>this.user=x);
+    this.userSer.SignIn(this.newUser).subscribe(x=>this.newUser=x);
 
   }
   

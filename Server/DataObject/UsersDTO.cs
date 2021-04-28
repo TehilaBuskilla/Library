@@ -14,8 +14,8 @@ namespace DataObject
 
         public int AgeUser { get; set; }
 
-        public int GenderCode { get; set; }
+        public GendersDTO Gender { get; set; }
 
-        public int StatusCode { get; set; }
+        public StatusUserDTO StatusUser { get; set; }
     }
 }

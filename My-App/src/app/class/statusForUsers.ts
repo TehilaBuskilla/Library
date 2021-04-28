@@ -1,8 +1,11 @@
+import { StatusUser } from "./statusUser";
+import { Users } from "./users";
+
 export class StatusForUsers {
     constructor(
-        public codeStatusForUsers?: number,
-        public statusCode?: number,
-        public userId?: number,
+        public CodeStatusForUsers?: number,
+        public Status?: StatusUser,
+        public UserId?: Users,
     ) {
 
     }

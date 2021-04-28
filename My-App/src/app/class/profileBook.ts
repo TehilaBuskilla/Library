@@ -1,11 +1,13 @@
+import { ReadingBooks } from "./readingBooks";
+
 export class ProfileBook {
     constructor(
-        public codeProfileBook?: number,
-        public bookCode?: number,
-        public kindBook?: number,
-        public audienceAge?: number,
-        public audienceStatus?: number,
-        public audienceGender?: number,
+        public CodeProfileBook?: number,
+        public BookCode?: ReadingBooks,
+        public KindBook?: number,
+        public AudienceAge?: number,
+        public AudienceStatus?: number,
+        public AudienceGender?: number,
     ) {
 
     }

@@ -30,7 +30,18 @@ namespace BLL
             }
             return listAudiencesForUsersDTO;
         }
+        public static List<AudiencesForUsersDTO> getById(int id)
+        {
+            List<AudiencesForUsersDTO> listAudiencesForUsersDTO = new List<AudiencesForUsersDTO>();
+            List<AudiencesForUsers> listAudiencesForUsers = AudiencesForUsersDAL.GetAll();
+            
 
+            foreach (var item in listAudiencesForUsers)
+            {
+                listAudiencesForUsersDTO.Add(Convert(item));
+            }
+            return   listAudiencesForUsersDTO.FindAll(x=> x.UserId==id);
+        }
         //מחיקה
         public static bool Delete(int CodeAudiencesForUsers)
         {

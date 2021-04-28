@@ -21,20 +21,18 @@
         <i  id="n" class="fas fa-plus" style="display: none;"></i>
 
         <div class="list">
-          <div  *ngFor="let item of categories" class="list-item" [ngClass]="{selected:selectedcategory.id == item.id}">
-          <label [data-value]="item.id"   (click)="selectitem(item.id)">{{item.name}}</label>
+          <div *ngFor="let item of categoriesOfKind" class="list-item" [ngClass]="{selected:selectedCategoryOfKind.id == item.id}">
+            <label [attr.data-value]="item.id" (click)="selectitem(item.id)">{{item.name}}</label>
           </div>
         </div>
         
-        <div class="list-item">
+        <div class="list">
         <hr>
         <h3>קהל יעד</h3>
-        <label class="list-item">ילדים</label>
-
-        <label class="list-item">נוער</label>
-      
-        <label class="list-item">מבוגרים</label>
-          
+        <div *ngFor="let item of categoriesOfAudience" class="list-item" [ngClass]="{selected:selectedCategoryOfAudience.id==item.id}">
+          <label [attr.data-value]="item.id" (click)="selectitem1(item.id)"> {{item.name}} </label>
+     </div>
+       
       
         </div>
         <hr>
@@ -46,37 +44,39 @@
           <img src="../../assets/images/old-library-book.jpg" alt="שם הספר">
           <div class="content" >
             <h1>{{item.NameBook}} </h1>
-            <i class="fas fa-exchange-alt">{{item.IsBorrowed}}</i>
             
-            <i class="fas fa-info-circle" data-toggle="modal" data-target="#myModal">מידע</i>
+            
+            <i class="fas fa-info-circle" data-toggle="modal" data-target="#myModal" id="meida">מידע</i>
+            <i class="far fa-thumbs-up">אהבתי</i>
           </div>
           
+          <!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"> שם הספר:{{item.NameBook}}</h4>
+      </div>
+      <div class="modal-body text-right he">
+        <li><i class="fas fa-book"></i>סוג ספר:{{item.KindOfBook.KindBook}}</li>
+        <li><i class="fas fa-users"> </i>קהל יעד:{{item.Audience.KindAudience}}</li>
+        <li> <i class="fas fa-file-alt" ></i> אורך ספר:{{item.LengthBook}}</li>
+        <li><i class="far fa-edit" ></i>שם המחבר:{{item.Author.NameAuthor}}</li>
+        <li><i class="fas fa-exchange-alt"></i>פנוי: {{item.IsBorrowed|hebrewBoolean: true}}</li>
+        <li><i class="fas fa-user-edit"></i>ביקורת</li>
+      </div>
+     
+    </div>
+  </div>
+</div>
         </div>
         
       </div>
     </div>
   </div>
 </div>
-<!-- Modal -->
-<div class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title"> שם הספר</h4>
-      </div>
-      <div class="modal-body text-right">
-        <li><i class="fas fa-book">סוג הספר </i></li>
-        <li><i class="fas fa-users">קהל יעד </i></li>
-        <li><i class="fas fa-file-alt">מספר העמודים</i></li>
-        <li><i class="far fa-edit">שם המחבר </i></li>
-        <li><i class="fas fa-exchange-alt">פנוי</i></li>
-        <li><i class="fas fa-user-edit">ביקורת</i></li>
-      </div>
-     
-    </div>
-  </div>
-</div>
+
 
 
 

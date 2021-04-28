@@ -30,7 +30,7 @@ namespace BLL
             }
             return listAudiencesDTO;
         }
-
+    
         //מחיקה
         public static bool Delete(int CodeAudience)
         {

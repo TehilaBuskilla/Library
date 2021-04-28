@@ -1,10 +1,14 @@
+import { ReadingBooksService } from "../services/reading-books.service";
+import { ReadingBooks } from "./readingBooks";
+import { Users } from "./users";
+
 export class BorrowedBooks {
     constructor(
-        public codeBorrowedBooks?: number,
-        public bookCode?: number,
-        public userId?: number,
-        public borrowingDate?: Date,
-        public isBorrowed?: boolean,
+        public CodeBorrowedBooks?: number,
+        public BookCode?: ReadingBooks,
+        public UserId?: Users,
+        public BorrowingDate?: Date,
+        public IsBorrowed?: boolean,
     ) {
 
     }

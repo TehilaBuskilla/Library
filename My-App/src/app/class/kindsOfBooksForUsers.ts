@@ -1,8 +1,11 @@
+import { KindsOfBooks } from "./kindsOfBooks";
+import { Users } from "./users";
+
 export class KindsOfBooksForUsers {
     constructor(
-        public codeKindsOfBooksForUsers?: number,
-        public userId?: number,
-        public kindBookCode?: number,
+        public CodeKindsOfBooksForUsers?: number,
+        public UserId?: Users,
+        public KindOfBook?: KindsOfBooks,
     ) {
 
     }

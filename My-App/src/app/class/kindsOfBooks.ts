@@ -1,7 +1,7 @@
 export class KindsOfBooks {
     constructor(
-        public codeKindBook?: number,
-        public kindBook?: number,
+        public CodeKindBook?: number,
+        public KindBook?: number,
     ) {
 
     }

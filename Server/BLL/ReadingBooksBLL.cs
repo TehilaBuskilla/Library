@@ -19,14 +19,14 @@ namespace BLL
         //שליפה
         public static List<ReadingBooksDTO> GetAll()
         {
-            List<ReadingBooksDTO> listReadingBooksDTO = new List<ReadingBooksDTO>();
-            List<ReadingBooks> listReadingBooks = ReadingBooksDAL.GetAll();
+            List<ReadingBooksDTO> listReadingBooksDTO = ReadingBooksDAL.GetAll();
+            //List<ReadingBooks> listReadingBooks = 
 
 
-            foreach (var item in listReadingBooks)
-            {
-                listReadingBooksDTO.Add(Convert(item));
-            }
+            //foreach (var item in listReadingBooks)
+            //{
+            //    listReadingBooksDTO.Add(Convert(item));
+            //}
             return listReadingBooksDTO;
         }
 
@@ -51,14 +51,13 @@ namespace BLL
 
             readingBook.NameBook = readingBooksDTO.NameBook;
             readingBook.CodeBook = readingBooksDTO.CodeBook;
-
-            readingBook.AuthorCode = readingBooksDTO.AuthorCode;
-            readingBook.KindBookCode = readingBooksDTO.KindBookCode;
-            readingBook.AudienceCode = readingBooksDTO.AudienceCode;
+            readingBook.AuthorCode = readingBooksDTO.Author.CodeAuthor;
+            readingBook.KindBookCode = readingBooksDTO.KindOfBook.CodeKindBook;
+            readingBook.AudienceCode = readingBooksDTO.Audience.CodeAudience;
             readingBook.LengthBook = readingBooksDTO.LengthBook;
             readingBook.IsBorrowed = readingBooksDTO.IsBorrowed;
-            readingBook.StatusCode = readingBooksDTO.StatusCode;
-            readingBook.GenderCode = readingBooksDTO.GenderCode;
+            readingBook.StatusCode = readingBooksDTO.StatusUser.CodeStatus;
+            readingBook.GenderCode = readingBooksDTO.Gender.CodeGender;
             return readingBook;
 
 
@@ -67,15 +66,15 @@ namespace BLL
         {
             ReadingBooksDTO readingBooksDTO = new ReadingBooksDTO();
 
-            readingBooksDTO.NameBook = readingBook.NameBook;
-            readingBooksDTO.CodeBook = readingBook.CodeBook;
-            readingBooksDTO.AuthorCode = readingBook.AuthorCode;
-            readingBooksDTO.KindBookCode = readingBook.KindBookCode;
-            readingBooksDTO.AudienceCode = readingBook.AudienceCode;
-            readingBooksDTO.LengthBook = readingBook.LengthBook;
-            readingBooksDTO.IsBorrowed = readingBook.IsBorrowed;
-            readingBooksDTO.StatusCode = readingBook.StatusCode;
-            readingBooksDTO.GenderCode = readingBook.GenderCode;
+            //readingBooksDTO.NameBook = readingBook.NameBook;
+            //readingBooksDTO.CodeBook = readingBook.CodeBook;
+            //readingBooksDTO.AuthorCode = readingBook.AuthorCode;
+            //readingBooksDTO.KindBookCode = readingBook.KindBookCode;
+            //readingBooksDTO.AudienceCode = readingBook.AudienceCode;
+            //readingBooksDTO.LengthBook = readingBook.LengthBook;
+            //readingBooksDTO.IsBorrowed = readingBook.IsBorrowed;
+            //readingBooksDTO.StatusCode = readingBook.StatusCode;
+            //readingBooksDTO.GenderCode = readingBook.GenderCode;
             
             return readingBooksDTO;
         }
