@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using DataObject;
 using DAL;
 
-namespace BLL
+namespace BL
 {
-   public class BorrowedBooksBLL
+    public class BorrowedBooksBL
     {
         //הוספה
         public static int Add(BorrowedBooksDTO borrowedBooksDTO)

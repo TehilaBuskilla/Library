@@ -10,8 +10,8 @@ namespace DataObject
     {
         public int CodeStatusForUsers { get; set; }
 
-        public StatusForUsersDTO Status { get; set; }
+        public int StatusCode { get; set; }
 
-        public UsersDTO UserId { get; set; }
+        public string UserId { get; set; }
     }
 }

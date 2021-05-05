@@ -70,6 +70,7 @@
     <Compile Include="AudiencesForUsersDTO.cs" />
     <Compile Include="AuthorsDTO.cs" />
     <Compile Include="AuthorsForUsersDTO.cs" />
+    <Compile Include="BookToUserDTO.cs" />
     <Compile Include="BorrowedBooksDTO.cs" />
     <Compile Include="GendersDTO.cs" />
     <Compile Include="KindsOfBooksDTO.cs" />

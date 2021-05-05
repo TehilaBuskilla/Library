@@ -6,16 +6,14 @@ using System.Threading.Tasks;
 using DataObject;
 using DAL;
 
-
-
-namespace BLL
+namespace BL
 {
-   public class AuthorsForUsersBLL
+    public class AuthorsForUsersBL
     {
         //הוספה
         public static int Add(AuthorsForUsersDTO authorsForUsersDTO)
         {
-           return AuthorsForUsersDAL.Add(Convert(authorsForUsersDTO));
+            return AuthorsForUsersDAL.Add(Convert(authorsForUsersDTO));
         }
 
         //שליפה
@@ -33,9 +31,9 @@ namespace BLL
         }
 
         //מחיקה
-        public static  bool Delete(int CodeAuthorsForUsers)
+        public static bool Delete(int CodeAuthorsForUsers)
         {
-           return AuthorsForUsersDAL.Delete(CodeAuthorsForUsers);
+            return AuthorsForUsersDAL.Delete(CodeAuthorsForUsers);
         }
 
         //עדכון
@@ -53,7 +51,7 @@ namespace BLL
             authorForUser.CodeAuthorsForUsers = authorsForUsersDTO.CodeAuthorsForUsers;
             authorForUser.AuthorCode = authorsForUsersDTO.AuthorCode;
             authorForUser.UserId = authorsForUsersDTO.UserId;
-            
+
             return authorForUser;
 
 
@@ -62,9 +60,9 @@ namespace BLL
         {
             AuthorsForUsersDTO authorsForUsersDTO = new AuthorsForUsersDTO();
             authorsForUsersDTO.CodeAuthorsForUsers = authorForUser.CodeAuthorsForUsers;
-            authorsForUsersDTO.AuthorCode =authorForUser.AuthorCode;
+            authorsForUsersDTO.AuthorCode = authorForUser.AuthorCode;
             authorsForUsersDTO.UserId = authorForUser.UserId;
-            
+
             return authorsForUsersDTO;
         }
     }

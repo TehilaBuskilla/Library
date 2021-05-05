@@ -3,7 +3,7 @@ import { StatusUser } from "./statusUser";
 
 export class Users {
     constructor(
-        public IdUser?: number,
+        public IdUser?: string,
         public NameUser?: string,
         public AgeUser?: number,
         public Gender?: Genders,

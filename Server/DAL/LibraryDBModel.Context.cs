@@ -13,10 +13,10 @@ namespace DAL
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class LibraryDBEntities : DbContext
+    public partial class LibraryDBEntities1 : DbContext
     {
-        public LibraryDBEntities()
-            : base("name=LibraryDBEntities")
+        public LibraryDBEntities1()
+            : base("name=LibraryDBEntities1")
         {
         }
     
@@ -38,5 +38,6 @@ namespace DAL
         public virtual DbSet<StatusForUsers> StatusForUsers { get; set; }
         public virtual DbSet<StatusUser> StatusUser { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<BookToUser> BookToUser { get; set; }
     }
 }

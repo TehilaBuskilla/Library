@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 using DataObject;
 using DAL;
 
-
-namespace BLL
+namespace BL
 {
-   public class KindsOfBooksBLL
+    public class KindsOfBooksBL
     {
         //הוספה
         public static int Add(KindsOfBooksDTO kindsOfBooksDTO)
@@ -51,7 +50,7 @@ namespace BLL
             KindsOfBooks kindOfBook = new KindsOfBooks();
             kindOfBook.CodeKindBook = kindsOfBooksDTO.CodeKindBook;
             kindOfBook.KindBook = kindsOfBooksDTO.KindBook;
-          
+
             return kindOfBook;
 
 
@@ -61,7 +60,7 @@ namespace BLL
             KindsOfBooksDTO kindsOfBooksDTO = new KindsOfBooksDTO();
             kindsOfBooksDTO.CodeKindBook = kindOfBook.CodeKindBook;
             kindsOfBooksDTO.KindBook = kindOfBook.KindBook;
-          
+
             return kindsOfBooksDTO;
         }
     }

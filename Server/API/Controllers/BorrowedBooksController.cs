@@ -4,12 +4,14 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using BLL;
+using System.Web.Http.Cors;
+using BL;
 using DataObject;
 
 
 namespace API.Controllers
 {
+    [EnableCors("*", "*", "*")]
     [RoutePrefix("api/BorrowedBooks")]
 
     public class BorrowedBooksController : ApiController
@@ -22,7 +24,7 @@ namespace API.Controllers
         {
 
             
-            return BorrowedBooksBLL.GetAll();
+            return BorrowedBooksBL.GetAll();
         }
 
         //שליפה ע"י נתון
@@ -41,7 +43,7 @@ namespace API.Controllers
         public int Post(BorrowedBooksDTO newBorrowedBook)
         {
             
-            return BorrowedBooksBLL.Add(newBorrowedBook);
+            return BorrowedBooksBL.Add(newBorrowedBook);
 
         }
 
@@ -52,7 +54,7 @@ namespace API.Controllers
         public bool Put(BorrowedBooksDTO upBorrowedBook)
         {
             
-            return BorrowedBooksBLL.Update(upBorrowedBook);
+            return BorrowedBooksBL.Update(upBorrowedBook);
         }
 
         //מחיקה
@@ -62,7 +64,7 @@ namespace API.Controllers
         public bool Delete(int CodeBorrowedBooks)
         {
             
-            return BorrowedBooksBLL.Delete(CodeBorrowedBooks);
+            return BorrowedBooksBL.Delete(CodeBorrowedBooks);
 
         }
     }

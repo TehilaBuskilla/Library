@@ -64,13 +64,15 @@
               <form class="gander">
               <label for="pass" class="label">מגדר</label>
               <div class="form-check-inline">
-                <label class="form-check-label" for="radio1">
-                <input type="radio" class="form-check-input" id="radio1" name="optradio" value="זכר" checked [(ngModel)]="newUser.Gender">
+                <!-- <label class="form-check-label" for="radio1">
+                <input type="radio" class="form-check-input" id="radio1" name="optradio" value="1" checked [(ngModel)]="newUser.Gender">
                 זכר
+                </label> -->
+                <span *ngFor="let g of allGenders">
+                <label class="form-check-label" [for]="g.KindGender">
+                <input type="radio" class="form-check-input" [id]="g.KindGender" name="optradio" [value]="g" [(ngModel)]="newUser.Gender">{{g.KindGender}}
                 </label>
-                <label class="form-check-label" for="radio2">
-                <input type="radio" class="form-check-input" id="radio2" name="optradio" value="נקבה" [(ngModel)]="newUser.Gender">נקבה
-                </label>
+              </span>
               </div>
               </form>
             </div>
@@ -78,13 +80,15 @@
               <form class="atatus">
               <label for="pass" class="label">סטטוס</label>
               <div class="form-check-inline">
-                <label class="form-check-label" for="radio1">
+                <!-- <label class="form-check-label" for="radio1">
                 <input type="radio" class="form-check-input" id="radio1" name="optradio" value="נשוי" checked [(ngModel)]="newUser.Status">
                 נשוי
+                </label> -->
+                <span *ngFor="let su of allStatusUser">
+                <label class="form-check-label" [for]="su.KindStatus">
+                <input type="radio" class="form-check-input" [id]="su.KindStatus" name="optradio" [value]="su" [(ngModel)]="newUser.Status">{{su.KindStatus}}
                 </label>
-                <label class="form-check-label" for="radio2">
-                <input type="radio" class="form-check-input" id="radio2" name="optradio" value="רווק" [(ngModel)]="newUser.Status">רווק
-                </label>
+              </span>
               </div>
               </form>
             </div>

@@ -5,10 +5,13 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using DataObject;
-using BLL;
+using BL;
+using System.Web.Http.Cors;
 
 namespace API.Controllers
 {
+    [EnableCors("*", "*", "*")]
+
     [RoutePrefix("api/ReadingBooks")]
 
     public class ReadingBooksController : ApiController
@@ -20,7 +23,7 @@ namespace API.Controllers
         public List<ReadingBooksDTO> GetAll()
         {
             
-            return ReadingBooksBLL.GetAll();
+            return ReadingBooksBL.GetAll();
         }
 
         //שליפה ע"י נתון
@@ -29,7 +32,7 @@ namespace API.Controllers
         [HttpGet]
         public IEnumerable<ReadingBooksDTO> GetBottom10()
         {
-            var a = ReadingBooksBLL.GetAll();
+            var a = ReadingBooksBL.GetAll();
              return a.OrderByDescending(b=>b.CodeBook).Take(10);
         }
 
@@ -40,7 +43,7 @@ namespace API.Controllers
         public int Post(ReadingBooksDTO newReadingBook)
         {
             
-            return ReadingBooksBLL.Add(newReadingBook);
+            return ReadingBooksBL.Add(newReadingBook);
         }
 
 
@@ -51,7 +54,7 @@ namespace API.Controllers
         public bool Put(ReadingBooksDTO upReadingBook)
         {
           
-            return ReadingBooksBLL.Update(upReadingBook);
+            return ReadingBooksBL.Update(upReadingBook);
 
         }
 
@@ -62,7 +65,7 @@ namespace API.Controllers
         public bool Delete(int CodeReadingBook)
         {
            
-            return ReadingBooksBLL.Delete(CodeReadingBook);
+            return ReadingBooksBL.Delete(CodeReadingBook);
         }
     }
 }

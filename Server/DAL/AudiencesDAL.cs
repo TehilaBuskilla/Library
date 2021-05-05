@@ -13,7 +13,7 @@ namespace DAL
         //שליפה להכל
         public static List<Audiences> GetAll()
         {
-            using (var context = new LibraryDBEntities())
+            using (var context = new LibraryDBEntities1())
             {
                 List<Audiences> listAudiences = context.Audiences.ToList();
                 return listAudiences;
@@ -33,7 +33,7 @@ namespace DAL
         //הוספה
         public static int Add(Audiences audience)
         {
-            using (var context = new LibraryDBEntities())
+            using (var context = new LibraryDBEntities1())
             {
                 context.Audiences.Add(audience);
                 context.SaveChanges();
@@ -51,7 +51,7 @@ namespace DAL
 
         public static bool Delete(int code)
         {
-            using (var context = new LibraryDBEntities())
+            using (var context = new LibraryDBEntities1())
             {
                 try
                 {
@@ -76,7 +76,7 @@ namespace DAL
         {
             try
             {
-                using (var context = new LibraryDBEntities())
+                using (var context = new LibraryDBEntities1())
                 {
 
 

@@ -15,6 +15,21 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -69,82 +84,88 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Audiences.cs">
-      <DependentUpon>LibraryDB.tt</DependentUpon>
+      <DependentUpon>LibraryDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AudiencesDAL.cs" />
     <Compile Include="AudiencesForUsers.cs">
-      <DependentUpon>LibraryDB.tt</DependentUpon>
+      <DependentUpon>LibraryDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AudiencesForUsersDAL.cs" />
     <Compile Include="Authors.cs">
-      <DependentUpon>LibraryDB.tt</DependentUpon>
+      <DependentUpon>LibraryDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AuthorsDAL.cs" />
     <Compile Include="AuthorsForUsers.cs">
-      <DependentUpon>LibraryDB.tt</DependentUpon>
+      <DependentUpon>LibraryDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AuthorsForUsersDAL.cs" />
+    <Compile Include="BookToUser.cs">
+      <DependentUpon>LibraryDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BookToUserDAL.cs" />
     <Compile Include="BorrowedBooks.cs">
-      <DependentUpon>LibraryDB.tt</DependentUpon>
+      <DependentUpon>LibraryDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="BorrowedBooksDAL.cs" />
     <Compile Include="Genders.cs">
-      <DependentUpon>LibraryDB.tt</DependentUpon>
+      <DependentUpon>LibraryDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="GendersDAL.cs" />
     <Compile Include="KindsOfBooks.cs">
-      <DependentUpon>LibraryDB.tt</DependentUpon>
+      <DependentUpon>LibraryDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="KindsOfBooksDAL.cs" />
     <Compile Include="KindsOfBooksForUsers.cs">
-      <DependentUpon>LibraryDB.tt</DependentUpon>
+      <DependentUpon>LibraryDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="KindsOfBooksForUsersDAL.cs" />
-    <Compile Include="LibraryDB.Context.cs">
+    <Compile Include="LibraryDBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>LibraryDB.Context.tt</DependentUpon>
+      <DependentUpon>LibraryDBModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="LibraryDB.cs">
+    <Compile Include="LibraryDBModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>LibraryDB.tt</DependentUpon>
+      <DependentUpon>LibraryDBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="LibraryDB.Designer.cs">
+    <Compile Include="LibraryDBModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>LibraryDB.edmx</DependentUpon>
+      <DependentUpon>LibraryDBModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="ProfileBook.cs">
-      <DependentUpon>LibraryDB.tt</DependentUpon>
+      <DependentUpon>LibraryDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ProfileBookDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadingBooks.cs">
-      <DependentUpon>LibraryDB.tt</DependentUpon>
+      <DependentUpon>LibraryDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ReadingBooksDAL.cs" />
     <Compile Include="StatusForUsers.cs">
-      <DependentUpon>LibraryDB.tt</DependentUpon>
+      <DependentUpon>LibraryDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="StatusForUsersDAL.cs" />
     <Compile Include="StatusUser.cs">
-      <DependentUpon>LibraryDB.tt</DependentUpon>
+      <DependentUpon>LibraryDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="StatusUserDAL.cs" />
     <Compile Include="Users.cs">
-      <DependentUpon>LibraryDB.tt</DependentUpon>
+      <DependentUpon>LibraryDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="UsersDAL.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <EntityDeploy Include="LibraryDB.edmx">
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="LibraryDBModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>LibraryDB.Designer.cs</LastGenOutput>
+      <LastGenOutput>LibraryDBModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="LibraryDB.edmx.diagram">
-      <DependentUpon>LibraryDB.edmx</DependentUpon>
+    <None Include="LibraryDBModel.edmx.diagram">
+      <DependentUpon>LibraryDBModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -152,22 +173,34 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="LibraryDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>LibraryDB.edmx</DependentUpon>
-      <LastGenOutput>LibraryDB.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="LibraryDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>LibraryDB.edmx</DependentUpon>
-      <LastGenOutput>LibraryDB.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\DataObject\DataObject.csproj">
       <Project>{8310b03b-d451-4276-9186-d88a3d35ee33}</Project>
       <Name>DataObject</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LibraryDBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LibraryDBModel.edmx</DependentUpon>
+      <LastGenOutput>LibraryDBModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="LibraryDBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LibraryDBModel.edmx</DependentUpon>
+      <LastGenOutput>LibraryDBModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

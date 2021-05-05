@@ -4,12 +4,14 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using BLL;
+using System.Web.Http.Cors;
+using BL;
 using DataObject;
 
 namespace API.Controllers
 
 {
+    [EnableCors("*", "*", "*")]
     [RoutePrefix("api/Audiences")]
 
     public  class AudiencesController : ApiController
@@ -20,7 +22,7 @@ namespace API.Controllers
         [HttpGet]
         public List<AudiencesDTO> GetAll()
         {
-            return AudiencesBLL.GetAll();
+            return AudiencesBL.GetAll();
         }
 
         //שליפה ע"י נתון
@@ -38,7 +40,7 @@ namespace API.Controllers
         [HttpPost]
         public  int Post(AudiencesDTO newAudience)
         {
-            return AudiencesBLL.Add(newAudience);
+            return AudienceBL.Add(newAudience);
         }
 
         //עדכון
@@ -48,7 +50,7 @@ namespace API.Controllers
         public bool Put(AudiencesDTO upAudience)
         {
           
-            return AudiencesBLL.Update(upAudience);
+            return AudienceBL.Update(upAudience);
 
         }
 
@@ -59,7 +61,7 @@ namespace API.Controllers
         public bool Delete(int CodeAudience)
         {
            
-            return AudiencesBLL.Delete(CodeAudience);
+            return AudienceBL.Delete(CodeAudience);
         }
     }
 }

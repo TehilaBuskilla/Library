@@ -12,7 +12,7 @@ namespace DAL
         //שליפה להכל
         public static List<KindsOfBooks> GetAll()
         {
-            using (var context = new LibraryDBEntities())
+            using (var context = new LibraryDBEntities1())
             {
                 List<KindsOfBooks> listKindsOfBooks = context.KindsOfBooks.ToList();
                 return listKindsOfBooks;
@@ -32,7 +32,7 @@ namespace DAL
         //הוספה
         public static int Add(KindsOfBooks kindsOfBook)
         {
-            using (var context = new LibraryDBEntities())
+            using (var context = new LibraryDBEntities1())
             {
                 context.KindsOfBooks.Add(kindsOfBook);
                 context.SaveChanges();
@@ -50,7 +50,7 @@ namespace DAL
 
         public static bool Delete(int code)
         {
-            using (var context = new LibraryDBEntities())
+            using (var context = new LibraryDBEntities1())
             {
                 try
                 {
@@ -75,7 +75,7 @@ namespace DAL
         {
             try
             {
-                using (var context = new LibraryDBEntities())
+                using (var context = new LibraryDBEntities1())
                 {
 
 

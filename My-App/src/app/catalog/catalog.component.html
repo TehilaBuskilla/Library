@@ -8,9 +8,15 @@
           <button ondblclick="document.getElementById('myDropdown').style.display='none'"
             onclick="document.getElementById('myDropdown').style.display='block'" class="dropbtn">שם מחבר </button>
           <div id="myDropdown" class="dropdown-content" style="display: none;">
-            <input type="text" placeholder="חיפוש..." id="myInput" ngModel="test">
-            <a href="#about">חיים ולדר</a>
-            <a href="#base">יצחק פנגר</a>
+            <input type="text" placeholder="חיפוש..." id="myInput" >
+            <div>
+              <!-- <div *ngFor="let item of categoriesOfAuthor" class="list-item" [ngClass]="selected:selectedCategoryOfAuthor.id==item.id">
+                <label [attr.data-value]="item.id" (click)="selectitem2(item.id)"> {{item.NameAuthor}} </label>
+
+              </div> -->
+            </div>
+            <!-- <a href="#about">חיים ולדר</a>
+            <a href="#base">יצחק פנגר</a> -->
           </div>
         </div>
         <form>
@@ -47,7 +53,7 @@
           <div class="content">
             <h1>{{item.NameBook}} </h1>
             <i class="fas fa-info-circle" data-toggle="modal" data-target="#myModal" id="meida" (click)="saveInfo(item)">מידע</i>
-            <i class="far fa-thumbs-up">אהבתי</i>
+            <i class="far fa-thumbs-up" (click)="like(item)">אהבתי</i>
           </div>
           <!-- Modal -->
           <div class="modal fade" id="myModal" role="dialog">

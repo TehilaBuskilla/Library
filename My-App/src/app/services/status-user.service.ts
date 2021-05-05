@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class StatusUserService {
-  url="http://localhost:65319/StatusUser/";
+  url="http://localhost:65319/api/StatusUser/";
 
   constructor(private myhttp:HttpClient,private myrouter: Router) { }
 

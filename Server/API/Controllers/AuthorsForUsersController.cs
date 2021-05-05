@@ -4,11 +4,13 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using BLL;
+using System.Web.Http.Cors;
+using BL;
 using DataObject;
 
 namespace API.Controllers
 {
+    [EnableCors("*", "*", "*")]
     [RoutePrefix("api/AuthorsForUsers")]
 
     public class AuthorsForUsersController : ApiController
@@ -20,7 +22,7 @@ namespace API.Controllers
         public List<AuthorsForUsersDTO> GetAll()
         {
             
-            return AuthorsForUsersBLL.GetAll();
+            return AuthorsForUsersBL.GetAll();
 
 
         }
@@ -41,7 +43,7 @@ namespace API.Controllers
         public int Post(AuthorsForUsersDTO newAuthorForUser)
         {
           
-            return AuthorsForUsersBLL.Add(newAuthorForUser);
+            return AuthorsForUsersBL.Add(newAuthorForUser);
 
         }
 
@@ -52,7 +54,7 @@ namespace API.Controllers
         public bool Put(AuthorsForUsersDTO upAuthorForUser)
         {
            
-            return AuthorsForUsersBLL.Update(upAuthorForUser);
+            return AuthorsForUsersBL.Update(upAuthorForUser);
 
 
         }
@@ -64,7 +66,7 @@ namespace API.Controllers
         public bool Delete(int CodeAuthorsForUsers)
         {
            
-            return AuthorsForUsersBLL.Delete(CodeAuthorsForUsers);
+            return AuthorsForUsersBL.Delete(CodeAuthorsForUsers);
 
         }
     }

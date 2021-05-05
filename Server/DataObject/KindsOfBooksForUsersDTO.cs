@@ -10,8 +10,8 @@ namespace DataObject
     {
         public int CodeKindsOfBooksForUsers { get; set; }
 
-        public UsersDTO UserId { get; set; }
+        public string UserId { get; set; }
 
-        public KindsOfBooksDTO KindOfBook { get; set; }
+        public int KindOfBookCode { get; set; }
     }
 }

@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DAL;
 using DataObject;
+using DAL;
 
-namespace BLL
+namespace BL
 {
-   public class AuthorsBLL
-    { 
+    public class AuthorsBL
+    {
         //הוספה
         public static int Add(AuthorsDTO authorsDTO)
         {
-           return AuthorsDAL.Add(Convert(authorsDTO));
+            return AuthorsDAL.Add(Convert(authorsDTO));
         }
 
         //שליפה
@@ -31,9 +31,9 @@ namespace BLL
         }
 
         //מחיקה
-        public static  bool Delete(int CodeAuthor)
+        public static bool Delete(int CodeAuthor)
         {
-           return AuthorsDAL.Delete(CodeAuthor);
+            return AuthorsDAL.Delete(CodeAuthor);
         }
 
         //עדכון
@@ -50,7 +50,7 @@ namespace BLL
             Authors author = new Authors();
             author.CodeAuthor = authorsDTO.CodeAuthor;
             author.NameAuthor = authorsDTO.NameAuthor;
-          
+
             return author;
 
 
@@ -60,7 +60,7 @@ namespace BLL
             AuthorsDTO authorsDTO = new AuthorsDTO();
             authorsDTO.CodeAuthor = author.CodeAuthor;
             authorsDTO.NameAuthor = author.NameAuthor;
-         
+
             return authorsDTO;
         }
     }

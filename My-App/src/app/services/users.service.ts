@@ -17,10 +17,10 @@ export class UsersService {
     return this.myhttp.get<Users[]>(this.url+"GetAll");
   }
 
-  Post(newUser:Users):Observable<number>
+  Post(newUser:Users):Observable<string>
   {
     
-    return this.myhttp.post<number>(`${this.url}Post`,newUser);
+    return this.myhttp.post<string>(`http://localhost:65319/api/Users/Post`,newUser);
   }
 
   

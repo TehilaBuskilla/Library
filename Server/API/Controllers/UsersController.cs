@@ -5,11 +5,13 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using DataObject;
-using BLL;
+using BL;
+using System.Web.Http.Cors;
 
 namespace API.Controllers
 {
-    [Route("api/Users")]
+   [EnableCors("*","*","*")]
+    [RoutePrefix("api/Users")]
 
     public class UsersController : ApiController
     {
@@ -20,7 +22,7 @@ namespace API.Controllers
         public List<UsersDTO> GetAll()
         {
             
-            return UsersBLL.GetAll();
+            return UsersBL.GetAll();
         }
 
         //התחברות משתמש
@@ -30,7 +32,7 @@ namespace API.Controllers
         public UsersDTO GetByCode(UsersDTO existUser)
         {
           
-          return UsersBLL.GetByCode(existUser);
+          return UsersBL.GetByCode(existUser);
         }
 
         //הוספה
@@ -38,10 +40,10 @@ namespace API.Controllers
   
         [Route("Post")]
         [HttpPost]
-        public int Post(UsersDTO newUser)
+        public string Post(UsersDTO newUser)
         {
             
-            return UsersBLL.Add(newUser);
+            return UsersBL.Add(newUser);
         }
 
         //עדכון
@@ -51,7 +53,7 @@ namespace API.Controllers
         public bool Put(UsersDTO upUser)
         {
             
-            return UsersBLL.Update(upUser);
+            return UsersBL.Update(upUser);
 
         }
 
@@ -59,10 +61,10 @@ namespace API.Controllers
         // DELETE: api/Users/5
         [Route("Delete/{IdUser}")]
         [HttpDelete]
-        public bool Delete(int IdUser)
+        public bool Delete(string IdUser)
         {
             
-            return UsersBLL.Delete(IdUser);
+            return UsersBL.Delete(IdUser);
         }
     }
 }

@@ -12,13 +12,13 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class StatusForUsers
+    public partial class BookToUser
     {
-        public int CodeStatusForUsers { get; set; }
-        public int StatusCode { get; set; }
+        public int CodeBookToUser { get; set; }
+        public int BookCode { get; set; }
         public string UserId { get; set; }
     
-        public virtual StatusUser StatusUser { get; set; }
+        public virtual ReadingBooks ReadingBooks { get; set; }
         public virtual Users Users { get; set; }
     }
 }

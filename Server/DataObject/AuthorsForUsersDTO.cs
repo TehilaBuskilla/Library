@@ -10,8 +10,8 @@ namespace DataObject
     {
         public int CodeAuthorsForUsers { get; set; }
         
-        public AuthorsDTO Author { get; set; }
+        public int AuthorCode { get; set; }
 
-        public UsersDTO UserId { get; set; }
+        public string UserId { get; set; }
     }
 }

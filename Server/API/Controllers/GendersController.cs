@@ -4,11 +4,14 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using BLL;
+using System.Web.Http.Cors;
+using BL;
 using DataObject;
 
 namespace API.Controllers
 {
+    [EnableCors("*", "*", "*")]
+
     [RoutePrefix("api/Genders")]
 
 
@@ -21,7 +24,7 @@ namespace API.Controllers
         public List<GendersDTO> GetAll()
         {
             
-            return GendersBLL.GetAll();
+            return GendersBL.GetAll();
         }
 
         //שליפה ע"י נתון
@@ -40,7 +43,7 @@ namespace API.Controllers
         public int Post(GendersDTO newGender)
         {
             
-            return GendersBLL.Add(newGender);
+            return GendersBL.Add(newGender);
         }
 
         //עדכון
@@ -51,7 +54,7 @@ namespace API.Controllers
         {
             
 
-            return GendersBLL.Update(upGender);
+            return GendersBL.Update(upGender);
 
         }
 
@@ -63,7 +66,7 @@ namespace API.Controllers
         {
             
 
-            return GendersBLL.Delete(CodeGender);
+            return GendersBL.Delete(CodeGender);
         }
     }
 }

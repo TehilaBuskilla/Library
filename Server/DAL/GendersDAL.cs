@@ -12,7 +12,7 @@ namespace DAL
         //שליפה להכל
         public static List<Genders> GetAll()
         {
-            using (var context = new LibraryDBEntities())
+            using (var context = new LibraryDBEntities1())
             {
                 List<Genders> listGenders = context.Genders.ToList();
                 return listGenders;
@@ -32,7 +32,7 @@ namespace DAL
         //הוספה
         public static int Add(Genders gender)
         {
-            using (var context = new LibraryDBEntities())
+            using (var context = new LibraryDBEntities1())
             {
                 context.Genders.Add(gender);
                 context.SaveChanges();
@@ -50,7 +50,7 @@ namespace DAL
 
         public static bool Delete(int code)
         {
-            using (var context = new LibraryDBEntities())
+            using (var context = new LibraryDBEntities1())
             {
                 try
                 {
@@ -75,7 +75,7 @@ namespace DAL
         {
             try
             {
-                using (var context = new LibraryDBEntities())
+                using (var context = new LibraryDBEntities1())
                 {
 
 

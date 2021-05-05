@@ -16,7 +16,7 @@ namespace DAL
     {
         public int CodeAuthorsForUsers { get; set; }
         public int AuthorCode { get; set; }
-        public int UserId { get; set; }
+        public string UserId { get; set; }
     
         public virtual Authors Authors { get; set; }
         public virtual Users Users { get; set; }

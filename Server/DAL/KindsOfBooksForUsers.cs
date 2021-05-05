@@ -15,7 +15,7 @@ namespace DAL
     public partial class KindsOfBooksForUsers
     {
         public int CodeKindsOfBooksForUsers { get; set; }
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public int KindBookCode { get; set; }
     
         public virtual KindsOfBooks KindsOfBooks { get; set; }

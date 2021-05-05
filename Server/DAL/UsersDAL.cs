@@ -12,7 +12,7 @@ namespace DAL
         //שליפה להכל
         public static List<Users> GetAll()
         {
-            using (var context = new LibraryDBEntities())
+            using (var context = new LibraryDBEntities1())
             {
 
                 List<Users> listUsers = context.Users.ToList();
@@ -25,9 +25,9 @@ namespace DAL
 
         //שליפה ע"י נתון
 
-        public static Users GetById(int id)
+        public static Users GetById(string id)
         {
-            using (var context = new LibraryDBEntities())
+            using (var context = new LibraryDBEntities1())
             {
                 if(context.Users.FirstOrDefault(a => a.IdUser == id)==null)
                 {
@@ -38,27 +38,27 @@ namespace DAL
               
         }
         //הוספה
-        public static int Add(Users user)
+        public static string Add(Users user)
         {
-            using (var context = new LibraryDBEntities())
+            using (var context = new LibraryDBEntities1())
             {
                 context.Users.Add(user);
                 context.SaveChanges();
-                int code = 0;
-                foreach (Users item in context.Users)
-                {
-                    code = item.IdUser;
-                }
-                return code;
+                //int code = 0;
+                //foreach (Users item in context.Users)
+                //{
+                //    code = item.IdUser;
+                //}
+                return "";
             }
 
         }
 
         //מחיקה
 
-        public static bool Delete(int code)
+        public static bool Delete(string code)
         {
-            using (var context = new LibraryDBEntities())
+            using (var context = new LibraryDBEntities1())
             {
                 try
                 {
@@ -83,7 +83,7 @@ namespace DAL
         {
             try
             {
-                using (var context = new LibraryDBEntities())
+                using (var context = new LibraryDBEntities1())
                 {
 
 

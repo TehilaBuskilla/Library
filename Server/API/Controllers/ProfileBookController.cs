@@ -4,11 +4,13 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using BLL;
+using System.Web.Http.Cors;
+using BL;
 using DataObject;
 
 namespace API.Controllers
 {
+    [EnableCors("*", "*", "*")]
     [RoutePrefix("api/ProfileBook")]
 
     public class ProfileBookController : ApiController
@@ -20,7 +22,7 @@ namespace API.Controllers
         public List<ProfileBookDTO> GetAll()
         {
             
-            return ProfileBookBLL.GetAll();
+            return ProfileBookBL.GetAll();
         }
 
         //שליפה ע"י נתון
@@ -39,7 +41,7 @@ namespace API.Controllers
         public int Post(ProfileBookDTO newProfileBook)
         {
             
-            return ProfileBookBLL.Add(newProfileBook);
+            return ProfileBookBL.Add(newProfileBook);
         }
 
         //עדכון
@@ -49,7 +51,7 @@ namespace API.Controllers
         public bool Put(ProfileBookDTO upProfileBook)
         {
             
-            return ProfileBookBLL.Update(upProfileBook);
+            return ProfileBookBL.Update(upProfileBook);
 
         }
 
@@ -60,7 +62,7 @@ namespace API.Controllers
         public bool Delete(int CodeProfileBook)
         {
             
-            return ProfileBookBLL.Delete(CodeProfileBook);
+            return ProfileBookBL.Delete(CodeProfileBook);
         }
     }
 }

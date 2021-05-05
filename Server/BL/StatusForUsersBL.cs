@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 using DataObject;
 using DAL;
 
-
-namespace BLL
+namespace BL
 {
-    public class StatusForUsersBLL
+    public class StatusForUsersBL
     {
         //הוספה
         public static int Add(StatusForUsersDTO statusForUsersDTO)

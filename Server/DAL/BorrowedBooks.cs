@@ -16,7 +16,7 @@ namespace DAL
     {
         public int CodeBorrowedBooks { get; set; }
         public int BookCode { get; set; }
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public System.DateTime BorrowingDate { get; set; }
         public bool IsBorrowed { get; set; }
     

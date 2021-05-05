@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using DataObject;
 using DAL;
 
-namespace BLL
+namespace BL
 {
-   public class StatusUserBLL
+    public class StatusUserBL
     {
         //הוספה
         public static int Add(StatusUserDTO statusUserDTO)
@@ -50,7 +50,7 @@ namespace BLL
             StatusUser statusUser = new StatusUser();
             statusUser.CodeStatus = statusUserDTO.CodeStatus;
             statusUser.KindStatus = statusUserDTO.KindStatus;
-          
+
             return statusUser;
 
 
@@ -60,7 +60,7 @@ namespace BLL
             StatusUserDTO statusUserDTO = new StatusUserDTO();
             statusUserDTO.CodeStatus = statusUser.CodeStatus;
             statusUserDTO.KindStatus = statusUser.KindStatus;
-         
+
             return statusUserDTO;
         }
     }

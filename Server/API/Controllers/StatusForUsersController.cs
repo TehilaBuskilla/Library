@@ -5,10 +5,12 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using DataObject;
-using BLL;
+using BL;
+using System.Web.Http.Cors;
 
 namespace API.Controllers
 {
+    [EnableCors("*", "*", "*")]
     [RoutePrefix("api/StatusForUsers")]
 
     public class StatusForUsersController : ApiController
@@ -20,7 +22,7 @@ namespace API.Controllers
         public List<StatusForUsersDTO> GetAll()
         {
            
-            return StatusForUsersBLL.GetAll();
+            return StatusForUsersBL.GetAll();
         }
 
         //שליפה ע"י נתון
@@ -39,7 +41,7 @@ namespace API.Controllers
         public int Post(StatusForUsersDTO newStatusForUser)
         {
             
-            return StatusForUsersBLL.Add(newStatusForUser);
+            return StatusForUsersBL.Add(newStatusForUser);
             
         }
 
@@ -50,7 +52,7 @@ namespace API.Controllers
         public bool Put(StatusForUsersDTO upStatusForUser)
         {
            
-            return StatusForUsersBLL.Update(upStatusForUser);
+            return StatusForUsersBL.Update(upStatusForUser);
 
         }
 
@@ -61,7 +63,7 @@ namespace API.Controllers
         public bool Delete(int CodeStatusForUsers)
         {
            
-            return StatusForUsersBLL.Delete(CodeStatusForUsers);
+            return StatusForUsersBL.Delete(CodeStatusForUsers);
         }
     }
 }

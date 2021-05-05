@@ -4,22 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace DAL
 {
-   public class ProfileBookDAL
+   public class BookToUserDAL
     {
-       
+
         //שליפה להכל
-        public static List<ProfileBook> GetAll()
+        public static List<BookToUser> GetAll()
         {
             using (var context = new LibraryDBEntities1())
             {
-                List<ProfileBook> listProfileBook = context.ProfileBook.ToList();
-                return listProfileBook;
+                List<BookToUser> listBookToUser = context.BookToUser.ToList();
+                return listBookToUser;
             }
-
-
 
         }
 
@@ -29,21 +26,20 @@ namespace DAL
         // {
         //using (var context = new LibraryDBEntities())
         //{
-        //    return context.ProfileBook.
+        //    return context.Audiences.
         //}
         //  }
-
         //הוספה
-        public static int Add(ProfileBook profileBook)
+        public static int Add(BookToUser bookToUser)
         {
             using (var context = new LibraryDBEntities1())
             {
-                context.ProfileBook.Add(profileBook);
+                context.BookToUser.Add(bookToUser);
                 context.SaveChanges();
                 int code = 0;
-                foreach (ProfileBook item in context.ProfileBook)
+                foreach (BookToUser item in context.BookToUser)
                 {
-                    code = item.CodeProfileBook;
+                    code = item.CodeBookToUser;
                 }
                 return code;
             }
@@ -58,7 +54,7 @@ namespace DAL
             {
                 try
                 {
-                    ProfileBook toDel = context.ProfileBook.FirstOrDefault(x => x.CodeProfileBook == code);
+                    BookToUser toDel = context.BookToUser.FirstOrDefault(x => x.CodeBookToUser == code);
                     if (toDel != null)
                     {
                         context.Entry(toDel).State = System.Data.Entity.EntityState.Deleted;
@@ -72,8 +68,10 @@ namespace DAL
         }
 
 
+
+
         //עדכון
-        public static bool Update(ProfileBook profileBook)
+        public static bool Update(BookToUser bookToUser)
         {
             try
             {
@@ -81,14 +79,12 @@ namespace DAL
                 {
 
 
-                    ProfileBook old = context.ProfileBook.FirstOrDefault(x => x.CodeProfileBook == profileBook.CodeProfileBook);
+                    BookToUser old = context.BookToUser.FirstOrDefault(x => x.CodeBookToUser == bookToUser.CodeBookToUser);
                     if (old != null)
                     {
-                        old.BookCode = profileBook.BookCode;
-                        old.KindBook = profileBook.KindBook;
-                        old.AudienceAge = profileBook.AudienceAge;
-                        old.AudienceStatus = profileBook.AudienceStatus;
-                        old.AudienceGender = profileBook.AudienceGender;
+                        old.CodeBookToUser = bookToUser.CodeBookToUser;
+                        old.BookCode = bookToUser.BookCode;
+                        old.UserId = bookToUser.bookToUser;
                         context.SaveChanges();
                     }
 

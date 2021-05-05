@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DAL;
 using DataObject;
-namespace BLL
+using DAL;
+
+namespace BL
 {
-   public class GendersBLL
+    public class GendersBL
     {
         //הוספה
         public static int Add(GendersDTO gendersDTO)
@@ -19,7 +20,7 @@ namespace BLL
         public static List<GendersDTO> GetAll()
         {
             List<GendersDTO> listGendersDTO = new List<GendersDTO>();
-            List<Genders> listGenders =GendersDAL.GetAll();
+            List<Genders> listGenders = GendersDAL.GetAll();
 
 
             foreach (var item in listGenders)
@@ -49,7 +50,7 @@ namespace BLL
             Genders gender = new Genders();
             gender.CodeGender = gendersDTO.CodeGender;
             gender.KindGender = gendersDTO.KindGender;
-            
+
             return gender;
 
 
@@ -59,7 +60,7 @@ namespace BLL
             GendersDTO gendersDTO = new GendersDTO();
             gendersDTO.CodeGender = gender.CodeGender;
             gendersDTO.KindGender = gender.KindGender;
-            
+
             return gendersDTO;
         }
     }

@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 using DataObject;
 using DAL;
 
-namespace BLL
+namespace BL
 {
-   public class AudiencesForUsersBLL
+    public class AudiencesForUsersBL
     {
-       
+
         //הוספה
         public static int Add(AudiencesForUsersDTO audiencesForUsersDTO)
         {
-           return AudiencesForUsersDAL.Add(Convert(audiencesForUsersDTO));
+            return AudiencesForUsersDAL.Add(Convert(audiencesForUsersDTO));
         }
 
         //שליפה
@@ -30,22 +30,22 @@ namespace BLL
             }
             return listAudiencesForUsersDTO;
         }
-        public static List<AudiencesForUsersDTO> getById(int id)
+        public static List<AudiencesForUsersDTO> getById(string id)
         {
             List<AudiencesForUsersDTO> listAudiencesForUsersDTO = new List<AudiencesForUsersDTO>();
             List<AudiencesForUsers> listAudiencesForUsers = AudiencesForUsersDAL.GetAll();
-            
+
 
             foreach (var item in listAudiencesForUsers)
             {
                 listAudiencesForUsersDTO.Add(Convert(item));
             }
-            return   listAudiencesForUsersDTO.FindAll(x=> x.UserId==id);
+            return listAudiencesForUsersDTO.FindAll(x => x.UserId == id);
         }
         //מחיקה
         public static bool Delete(int CodeAudiencesForUsers)
         {
-           return AudiencesForUsersDAL.Delete(CodeAudiencesForUsers);
+            return AudiencesForUsersDAL.Delete(CodeAudiencesForUsers);
         }
 
         //עדכון
@@ -73,7 +73,7 @@ namespace BLL
             audiencesForUsersDTO.CodeAudiencesForUsers = audienceForUser.CodeAudiencesForUsers;
             audiencesForUsersDTO.AudienceCode = audienceForUser.AudienceCode;
             audiencesForUsersDTO.UserId = audienceForUser.UserId;
-           
+
             return audiencesForUsersDTO;
         }
     }

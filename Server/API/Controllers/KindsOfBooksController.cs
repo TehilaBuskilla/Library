@@ -5,10 +5,12 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using DataObject;
-using BLL;
+using BL;
+using System.Web.Http.Cors;
 
 namespace API.Controllers
 {
+    [EnableCors("*", "*", "*")]
     [RoutePrefix("api/KindsOfBooks")]
 
     public class KindsOfBooksController : ApiController
@@ -20,7 +22,7 @@ namespace API.Controllers
         public List<KindsOfBooksDTO> GetAll()
         {
             
-            return KindsOfBooksBLL.GetAll();
+            return KindsOfBooksBL.GetAll();
         }
 
         //שליפה ע"י נתון
@@ -39,7 +41,7 @@ namespace API.Controllers
         public int Post(KindsOfBooksDTO newKindOfBook)
         {
             
-            return KindsOfBooksBLL.Add(newKindOfBook);
+            return KindsOfBooksBL.Add(newKindOfBook);
         }
 
         //עדכון
@@ -49,7 +51,7 @@ namespace API.Controllers
         public bool Put(KindsOfBooksDTO upKindOfBook)
         {
             
-            return KindsOfBooksBLL.Update(upKindOfBook);
+            return KindsOfBooksBL.Update(upKindOfBook);
 
         }
 
@@ -60,7 +62,7 @@ namespace API.Controllers
         public bool Delete(int CodeKindsOfBooks)
         {
            
-            return KindsOfBooksBLL.Delete(CodeKindsOfBooks);
+            return KindsOfBooksBL.Delete(CodeKindsOfBooks);
         }
     }
 }

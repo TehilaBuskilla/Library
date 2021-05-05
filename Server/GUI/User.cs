@@ -34,7 +34,7 @@ namespace GUI
         private void button2_Click(object sender, EventArgs e)
         {
             UsersDTO usersDTO = new UsersDTO();
-            usersDTO = UsersBLL.GetAll().Find(a => a.IdUser==int.Parse(textBox1.Text));
+            //usersDTO = UsersBLL.GetAll().Find(a => a.IdUser==int.Parse(textBox1.Text));
 
             if (usersDTO == null)
             {

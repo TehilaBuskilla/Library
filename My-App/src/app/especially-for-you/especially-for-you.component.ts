@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BookToUser } from '../class/bookToUser';
+import { BookToUserService } from '../services/bookToUser.service';
 
 @Component({
   selector: 'app-especially-for-you',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EspeciallyForYouComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(
+    private BookToUserSer:BookToUserService,
+  ) { }
+bookToUserList:Array<BookToUser>=new Array<BookToUser>();
   ngOnInit(): void {
+this.BookToUserSer.GetAll().subscribe(x=>{this.bookToUserList=x});
   }
 
 }

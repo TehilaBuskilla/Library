@@ -16,7 +16,7 @@ namespace DAL
     {
         public int CodeAudiencesForUsers { get; set; }
         public int AudienceCode { get; set; }
-        public int UserId { get; set; }
+        public string UserId { get; set; }
     
         public virtual Audiences Audiences { get; set; }
         public virtual Users Users { get; set; }

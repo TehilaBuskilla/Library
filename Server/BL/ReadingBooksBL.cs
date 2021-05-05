@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using DataObject;
 using DAL;
 
-namespace BLL
+namespace BL
 {
-   public class ReadingBooksBLL
+    public class ReadingBooksBL
     {
         //הוספה
         public static int Add(ReadingBooksDTO readingBooksDTO)
@@ -75,7 +75,7 @@ namespace BLL
             //readingBooksDTO.IsBorrowed = readingBook.IsBorrowed;
             //readingBooksDTO.StatusCode = readingBook.StatusCode;
             //readingBooksDTO.GenderCode = readingBook.GenderCode;
-            
+
             return readingBooksDTO;
         }
     }

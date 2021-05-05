@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 using DataObject;
 using DAL;
 
-
-namespace BLL
+namespace BL
 {
-    public class UsersBLL
+    public class UsersBL
     {
         //הוספה
-        public static int Add(UsersDTO usersDTO)
+        public static string Add(UsersDTO usersDTO)
         {
             return UsersDAL.Add(Convert(usersDTO));
         }
@@ -30,15 +29,15 @@ namespace BLL
             }
             return listUsersDTO;
         }
-        
+
         //התחברות משתמש
         public static UsersDTO GetByCode(UsersDTO existUser)
         {
             List<Users> listUsers = UsersDAL.GetAll();
-            return Convert( listUsers.First(x=>x.NameUser==existUser.NameUser && x.IdUser==existUser.IdUser));
+            return Convert(listUsers.First(x => x.NameUser == existUser.NameUser && x.IdUser == existUser.IdUser));
         }
         //מחיקה
-        public static bool Delete(int IdUser)
+        public static bool Delete(string IdUser)
         {
             return UsersDAL.Delete(IdUser);
         }
@@ -58,8 +57,8 @@ namespace BLL
             user.IdUser = usersDTO.IdUser;
             user.NameUser = usersDTO.NameUser;
             user.AgeUser = usersDTO.AgeUser;
-            user.GenderCode = usersDTO.GenderCode;
-            user.StatusCode = usersDTO.StatusCode;
+            user.GenderCode = usersDTO.Gender.CodeGender;
+            user.StatusCode = usersDTO.Status.CodeStatus;
             return user;
 
 
@@ -70,8 +69,8 @@ namespace BLL
             usersDTO.IdUser = user.IdUser;
             usersDTO.NameUser = user.NameUser;
             usersDTO.AgeUser = user.AgeUser;
-            usersDTO.GenderCode = user.GenderCode;
-            usersDTO.StatusCode = user.StatusCode;
+            usersDTO.Gender = GendersBLL.Convert(user.Genders);
+            usersDTO.Status = StatusUserBLL.Convert(user.StatusUser);
             return usersDTO;
         }
     }
