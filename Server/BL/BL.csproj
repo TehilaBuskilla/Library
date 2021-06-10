@@ -58,18 +58,14 @@
   <ItemGroup>
     <Compile Include="AlgoritemBL.cs" />
     <Compile Include="AudiencesBL.cs" />
-    <Compile Include="AudiencesForUsersBL.cs" />
     <Compile Include="AuthorsBL.cs" />
-    <Compile Include="AuthorsForUsersBL.cs" />
     <Compile Include="BookToUserBL.cs" />
     <Compile Include="BorrowedBooksBL.cs" />
     <Compile Include="GendersBL.cs" />
     <Compile Include="KindsOfBooksBL.cs" />
-    <Compile Include="KindsOfBooksForUsersBL.cs" />
     <Compile Include="ProfileBookBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadingBooksBL.cs" />
-    <Compile Include="StatusForUsersBL.cs" />
     <Compile Include="StatusUserBL.cs" />
     <Compile Include="UsersBL.cs" />
     <Compile Include="WishListBL.cs" />

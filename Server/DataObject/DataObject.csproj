@@ -67,18 +67,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AudiencesDTO.cs" />
-    <Compile Include="AudiencesForUsersDTO.cs" />
     <Compile Include="AuthorsDTO.cs" />
-    <Compile Include="AuthorsForUsersDTO.cs" />
     <Compile Include="BookToUserDTO.cs" />
     <Compile Include="BorrowedBooksDTO.cs" />
     <Compile Include="GendersDTO.cs" />
     <Compile Include="KindsOfBooksDTO.cs" />
-    <Compile Include="KindsOfBooksForUsersDTO.cs" />
     <Compile Include="ProfileBookDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadingBooksDTO.cs" />
-    <Compile Include="StatusForUsersDTO.cs" />
     <Compile Include="StatusUserDTO.cs" />
     <Compile Include="UsersDTO.cs" />
     <Compile Include="WishListDTO.cs" />

@@ -87,18 +87,10 @@
       <DependentUpon>LibraryDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AudiencesDAL.cs" />
-    <Compile Include="AudiencesForUsers.cs">
-      <DependentUpon>LibraryDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AudiencesForUsersDAL.cs" />
     <Compile Include="Authors.cs">
       <DependentUpon>LibraryDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AuthorsDAL.cs" />
-    <Compile Include="AuthorsForUsers.cs">
-      <DependentUpon>LibraryDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AuthorsForUsersDAL.cs" />
     <Compile Include="BookToUser.cs">
       <DependentUpon>LibraryDBModel.tt</DependentUpon>
     </Compile>
@@ -115,10 +107,6 @@
       <DependentUpon>LibraryDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="KindsOfBooksDAL.cs" />
-    <Compile Include="KindsOfBooksForUsers.cs">
-      <DependentUpon>LibraryDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="KindsOfBooksForUsersDAL.cs" />
     <Compile Include="LibraryDBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -143,10 +131,6 @@
       <DependentUpon>LibraryDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ReadingBooksDAL.cs" />
-    <Compile Include="StatusForUsers.cs">
-      <DependentUpon>LibraryDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="StatusForUsersDAL.cs" />
     <Compile Include="StatusUser.cs">
       <DependentUpon>LibraryDBModel.tt</DependentUpon>
     </Compile>

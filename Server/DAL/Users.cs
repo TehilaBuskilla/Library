@@ -17,11 +17,7 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Users()
         {
-            this.AudiencesForUsers = new HashSet<AudiencesForUsers>();
-            this.AuthorsForUsers = new HashSet<AuthorsForUsers>();
             this.BorrowedBooks = new HashSet<BorrowedBooks>();
-            this.KindsOfBooksForUsers = new HashSet<KindsOfBooksForUsers>();
-            this.StatusForUsers = new HashSet<StatusForUsers>();
             this.BookToUser = new HashSet<BookToUser>();
             this.WishList = new HashSet<WishList>();
         }
@@ -33,16 +29,8 @@ namespace DAL
         public int StatusCode { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AudiencesForUsers> AudiencesForUsers { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AuthorsForUsers> AuthorsForUsers { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BorrowedBooks> BorrowedBooks { get; set; }
         public virtual Genders Genders { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KindsOfBooksForUsers> KindsOfBooksForUsers { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<StatusForUsers> StatusForUsers { get; set; }
         public virtual StatusUser StatusUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BookToUser> BookToUser { get; set; }

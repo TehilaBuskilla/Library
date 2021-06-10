@@ -17,15 +17,12 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public KindsOfBooks()
         {
-            this.KindsOfBooksForUsers = new HashSet<KindsOfBooksForUsers>();
             this.ReadingBooks = new HashSet<ReadingBooks>();
         }
     
         public int CodeKindBook { get; set; }
         public string KindBook { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KindsOfBooksForUsers> KindsOfBooksForUsers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ReadingBooks> ReadingBooks { get; set; }
     }

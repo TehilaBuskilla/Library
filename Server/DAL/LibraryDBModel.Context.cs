@@ -26,16 +26,12 @@ namespace DAL
         }
     
         public virtual DbSet<Audiences> Audiences { get; set; }
-        public virtual DbSet<AudiencesForUsers> AudiencesForUsers { get; set; }
         public virtual DbSet<Authors> Authors { get; set; }
-        public virtual DbSet<AuthorsForUsers> AuthorsForUsers { get; set; }
         public virtual DbSet<BorrowedBooks> BorrowedBooks { get; set; }
         public virtual DbSet<Genders> Genders { get; set; }
         public virtual DbSet<KindsOfBooks> KindsOfBooks { get; set; }
-        public virtual DbSet<KindsOfBooksForUsers> KindsOfBooksForUsers { get; set; }
         public virtual DbSet<ProfileBook> ProfileBook { get; set; }
         public virtual DbSet<ReadingBooks> ReadingBooks { get; set; }
-        public virtual DbSet<StatusForUsers> StatusForUsers { get; set; }
         public virtual DbSet<StatusUser> StatusUser { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<BookToUser> BookToUser { get; set; }

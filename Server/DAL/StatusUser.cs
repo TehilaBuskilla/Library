@@ -18,7 +18,6 @@ namespace DAL
         public StatusUser()
         {
             this.ReadingBooks = new HashSet<ReadingBooks>();
-            this.StatusForUsers = new HashSet<StatusForUsers>();
             this.Users = new HashSet<Users>();
         }
     
@@ -27,8 +26,6 @@ namespace DAL
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ReadingBooks> ReadingBooks { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<StatusForUsers> StatusForUsers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Users> Users { get; set; }
     }

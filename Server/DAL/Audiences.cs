@@ -17,7 +17,6 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Audiences()
         {
-            this.AudiencesForUsers = new HashSet<AudiencesForUsers>();
             this.ReadingBooks = new HashSet<ReadingBooks>();
         }
     
@@ -25,8 +24,6 @@ namespace DAL
         public string KindAudience { get; set; }
         public int Age { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AudiencesForUsers> AudiencesForUsers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ReadingBooks> ReadingBooks { get; set; }
     }
