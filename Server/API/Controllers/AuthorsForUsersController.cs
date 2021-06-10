@@ -11,6 +11,7 @@ using DataObject;
 namespace API.Controllers
 {
     [EnableCors("*", "*", "*")]
+    
     [RoutePrefix("api/AuthorsForUsers")]
 
     public class AuthorsForUsersController : ApiController
@@ -29,12 +30,12 @@ namespace API.Controllers
 
         //שליפה ע"י נתון
         // GET: api/AuthorsForUsers/5
-        //[Route("Get/{}")]
-        //[HttpGet]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
+        [Route("GetById/{id}")]
+        [HttpGet]
+        public List<AuthorsForUsersDTO> GetById(string id)
+        {
+            return AuthorsForUsersBL.GetById(id);
+        }
 
         //הוספה
         // POST: api/AuthorsForUsers

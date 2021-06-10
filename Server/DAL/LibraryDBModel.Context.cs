@@ -39,5 +39,6 @@ namespace DAL
         public virtual DbSet<StatusUser> StatusUser { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<BookToUser> BookToUser { get; set; }
+        public virtual DbSet<WishList> WishList { get; set; }
     }
 }

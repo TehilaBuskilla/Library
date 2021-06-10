@@ -30,6 +30,12 @@ namespace BL
             return listReadingBooksDTO;
         }
 
+        public static ReadingBooksDTO GetById(int id)
+        {
+            ReadingBooksDTO listReadingBooksDTO = DAL.ReadingBooksDAL.GetAll().Find(r => r.CodeBook == id);
+            return listReadingBooksDTO;
+        }
+
         //מחיקה
         public static bool Delete(int CodeBook)
         {

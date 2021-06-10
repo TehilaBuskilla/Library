@@ -45,5 +45,6 @@ namespace DataObject
         public StatusUserDTO StatusUser { get; set; }
 
         public GendersDTO Gender { get; set; }
+        public string ImgBook { get; set; }
     }
 }

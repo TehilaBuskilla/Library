@@ -13,5 +13,9 @@ namespace DataObject
         public int AuthorCode { get; set; }
 
         public string UserId { get; set; }
+
+        public int Count { get; set; }
+
+        public DateTime LastDate { get; set; }
     }
 }

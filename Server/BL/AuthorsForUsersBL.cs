@@ -30,6 +30,13 @@ namespace BL
             return listAuthorsForUsersDTO;
         }
 
+        //שליפה עי נתון
+        //מחזיר את כל המחברים ללקוח
+         public static List<AuthorsForUsersDTO> GetById(string id)
+        {
+            List<AuthorsForUsersDTO> listAuthorsForUsers = AuthorsForUsersBL.GetAll();
+            return listAuthorsForUsers.FindAll(x => x.AuthorCode == int.Parse(id));
+        }
         //מחיקה
         public static bool Delete(int CodeAuthorsForUsers)
         {

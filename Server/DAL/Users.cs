@@ -23,6 +23,7 @@ namespace DAL
             this.KindsOfBooksForUsers = new HashSet<KindsOfBooksForUsers>();
             this.StatusForUsers = new HashSet<StatusForUsers>();
             this.BookToUser = new HashSet<BookToUser>();
+            this.WishList = new HashSet<WishList>();
         }
     
         public string IdUser { get; set; }
@@ -45,5 +46,7 @@ namespace DAL
         public virtual StatusUser StatusUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BookToUser> BookToUser { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<WishList> WishList { get; set; }
     }
 }

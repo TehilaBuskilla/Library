@@ -3,6 +3,7 @@ import { Authors } from "./authors";
 import { Genders } from "./genders";
 import { KindsOfBooks } from "./kindsOfBooks";
 import { StatusForUsers } from "./statusForUsers";
+import { StatusUser } from "./statusUser";
 
 export class ReadingBooks {
     constructor(
@@ -13,8 +14,9 @@ export class ReadingBooks {
         public Audience?: Audiences,
         public LengthBook?: number,
         public IsBorrowed?: boolean,
-        public Status?: StatusForUsers,
-        public Gender?: Genders
+        public Status?: StatusUser,
+        public Gender?: Genders,
+        public ImgBook?:string,
     ) {
 
     }

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BLL;
+using BL;
 using DataObject;
 
 namespace GUI
@@ -27,7 +27,7 @@ namespace GUI
         
         private void Update_Load(object sender, EventArgs e)
         {
-            usersDTO = UsersBLL.GetAll();
+            usersDTO = UsersBL.GetAll();
             textBox1.Text = usersDTO[index].NameUser;
         }
 
@@ -51,12 +51,12 @@ namespace GUI
         {
             UsersDTO userDTO = new UsersDTO();
             usersDTO[index].NameUser = textBox1.Text;
-            UsersBLL.Update(usersDTO[index]);
+            UsersBL.Update(usersDTO[index]);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            usersDTO = UsersBLL.GetAll();
+            usersDTO = UsersBL.GetAll();
         }
     }
 }

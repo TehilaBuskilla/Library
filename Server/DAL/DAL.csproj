@@ -155,6 +155,10 @@
       <DependentUpon>LibraryDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="UsersDAL.cs" />
+    <Compile Include="WishList.cs">
+      <DependentUpon>LibraryDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WishListDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

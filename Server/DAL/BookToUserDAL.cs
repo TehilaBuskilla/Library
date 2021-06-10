@@ -1,5 +1,7 @@
-﻿using System;
+﻿using DataObject;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,14 +12,41 @@ namespace DAL
     {
 
         //שליפה להכל
+        //public static List<BookToUserDTO> GetAll()
+        //{
+        //    using (var context = new LibraryDBEntities1())
+        //    {
+        //        List<BookToUser> listBookToUser = context.BookToUser.ToList();
+        //        List<BookToUserDTO> listBookToUserDTO = new List<BookToUserDTO>();
+        //        foreach (var item in listBookToUser)
+        //        {
+        //            listBookToUserDTO.Add(
+        //                new BookToUserDTO
+        //                {
+        //                    CodeBookToUser = item.CodeBookToUser,
+        //                    BookCode = new ReadingBooksDTO
+        //                    {
+        //                        CodeBook = item.ReadingBooks.CodeBook,
+        //                        NameBook = item.ReadingBooks.NameBook
+        //                    },
+
+        //                    UserId = new UsersDTO {
+        //                        IdUser = item.Users.IdUser
+        //                    }
+        //                });
+        //        }
+        //        return listBookToUserDTO;
+        //    }
+
+        //}
         public static List<BookToUser> GetAll()
         {
-            using (var context = new LibraryDBEntities1())
+            using(var context= new LibraryDBEntities1() )
             {
-                List<BookToUser> listBookToUser = context.BookToUser.ToList();
-                return listBookToUser;
+                List<BookToUser> list = context.BookToUser.ToList();
+                return list;
             }
-
+           
         }
 
         //שליפת נתון
@@ -34,14 +63,12 @@ namespace DAL
         {
             using (var context = new LibraryDBEntities1())
             {
+                DbChangeTracker tracker = context.ChangeTracker;
+
                 context.BookToUser.Add(bookToUser);
                 context.SaveChanges();
-                int code = 0;
-                foreach (BookToUser item in context.BookToUser)
-                {
-                    code = item.CodeBookToUser;
-                }
-                return code;
+              
+                return bookToUser.BookCode;
             }
 
         }
@@ -82,9 +109,15 @@ namespace DAL
                     BookToUser old = context.BookToUser.FirstOrDefault(x => x.CodeBookToUser == bookToUser.CodeBookToUser);
                     if (old != null)
                     {
-                        old.CodeBookToUser = bookToUser.CodeBookToUser;
                         old.BookCode = bookToUser.BookCode;
-                        old.UserId = bookToUser.bookToUser;
+                        old.UserId = bookToUser.UserId;
+                        if (old.Like == true)
+                            old.Like = true;
+                        else
+                            old.Like = false;
+
+                        old.LastDate = bookToUser.LastDate;
+                        old.Count++;
                         context.SaveChanges();
                     }
 

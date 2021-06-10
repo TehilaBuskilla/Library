@@ -17,4 +17,13 @@ bookToUserList:Array<BookToUser>=new Array<BookToUser>();
 this.BookToUserSer.GetAll().subscribe(x=>{this.bookToUserList=x});
   }
 
+
+  // delete(book:BookToUser){    //מחיקת ספר מהספרים שאהבת
+  //   this.BookToUserSer.Delete(book.BookCode.CodeBook);
+  // }
+
+  borrow(){                   //העברת ספר לרשימת ספרים מושאלים 
+
+  }
+
 }

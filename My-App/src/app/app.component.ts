@@ -17,7 +17,7 @@ export class AppComponent {
   constructor(private userSer:UsersService,
      private genderService:GendersService,
     private statusUserService:StatusUserService,
-    private ServiceSer:ServiceService
+    public ServiceSer:ServiceService
     ){
 
       this.loadGenders();
@@ -74,6 +74,8 @@ export class AppComponent {
     this.userSer.SignIn(this.newUser).subscribe(x=>this.newUser=x);
     this.ServiceSer.userIn=this.newUser;
   }
+
+  
   
 }
 

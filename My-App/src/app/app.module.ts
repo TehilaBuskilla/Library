@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { EspeciallyForYouComponent } from './especially-for-you/especially-for-you.component';
-import { NewestComponent } from './newest/newest.component';
 import { QuestionsReturnsComponent } from './questions-returns/questions-returns.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { KindsOfBooksService } from './services/kinds-of-books.service';
@@ -21,6 +20,7 @@ import { StatusUserService } from './services/status-user.service';
 import { UsersService } from './services/users.service';
 import { FormsModule } from '@angular/forms';
 import { HebrewBooleanPipe } from './pipes/hebrew.boolean.pipe';
+import { FilterbooklistPipe } from './pipes/filterbooklist.pipe';
 
 
 
@@ -30,9 +30,10 @@ import { HebrewBooleanPipe } from './pipes/hebrew.boolean.pipe';
     AppComponent,
     CatalogComponent,
     EspeciallyForYouComponent,
-    NewestComponent,
+   
     QuestionsReturnsComponent,
     HebrewBooleanPipe,
+    FilterbooklistPipe,
     
     
   ],

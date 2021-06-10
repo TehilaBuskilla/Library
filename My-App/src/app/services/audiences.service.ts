@@ -9,13 +9,7 @@ import { Audiences } from '../class/audiences';
 })
 export class AudiencesService {
 
-  list = [{
-    id: 5, name: 'פעוטות'
-  },
-  {
-    id: 6, name: 'ילדים'
-  }, { id: 7, name: 'נוער' }, { id: 10, name: 'מבוגרים' },{id:11, name:'ילדים ונוער'},{id:12, name:'נוער ומבוגרים'}]
-
+  
 
 
 

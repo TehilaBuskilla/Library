@@ -17,6 +17,9 @@ namespace DAL
         public int CodeBookToUser { get; set; }
         public int BookCode { get; set; }
         public string UserId { get; set; }
+        public Nullable<bool> Like { get; set; }
+        public Nullable<System.DateTime> LastDate { get; set; }
+        public Nullable<int> Count { get; set; }
     
         public virtual ReadingBooks ReadingBooks { get; set; }
         public virtual Users Users { get; set; }

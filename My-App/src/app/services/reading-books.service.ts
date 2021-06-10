@@ -8,6 +8,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ReadingBooksService {
+
+  
+
   url="http://localhost:65319/api/ReadingBooks/";
 
   constructor(private myhttp:HttpClient,private myrouter: Router) { }
@@ -36,4 +39,12 @@ export class ReadingBooksService {
   {
     return this.myhttp.delete<boolean>(this.url+"Delete"+CodeReadingBook);
   }
+
+  // public uploadImage(image: File): Observable<Object> {//Response היה לפני
+  //   const formData = new FormData();
+
+  //   formData.append('image', image);
+
+  //   return this.myhttp.post('/api/Content/Images', formData);
+  // }
 }

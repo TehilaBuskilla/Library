@@ -20,6 +20,7 @@ namespace DAL
             this.BorrowedBooks = new HashSet<BorrowedBooks>();
             this.ProfileBook = new HashSet<ProfileBook>();
             this.BookToUser = new HashSet<BookToUser>();
+            this.WishList = new HashSet<WishList>();
         }
     
         public int CodeBook { get; set; }
@@ -31,6 +32,7 @@ namespace DAL
         public bool IsBorrowed { get; set; }
         public int StatusCode { get; set; }
         public int GenderCode { get; set; }
+        public string ImgBook { get; set; }
     
         public virtual Audiences Audiences { get; set; }
         public virtual Authors Authors { get; set; }
@@ -43,5 +45,7 @@ namespace DAL
         public virtual StatusUser StatusUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BookToUser> BookToUser { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<WishList> WishList { get; set; }
     }
 }

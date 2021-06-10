@@ -69,8 +69,8 @@ namespace BL
             usersDTO.IdUser = user.IdUser;
             usersDTO.NameUser = user.NameUser;
             usersDTO.AgeUser = user.AgeUser;
-            usersDTO.Gender = GendersBLL.Convert(user.Genders);
-            usersDTO.Status = StatusUserBLL.Convert(user.StatusUser);
+            usersDTO.Gender = GendersBL.Convert(user.Genders);
+            usersDTO.Status = StatusUserBL.Convert(user.StatusUser);
             return usersDTO;
         }
     }

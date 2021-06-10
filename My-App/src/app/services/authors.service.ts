@@ -9,14 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthorsService {
 
-
-
-  list = [{
-    id: 5, name: 'פעוטות'
-  },
-  {
-    id: 6, name: 'ילדים'
-  }, { id: 7, name: 'נוער' }, { id: 10, name: 'מבוגרים' },{id:11, name:'ילדים ונוער'},{id:12, name:'נוער ומבוגרים'}]
+  
 
   url="http://localhost:65319/api/Authors/";
 

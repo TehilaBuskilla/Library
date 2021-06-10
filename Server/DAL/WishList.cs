@@ -12,15 +12,13 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class AudiencesForUsers
+    public partial class WishList
     {
-        public int CodeAudiencesForUsers { get; set; }
-        public int AudienceCode { get; set; }
+        public int CodeWishList { get; set; }
+        public int BookCode { get; set; }
         public string UserId { get; set; }
-        public Nullable<System.DateTime> LastDate { get; set; }
-        public int Count { get; set; }
     
-        public virtual Audiences Audiences { get; set; }
+        public virtual ReadingBooks ReadingBooks { get; set; }
         public virtual Users Users { get; set; }
     }
 }

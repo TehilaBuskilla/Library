@@ -39,7 +39,7 @@ namespace API.Controllers
         [HttpPost]
         public int Post(AudiencesForUsersDTO newAudienceForUser)
         {
-           
+           //פה צריך לבדוק אם הוא קיים כבר אם כן לקרוא לפונקצייה put
             return AudiencesForUsersBL.Add(newAudienceForUser);
         }
 
@@ -63,7 +63,7 @@ namespace API.Controllers
         public bool Delete(int CodeAudiencesForUsers)
         {
            
-            return AudiencesForUsersBLL.Delete(CodeAudiencesForUsers);
+            return AudiencesForUsersBL.Delete(CodeAudiencesForUsers);
 
 
         }

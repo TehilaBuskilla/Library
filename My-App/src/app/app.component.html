@@ -1,15 +1,23 @@
 <body >
   <nav>
+    <div>
+      <img src="../../assets/images/logo.jpg" alt="לוגו" id="logoImg">
+    </div>
     <ul class="menu">
       <li><a [routerLink]="['/mycatalog']" (click)="showThis()"><i class="fas fa-book-reader"></i>הספרים שלנו</a></li>
       <li><a [routerLink]="['/myespecially_for_you']" (click)="showThis()"><i class="fas fa-user-shield"></i>במיוחד בשבילך</a></li>
-      <li><a [routerLink]="['/mynewest']" (click)="showThis()" ><i class="fas fa-plus"></i>החדשים שלנו</a></li>
+      <!-- <li><a [routerLink]="['/mynewest']" (click)="showThis()" ><i class="fas fa-plus"></i>החדשים שלנו</a></li> -->
       <li><a [routerLink]="['/myquestions_returns']" (click)="showThis()"><i class="fas fa-exchange-alt"></i>השאלות והחזרות</a></li>
       <li><a [routerLink]="['/']" (click)="showModal(1)"><i class="fas fa-sign-in-alt"></i>
           הרשמה/התחברות</a></li>
+      <li (click)="ServiceSer.sendList()" >יציאה</li>
+     
     </ul>
   </nav>
   <div class= "content" (click)="showModal(0)" >
+    
+    <button class="history"><a><i class="fas fa-history"></i></a></button>
+
   <router-outlet></router-outlet>
 
 </div>

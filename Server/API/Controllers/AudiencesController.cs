@@ -40,7 +40,7 @@ namespace API.Controllers
         [HttpPost]
         public  int Post(AudiencesDTO newAudience)
         {
-            return AudienceBL.Add(newAudience);
+            return AudiencesBL.Add(newAudience);
         }
 
         //עדכון
@@ -50,7 +50,7 @@ namespace API.Controllers
         public bool Put(AudiencesDTO upAudience)
         {
           
-            return AudienceBL.Update(upAudience);
+            return AudiencesBL.Update(upAudience);
 
         }
 
@@ -61,7 +61,7 @@ namespace API.Controllers
         public bool Delete(int CodeAudience)
         {
            
-            return AudienceBL.Delete(CodeAudience);
+            return AudiencesBL.Delete(CodeAudience);
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using DataOdject;
+using DataObject;
 using BL;
 using System.Web.Http.Cors;
 
@@ -23,42 +23,18 @@ namespace API.Controllers
             return BookToUserBL.GetAll();
         }
 
-        //שליפה ע"י נתון
-        // GET: api/BookToUser/5
-
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
-
+     
          //הוספה
         // POST: api/BookToUser
         [Route("{newBookToUser}")]
         [HttpPost]
-        public int Post(BookToUserDTO newBookToUser)
+        public void Post(List <BookToUserDTO> newBookToUser)
         {
-            return BookToUserBL.Add(newBookToUser);
+             BookToUserBL.Add(newBookToUser);
 
         }
 
-        //עדכון
-        // PUT: api/BookToUser/5
-        [Route("{upBookToUser}")]
-        [HttpPut]
-        public bool Put(BookToUserDTO)
-        {
-            return BookToUserBL.Update(upBookToUser);
+    
 
-        }
-
-        //מחיקה
-        // DELETE: api/BookToUser/5
-        [Route("Delete/{CodeStatusForUsers}")]
-        [HttpDelete]
-        public bool Delete(int CodeBookToUser)
-        {
-            return BookToUserBL.Delete(CodeBookToUser);
-
-        }
     }
 }

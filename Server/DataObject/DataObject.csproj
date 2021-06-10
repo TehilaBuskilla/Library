@@ -81,6 +81,7 @@
     <Compile Include="StatusForUsersDTO.cs" />
     <Compile Include="StatusUserDTO.cs" />
     <Compile Include="UsersDTO.cs" />
+    <Compile Include="WishListDTO.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

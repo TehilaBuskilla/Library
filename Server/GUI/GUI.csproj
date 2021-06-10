@@ -115,9 +115,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BLL\BLL.csproj">
-      <Project>{2493a17a-e9a7-4f60-82ce-bc35324b0542}</Project>
-      <Name>BLL</Name>
+    <ProjectReference Include="..\BL\BL.csproj">
+      <Project>{7c86e712-e600-4470-a37e-43ebad9b73ab}</Project>
+      <Name>BL</Name>
     </ProjectReference>
     <ProjectReference Include="..\DataObject\DataObject.csproj">
       <Project>{8310b03b-d451-4276-9186-d88a3d35ee33}</Project>

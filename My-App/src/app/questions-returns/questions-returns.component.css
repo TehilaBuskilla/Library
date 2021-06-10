@@ -26,12 +26,15 @@ th{
       display: none;
     }
   }
+  #td{
+    width: 20px;
+  }
 
   i{
       margin-left: 15%;
   }
   thead{
-      background-color:#1ab394;
+      background-color:rgb(205, 147, 231);
       color:#fff;
   }
 /* checkbox */
