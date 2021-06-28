@@ -31,7 +31,7 @@ namespace GUI
             textBox1.Text = usersDTO[index].NameUser;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)  //קדימה
         {
             index++;
             if (index == usersDTO.Count)
@@ -39,7 +39,7 @@ namespace GUI
             textBox1.Text = usersDTO[index].NameUser;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e) //אחורה
         {
             index--;
             if (index < 0)

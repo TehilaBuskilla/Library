@@ -49,6 +49,8 @@ namespace DAL
            
         }
 
+        
+
         //שליפת נתון
 
         //public static Get()

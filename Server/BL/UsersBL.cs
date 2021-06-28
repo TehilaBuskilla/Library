@@ -33,8 +33,8 @@ namespace BL
         //התחברות משתמש
         public static UsersDTO GetByCode(UsersDTO existUser)
         {
-            List<Users> listUsers = UsersDAL.GetAll();
-            return Convert(listUsers.First(x => x.NameUser == existUser.NameUser && x.IdUser == existUser.IdUser));
+
+            return UsersDAL.GetById(existUser.IdUser);
         }
         //מחיקה
         public static bool Delete(string IdUser)
@@ -65,12 +65,14 @@ namespace BL
         }
         public static UsersDTO Convert(Users user)
         {
+            if (user == null)
+                return null;
             UsersDTO usersDTO = new UsersDTO();
             usersDTO.IdUser = user.IdUser;
             usersDTO.NameUser = user.NameUser;
             usersDTO.AgeUser = user.AgeUser;
-            usersDTO.Gender = GendersBL.Convert(user.Genders);
-            usersDTO.Status = StatusUserBL.Convert(user.StatusUser);
+            //usersDTO.Gender = GendersBL.Convert(user.GenderCode);
+            //usersDTO.Status = StatusUserBL.Convert(user.StatusUser);
             return usersDTO;
         }
     }

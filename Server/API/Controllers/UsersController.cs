@@ -27,9 +27,9 @@ namespace API.Controllers
 
         //התחברות משתמש
         // GET: api/Users/5
-        [Route("GetByCode/{existUser}")]
-        [HttpGet]
-        public UsersDTO GetByCode(UsersDTO existUser)
+        [Route("Connect")]
+        [HttpPost]
+        public UsersDTO Connect([FromBody]UsersDTO existUser)
         {
           
           return UsersBL.GetByCode(existUser);

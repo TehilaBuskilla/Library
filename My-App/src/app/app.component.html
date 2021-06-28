@@ -1,16 +1,17 @@
 <body >
   <nav>
     <div>
-      <img src="../../assets/images/logo.jpg" alt="לוגו" id="logoImg">
+      <img src="../../assets/images/logo1.png" alt="לוגו" id="logoImg">
     </div>
-    <ul class="menu">
-      <li><a [routerLink]="['/mycatalog']" (click)="showThis()"><i class="fas fa-book-reader"></i>הספרים שלנו</a></li>
-      <li><a [routerLink]="['/myespecially_for_you']" (click)="showThis()"><i class="fas fa-user-shield"></i>במיוחד בשבילך</a></li>
-      <!-- <li><a [routerLink]="['/mynewest']" (click)="showThis()" ><i class="fas fa-plus"></i>החדשים שלנו</a></li> -->
+    <ul class="menu"  routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <li><a [routerLink]="['/mycatalog']" routerLinkActive #rla="routerLinkActive" (click)="showThis()"><i class="fas fa-book-reader"></i>הספרים שלנו{{rla.isActive? '':''}}</a></li>
+      <li><a [routerLink]="['/myespecially_for_you']"  (click)="showThis()"><i class="fas fa-user-shield"></i>במיוחד בשבילך</a></li>
       <li><a [routerLink]="['/myquestions_returns']" (click)="showThis()"><i class="fas fa-exchange-alt"></i>השאלות והחזרות</a></li>
-      <li><a [routerLink]="['/']" (click)="showModal(1)"><i class="fas fa-sign-in-alt"></i>
-          הרשמה/התחברות</a></li>
-      <li (click)="ServiceSer.sendList()" >יציאה</li>
+      <li><a *ngIf="showRegistration" (click)="showModal(1)"><i class="fas fa-sign-in-alt"></i>
+          הרשמה/התחברות</a>
+          <a *ngIf="showRegistration==false" (click)="exit()"><i class="fas fa-sign-out-alt"></i>
+            יציאה</a></li>
+     
      
     </ul>
   </nav>
@@ -29,31 +30,34 @@
         <!-- <span {/*onclick="document.getElementById('id01').style.display='none'*/}" -->
          <span (click)="showModal(0)"
         class="icon-x">&times;</span>
-        <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">התחבר</label>
-        <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">הרשם</label>
+        <input id="tab-1" type="radio" #login name="tab" class="sign-in" checked><label for="tab-1" class="tab">התחבר</label>
+        <input id="tab-2" type="radio" #register name="tab" class="sign-up"><label for="tab-2" class="tab">הרשם</label>
         <div class="login-form">
+         
           <div class="sign-in-htm">
+           <form (submit)="signIn()" [formGroup]="signInFrm">
             <div class="group">
               <label for="user" class="label">שם משתמש</label>
-              <input id="user" type="text" name="name" class="input" placeholder="שם משתמש" [(ngModel)]="existUser.NameUser">
+              <input id="user" formControlName="username"  type="text" name="name" class="input" placeholder="שם משתמש" >
             </div>
             <div class="group">
               <label for="pass" class="label">סיסמא</label>
-              <input id="pass" type="password"  class="input" data-type="password" placeholder="סיסמא" [(ngModel)]="existUser.IdUser" >
+              <input id="pass" type="password" formControlName="password" class="input" data-type="password" placeholder="סיסמא"  >
             </div>
             <div class="group">
-              <input id="check" type="checkbox" class="check" checked>
+              <input id="check" type="checkbox" class="check" checked formControlName="connected">
               <label for="check"><span class="icon"></span> השאר אותי מחובר</label>
             </div>
             <div class="group">
-              <input type="button" class="button" value="התחבר" (click)="signIn()">
+              <input type="submit" class="button" value="התחבר" [disabled]="signInFrm.valid==false">
             </div>
             <div class="hr"></div>
             <div class="foot-lnk">
               <a href="#forgot">שכחת את הסיסמא?</a>
             </div>
+          </form>
           </div>
-        
+       
           <!-- הרשמה -->
           <div class="sign-up-htm">
             <div class="group">
@@ -72,15 +76,19 @@
               <form class="gander">
               <label for="pass" class="label">מגדר</label>
               <div class="form-check-inline">
-                <!-- <label class="form-check-label" for="radio1">
+                 <label class="form-check-label" for="radio1">
                 <input type="radio" class="form-check-input" id="radio1" name="optradio" value="1" checked [(ngModel)]="newUser.Gender">
                 זכר
-                </label> -->
-                <span *ngFor="let g of allGenders">
+                </label> 
+                <label class="form-check-label" for="radio1">
+                  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="1" checked [(ngModel)]="newUser.Gender">
+                  נקבה
+                  </label> 
+                <!-- <span *ngFor="let g of allGenders">
                 <label class="form-check-label" [for]="g.KindGender">
                 <input type="radio" class="form-check-input" [id]="g.KindGender" name="optradio" [value]="g" [(ngModel)]="newUser.Gender">{{g.KindGender}}
                 </label>
-              </span>
+              </span> -->
               </div>
               </form>
             </div>
@@ -88,15 +96,19 @@
               <form class="atatus">
               <label for="pass" class="label">סטטוס</label>
               <div class="form-check-inline">
-                <!-- <label class="form-check-label" for="radio1">
+                 <label class="form-check-label" for="radio1">
                 <input type="radio" class="form-check-input" id="radio1" name="optradio" value="נשוי" checked [(ngModel)]="newUser.Status">
-                נשוי
-                </label> -->
-                <span *ngFor="let su of allStatusUser">
+               נשוי/אה
+                </label> 
+                <label class="form-check-label" for="radio1">
+                  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="נשוי" checked [(ngModel)]="newUser.Status">
+                  רווק/ה
+                  </label> 
+                <!-- <span *ngFor="let su of allStatusUser">
                 <label class="form-check-label" [for]="su.KindStatus">
                 <input type="radio" class="form-check-input" [id]="su.KindStatus" name="optradio" [value]="su" [(ngModel)]="newUser.Status">{{su.KindStatus}}
                 </label>
-              </span>
+              </span> -->
               </div>
               </form>
             </div>

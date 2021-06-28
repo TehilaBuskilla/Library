@@ -9,6 +9,9 @@ export class Users {
         public Gender?: Genders,
         public Status?: StatusUser,
     ) {
+ 
 
     }
+
+  
 }

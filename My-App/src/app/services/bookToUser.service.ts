@@ -15,12 +15,16 @@ export class BookToUserService
     constructor(private myhttp:HttpClient,private myrouter: Router) { }
   
   
-    GetAll():Observable<BookToUser[]>
+    GetById(id:string):Observable<Map<string,Map<number,number>>>
     {
-      return this.myhttp.get<BookToUser[]>(this.url+"GetAll");
+      return this.myhttp.get<Map<string,Map<number,number>>>(this.url+"GetById/"+id);
     }
+    GetAll():Observable<Array<BookToUser>>
+    {
+      return this.myhttp.get<Array<BookToUser>>(this.url+"GetAll");
+    }   
 
-  Post(newBookToUser:BookToUser):Observable<number>
+  Post(newBookToUser:Array< BookToUser>):Observable<number>
   {
     return this.myhttp.post<number>(this.url+"Post",newBookToUser);
   }

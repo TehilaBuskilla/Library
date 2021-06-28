@@ -11,9 +11,7 @@ export class FilterbooklistPipe implements PipeTransform {
   transform(value: Array<ReadingBooks>, filter: FilterBookObject): Array<ReadingBooks> {
 
     let list = value;
-    console.log(list.length)
     if (filter != undefined) {
-      console.log(filter)
       if (filter.audience != undefined) {
         
         list = list.filter(l => l.Audience.CodeAudience == filter.audience.CodeAudience)
@@ -32,7 +30,6 @@ export class FilterbooklistPipe implements PipeTransform {
       }
     }
 
-    console.log(list)
     return list;
 
 

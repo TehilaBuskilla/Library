@@ -16,17 +16,23 @@ namespace API.Controllers
     {
         //שליפה
         // GET: api/BookToUser
-        [Route("GetAll")]
+        [Route("GetAll/{id}")]
         [HttpGet]
-        public List<BookToUserDTO> GetAll()
+        public List<ReadingBooksDTO> GetAll(string id)
         {
-            return BookToUserBL.GetAll();
+            return BookToUserBL.GetAll(id);
         }
 
-     
-         //הוספה
+        [Route("GetById/{id}")]
+        [HttpGet]
+        public Dictionary<string, Dictionary<int, int>> GetById(string id)
+        {
+            return BookToUserBL.GetById(id);
+        }
+
+        //הוספה
         // POST: api/BookToUser
-        [Route("{newBookToUser}")]
+        [Route("Post")]
         [HttpPost]
         public void Post(List <BookToUserDTO> newBookToUser)
         {

@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DataObject.AudiencesDTO">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAEAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AudiencesDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataObject.AuthorsDTO">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>AuthorsDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataObject.BookToUserDTO">
+    <Position X="5.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAwAAAAAAABAAAAAAAABABA=</HashCode>
+      <FileName>BookToUserDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataObject.BorrowedBooksDTO">
+    <Position X="3.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAgAAAAAgAAAAAAAAAAAAAAAAAAFA=</HashCode>
+      <FileName>BorrowedBooksDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataObject.GendersDTO">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GendersDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataObject.KindsOfBooksDTO">
+    <Position X="9.25" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>KindsOfBooksDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataObject.ReadingBooksDTO">
+    <Position X="7.25" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAEAEAACAgAEAAAAABAAAAAAAAAEAgAAAAAA=</HashCode>
+      <FileName>ReadingBooksDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataObject.StatusUserDTO">
+    <Position X="5.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StatusUserDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataObject.UsersDTO">
+    <Position X="3.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAECAAAAQCAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UsersDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataObject.WishListDTO">
+    <Position X="1.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>WishListDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

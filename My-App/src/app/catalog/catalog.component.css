@@ -5,9 +5,11 @@ body{
   font-size: 17px;
 }
 h1{
-  text-align: center;
+  text-align: justify;
   height: 7%;
   width: 100%;
+  position: relative;
+  bottom:120px;
 }
 .book {
   position: relative;
@@ -15,11 +17,12 @@ h1{
   height: 16.5% ;
   margin: 1%;
   float: right;
+  bottom: 65px;
 }
 
 .book img {
   vertical-align: middle;
-  width: 100%;
+  width: 72%;
   
   
 }
@@ -229,4 +232,15 @@ i{
 }
 .he li{
   list-style-type: none;
+}
+.clearFilter{
+  border-radius: 170%;
+  border-color: rgb(205, 147, 231);
+  background-color:rgb(205, 147, 231) ;
+
+}
+.content1{
+position: relative;
+top:289px;
+left: 52px;
 }

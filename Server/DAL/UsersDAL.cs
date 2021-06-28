@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataObject;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,7 +26,7 @@ namespace DAL
 
         //שליפה ע"י נתון
 
-        public static Users GetById(string id)
+        public static UsersDTO GetById(string id)
         {
             using (var context = new LibraryDBEntities1())
             {
@@ -33,7 +34,14 @@ namespace DAL
                 {
                     return null;
                 }
-                return context.Users.FirstOrDefault(a => a.IdUser == id);
+                UsersDTO user = new UsersDTO();
+                Users u = context.Users.FirstOrDefault(a => a.IdUser == id);
+                user.IdUser = u.IdUser;
+                user.NameUser = u.NameUser;
+                user.AgeUser = u.AgeUser;
+                user.Gender = new GendersDTO() { CodeGender = u.Genders.CodeGender, KindGender = u.Genders.KindGender };
+                user.Status = new StatusUserDTO() { CodeStatus = u.StatusUser.CodeStatus, KindStatus = u.StatusUser.KindStatus };
+                return user;
             }
               
         }

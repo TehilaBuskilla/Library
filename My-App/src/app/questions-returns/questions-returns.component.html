@@ -3,27 +3,25 @@
  
 <div class="container">
   <h2>כאן תוכל לצפות בספרים שהשאלת </h2>
-  <ul class="ks-cboxtags">
+  <!-- <ul class="ks-cboxtags">
     <li><input type="checkbox" id="checkboxOne" value="Rainbow Dash"><label for="checkboxOne">ספרים שעוד לא החזרתי</label></li>  
-  </ul>
+  </ul> -->
     <div class="row">
     <div class="col-xs-12">
       <div class="table-responsive text-center" >
         <table  class="table table-bordered table-hover">
           <thead >
             <tr>
-              <th data-priority="1"> שם ספר</th>
-              <th data-priority="2">מחבר</th>
-              <th data-priority="3"> תאריך השאלה</th>
-              <th data-priority="4">תאריך החזרה</th>
-              <th data-priority="5" >אהבתי</th>
+              <th data-priority="1"> שם ספר</th>            
+              <th data-priority="2"> תאריך השאלה</th>
+              <th data-priority="3">תאריך החזרה</th>
+              <th data-priority="4" >אהבתי</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody *ngFor="let item of listBorrowedBooks">
             <tr>
-              <td>קוקטל ההצלחה</td>
-              <td>הרב יצחק פנגר</td>
-              <td><input type="date" value="2021-01-21"></td>
+              <td>{{item.BookCode.NameBook}}</td>
+              <td>{{item.BorrowingDate}}</td>
               <td><input type="date" value="2021-01-21"> </td>
               <td id="td"><button><i class="far fa-thumbs-up" style="cursor: pointer;"></i></button></td>
             </tr>     

@@ -52,26 +52,22 @@ html {
   height: 50px;
 //   transition: background-position-x 0.9s linear;
   text-align: center;
+  
 
   a {
     font-size: 22px;
-    color: #777;
+    color: #a46bab;
     text-decoration: none;
+	cursor: pointer;
     // transition: all 0.45s;
   }
 
-//   &:hover
-//    {
-//     background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB2ZXJzaW9uPSIxLjEi%0D%0AIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhs%0D%0AaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIKCSB3aWR0%0D%0AaD0iMzkwcHgiIGhlaWdodD0iNTBweCIgdmlld0JveD0iMCAwIDM5MCA1MCIgZW5hYmxlLWJhY2tn%0D%0Acm91bmQ9Im5ldyAwIDAgMzkwIDUwIiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHBhdGggZmlsbD0i%0D%0Abm9uZSIgc3Ryb2tlPSIjZDk0ZjVjIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLW1pdGVybGlt%0D%0AaXQ9IjEwIiBkPSJNMCw0Ny41ODVjMCwwLDk3LjUsMCwxMzAsMAoJYzEzLjc1LDAsMjguNzQtMzgu%0D%0ANzc4LDQ2LjE2OC0xOS40MTZDMTkyLjY2OSw0Ni41LDI0My42MDMsNDcuNTg1LDI2MCw0Ny41ODVj%0D%0AMzEuODIxLDAsMTMwLDAsMTMwLDAiLz4KPC9zdmc+Cg==");
-// 	 animation:  line 1s;
-// 	color:yellow;
-	
-	
-//   }
+
 
   &:hover a {
     color: black;
   }
+  
 
   &:not(:last-child) {
     margin-right: 30px;
@@ -87,8 +83,8 @@ html {
 
 .history{
 	position: relative;
-	right: 47%;
-	bottom: 146px;
+	right: 40%;
+	bottom: 107px;
 	
 }
     
@@ -109,7 +105,7 @@ a{color:inherit;text-decoration:none}
 	max-width:525px;
 	min-height:70%;
 	position:relative;
-	background:url(../assets/images/susan-yin-2JIvboGLeho-unsplash.jpg) no-repeat center;
+	background:url(../assets/images/תמונה.jpg) no-repeat center;
 	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
 }
 .login-html{
@@ -252,5 +248,5 @@ cursor: pointer;
   }
 }
 .content{
-	padding: 0 30px;
+	padding: 0 87px;
 }

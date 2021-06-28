@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BorrowedBooks } from '../class/borrowedBooks';
+import { BorrowedBooksService } from '../services/borrowed-books.service';
 import { ServiceService } from '../services/service.service';
 
 @Component({
@@ -8,9 +10,12 @@ import { ServiceService } from '../services/service.service';
 })
 export class QuestionsReturnsComponent implements OnInit {
 
-  constructor(public serviseSer:ServiceService) { }
+  constructor(public serviseSer:ServiceService,
+    private borrowedBooksSer:BorrowedBooksService ) { }
+  listBorrowedBooks: Array<BorrowedBooks> = new Array<BorrowedBooks>();
 
   ngOnInit(): void {
+    this.borrowedBooksSer.GetAll().subscribe(x=>{this.listBorrowedBooks=x});
   }
 
 }

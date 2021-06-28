@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BL.AudiencesBL">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAAAIAAAAAAAAEAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>AudiencesBL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BL.AuthorsBL">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAAAIAAAAAAAAEAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>AuthorsBL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BL.BookToUserBL">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAgAAgAAAAAA=</HashCode>
+      <FileName>BookToUserBL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BL.BorrowedBooksBL">
+    <Position X="3.75" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAAAIAAAAAAAAEAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>BorrowedBooksBL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BL.GendersBL">
+    <Position X="2" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAAAIAAAAAAAAEAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>GendersBL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BL.KindsOfBooksBL">
+    <Position X="9.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAAAIAAAAAAAAEAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>KindsOfBooksBL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BL.ReadingBooksBL">
+    <Position X="7.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAAAIAAAAAAAAEAAAAAAgAAAAAAAIA=</HashCode>
+      <FileName>ReadingBooksBL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BL.StatusUserBL">
+    <Position X="5.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAAAIAAAAAAAAEAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>StatusUserBL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BL.UsersBL">
+    <Position X="4" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAAAIAAAAAAAAEBAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>UsersBL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BL.WishListBL">
+    <Position X="2" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAAAIAAAAAAAAEAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>WishListBL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

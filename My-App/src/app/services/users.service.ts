@@ -37,7 +37,7 @@ export class UsersService {
   //התחברות משתמש
   SignIn(existUser:Users):Observable<Users>
   {
-    
-    return this.myhttp.get<Users>(this.url+"GetByCode/"+existUser);
+    console.log(existUser)
+    return this.myhttp.post<Users>(this.url+"Connect", existUser );
   }
 }

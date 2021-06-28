@@ -7,7 +7,7 @@ import { WishList } from "../class/wishList";
 @Injectable({
     providedIn: 'root'
   })
-  export class AudiencesService {
+  export class WishListService {
   
     
     url="http://localhost:65319/api/WishList/";

@@ -152,6 +152,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>LibraryDBModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="ClassDiagram1.cd" />
     <None Include="LibraryDBModel.edmx.diagram">
       <DependentUpon>LibraryDBModel.edmx</DependentUpon>
     </None>

@@ -10,9 +10,9 @@ namespace DataObject
     {
         public int CodeBookToUser { get; set; }
 
-        public ReadingBooksDTO BookCode { get; set; }
+        public int BookCode { get; set; }
 
-        public UsersDTO UserId { get; set; }
+        public string UserId { get; set; }
 
         public Boolean Like { get; set; }
 

@@ -32,7 +32,7 @@ namespace BL
 
         public static ReadingBooksDTO GetById(int id)
         {
-            ReadingBooksDTO listReadingBooksDTO = DAL.ReadingBooksDAL.GetAll().Find(r => r.CodeBook == id);
+            ReadingBooksDTO listReadingBooksDTO = DAL.ReadingBooksDAL.GetAll().Find(r =>r.CodeBook == id);
             return listReadingBooksDTO;
         }
 

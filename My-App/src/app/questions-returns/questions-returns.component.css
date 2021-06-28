@@ -38,7 +38,7 @@ th{
       color:#fff;
   }
 /* checkbox */
-ul.ks-cboxtags {
+/* ul.ks-cboxtags {
     list-style: none;
     padding: 20px;
 }
@@ -105,4 +105,4 @@ ul.ks-cboxtags li input[type="checkbox"] {
 }
 ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   border: 2px solid #00718d;
-}
+} */
