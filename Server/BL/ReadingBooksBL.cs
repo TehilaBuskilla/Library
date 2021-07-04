@@ -64,6 +64,7 @@ namespace BL
             readingBook.IsBorrowed = readingBooksDTO.IsBorrowed;
             readingBook.StatusCode = readingBooksDTO.StatusUser.CodeStatus;
             readingBook.GenderCode = readingBooksDTO.Gender.CodeGender;
+            readingBook.ImgBook = readingBooksDTO.ImgBook;
             return readingBook;
 
 
@@ -81,7 +82,7 @@ namespace BL
             //readingBooksDTO.IsBorrowed = readingBook.IsBorrowed;
             //readingBooksDTO.StatusCode = readingBook.StatusCode;
             //readingBooksDTO.GenderCode = readingBook.GenderCode;
-
+            readingBooksDTO.ImgBook = readingBook.ImgBook;
             return readingBooksDTO;
         }
     }

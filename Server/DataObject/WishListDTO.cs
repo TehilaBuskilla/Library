@@ -9,7 +9,9 @@ namespace DataObject
    public class WishListDTO
     {
         public int CodeWishList { get; set; }
+
         public int BookCode { get; set; }
+
         public int UserId { get; set; }
 
     }

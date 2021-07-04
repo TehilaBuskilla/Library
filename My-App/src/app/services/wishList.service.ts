@@ -18,7 +18,10 @@ import { WishList } from "../class/wishList";
     {
       return this.myhttp.get<WishList[]>(this.url+"GetAll");
     }
-  
+    GetById(id:string):Observable<WishList[]>
+    {
+      return this.myhttp.get<WishList[]>(this.url+"GetById/"+id);
+    }
     Post(newAudience:WishList):Observable<number>
     {
       return this.myhttp.post<number>(this.url+"Post",newAudience);

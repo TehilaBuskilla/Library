@@ -1,12 +1,15 @@
 body{
     direction: rtl;
-    font-family: "Varela Round", sans-serif;
+    /* font-family: "Varela Round", sans-serif; */
 }
 
 h2 {
     text-align: center;
     padding: 20px 0;
+    position: relative;
+    bottom: 50px;
   }
+ 
  table{
      width: 75%;
      margin: auto;
@@ -37,6 +40,7 @@ th{
       background-color:rgb(205, 147, 231);
       color:#fff;
   }
+ 
 /* checkbox */
 /* ul.ks-cboxtags {
     list-style: none;

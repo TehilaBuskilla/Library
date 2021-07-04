@@ -48,8 +48,8 @@ namespace BL
         public static Dictionary<string, Dictionary<int, int>> GetById(string id)
         {
             List<BookToUserDTO> listBookToUserDTO = new List<BookToUserDTO>();
-            //&& DateTime.Compare(x.LastDate.Value, DateTime.Today.AddMonths(-3) >= 1
-            List <BookToUser> listBookToUser = BookToUserDAL.GetAll().FindAll(x =>x.UserId==id );  //שליפה של הספרים שראה מלפני 3 חודש ומעלה
+           
+            List <BookToUser> listBookToUser = BookToUserDAL.GetAll().FindAll(x =>x.UserId==id && DateTime.Compare(x.LastDate.Value, DateTime.Today.AddMonths(-3)) >= 1);  //שליפה של הספרים שראה מלפני 3 חודש ומעלה
             foreach (var item in listBookToUser)
             {
                 listBookToUserDTO.Add(Convert(item));
@@ -82,23 +82,25 @@ namespace BL
                 }
             });
             int mone = 0;
+            Dictionary<string, Dictionary<int, int>> percent = new Dictionary<string, Dictionary<int, int>>();
             foreach (var key in dictionaryOfBookToUser.Keys)   //מי שהכמות של הקוד הזה קטן משתיים אני מסירה אותו כי זה מאד מינורי ולא צריך להתייחס לכמות כזו
             {
-
+                percent.Add(key, new Dictionary<int, int>());
                 foreach (var count in dictionaryOfBookToUser[key])
                 {
-                    if (count.Value <= 2)
-                        key.Remove(count.Value);
-                    else                            //אם לא קטן משתיים תספור לי כמה היה מזה
+                    //if (count.Value <= 2)
+                    //    key.Remove(count.Value);
+                    //else                            //אם לא קטן משתיים תספור לי כמה היה מזה
                         mone += count.Value;
                 }
                 foreach (var count in dictionaryOfBookToUser[key])
                 {
-                    dictionaryOfBookToUser[key][count.Value] = (count.Value * 100) / mone;
+                    percent[key].Add(count.Key, (count.Value * 100) / mone);
+
                 }
                 mone = 0;
             }
-            return dictionaryOfBookToUser;
+            return percent;
 
         }
 

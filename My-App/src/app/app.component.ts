@@ -37,10 +37,8 @@ export class AppComponent {
         console.log('x:', x)
         if (x != null) {
           this.newUser = x
-          this.ServiceSer.logIn(this.newUser); 
+          this.ServiceSer.SignUp(this.newUser); 
           this.showRegistration = false;
-         
-
         }
       })
     }
@@ -94,7 +92,7 @@ export class AppComponent {
           console.log(IdUser, this.newUser.NameUser)
       }
     )
-    this.ServiceSer.logIn(this.newUser);
+    this.ServiceSer.SignUp(this.newUser);
   }
 
   exit(){
@@ -112,7 +110,7 @@ export class AppComponent {
       console.log('x:', x)
       if (x != null) {
         this.newUser = x
-        this.ServiceSer.logIn(this.newUser);
+        this.ServiceSer.SignUp(this.newUser);
         this.showRegistration = false
         this.ServiceSer.calc();
         this.router.navigate(['myespecially_for_you']);

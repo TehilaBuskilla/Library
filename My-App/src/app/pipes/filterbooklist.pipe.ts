@@ -1,3 +1,4 @@
+
 import { Pipe, PipeTransform } from '@angular/core';
 import { FilterBookObject } from '../class/filterobject';
 import { ReadingBooks } from '../class/readingBooks';
@@ -27,6 +28,7 @@ export class FilterbooklistPipe implements PipeTransform {
       
       if (filter.author!= undefined && filter.author.trim()!='') {
         list = list.filter(l => l.Author.NameAuthor.toLowerCase().indexOf(filter.author.toLowerCase()) != -1)
+        
       }
     }
 

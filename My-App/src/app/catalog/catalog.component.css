@@ -6,23 +6,30 @@ body{
 }
 h1{
   text-align: justify;
-  height: 7%;
+  height: 0%;
   width: 100%;
   position: relative;
-  bottom:120px;
+  bottom:105px;
 }
 .book {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 30%;
-  height: 16.5% ;
+  height: 9.5% ;
   margin: 1%;
   float: right;
   bottom: 65px;
+  align-content: center;
+ 
+  border-radius: 10px;
 }
 
 .book img {
   vertical-align: middle;
   width: 72%;
+  margin:auto
   
   
 }
@@ -66,6 +73,9 @@ h1{
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+.list-item:checked{
+  color: black;
 }
 
 /* Hide the browser's default checkbox */
@@ -241,6 +251,6 @@ i{
 }
 .content1{
 position: relative;
-top:289px;
+top:345px;
 left: 52px;
 }

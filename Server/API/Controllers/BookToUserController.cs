@@ -11,17 +11,22 @@ using System.Web.Http.Cors;
 namespace API.Controllers
 {
     [EnableCors("*", "*", "*")]
+
     [RoutePrefix("api/BookToUser")]
+
     public class BookToUserController : ApiController
     {
+
         //שליפה
         // GET: api/BookToUser
         [Route("GetAll/{id}")]
+        
         [HttpGet]
         public List<ReadingBooksDTO> GetAll(string id)
         {
             return BookToUserBL.GetAll(id);
         }
+
 
         [Route("GetById/{id}")]
         [HttpGet]

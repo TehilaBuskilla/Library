@@ -7,13 +7,14 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using BL;
 using DataObject;
+using System.Web.Http.Cors;
 
 
 namespace API.Controllers
 {
 
     [EnableCors("*", "*", "*")]
-    [RoutePrefix("api/ProfileBook")]
+    [RoutePrefix("api/WishList")]
 
     public class WishListController : ApiController
     {

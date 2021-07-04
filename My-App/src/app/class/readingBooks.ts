@@ -14,7 +14,7 @@ export class ReadingBooks {
         public Audience?: Audiences,
         public LengthBook?: number,
         public IsBorrowed?: boolean,
-        public Status?: StatusUser,
+        public StatusUser?: StatusUser,
         public Gender?: Genders,
         public ImgBook?:string,
     ) {

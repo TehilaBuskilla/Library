@@ -5,7 +5,7 @@
         <img src="../../assets/images/תמונה.jpg" alt="Avatar" style="width:100%">
         <div class="content">
             <h4><b>ספרים שאהבת</b></h4>
-            <i onclick="document.getElementById('Love').style.display='block'" class="fas fa-angle-down"></i>
+            <i onclick="document.getElementById('Love').style.display='block'"; class="fas fa-angle-down" ></i>
             <div id="Love" style="display: none;">
             <table class="table table-hover" >
                 <thead>
@@ -15,9 +15,9 @@
                     <th>מחיקה</th>
                   </tr>
                 </thead>
-                <tbody >
-                  <tr  *ngFor="let item of bookToUserList">
-                    <td>{{item.BookCode.NameBook}}</td>
+                <tbody *ngFor="let item of readingBookList">
+                  <tr>
+                   <td>{{item.BookCode.NameBook}}</td> 
                     <td><button (click)="borrow()" class="btns"><i class="fas fa-exchange-alt"></i></button></td>
                     <td><button (click)="delete(item.BookCode)" class="btns"> <i class="fas fa-times-circle"></i></button></td>
                  
@@ -31,7 +31,7 @@
     <div class="card">
       <img src="../../assets/images/תמונה.jpg" alt="Avatar" style="width:100%">
       <div class="content">
-          <h4><b>ספרים שאולי תאהב</b></h4>
+          <h4><b>ספרים שאתה עשוי לאהוב</b></h4>
           <i onclick="document.getElementById('maybeLove').style.display='block'"class="fas fa-angle-down"></i>
           <div id="maybeLove" style="display: none;">
           <table class="table table-hover" >
@@ -42,9 +42,9 @@
                   <th>מחיקה</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr *ngFor="let item of bookToUserList">
-                  <td>{{item.NameBook}}</td>
+              <tbody *ngFor="let item of readingBookList">
+                <tr>
+                   <td>{{item.BookCode.NameBook}}</td> 
                   <td><button (click)="borrow()" class="btns"><i class="far fa-thumbs-up"></i></button></td> 
                   <td><button (click)="delete(item.BookCode)" class="btns"> <i class="fas fa-times-circle"></i></button></td>
                

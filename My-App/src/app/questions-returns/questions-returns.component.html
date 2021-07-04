@@ -1,8 +1,11 @@
 
 <body>
  
-<div class="container">
+<div class="container" *ngIf="isRegistered" >
+  
+  
   <h2>כאן תוכל לצפות בספרים שהשאלת </h2>
+
   <!-- <ul class="ks-cboxtags">
     <li><input type="checkbox" id="checkboxOne" value="Rainbow Dash"><label for="checkboxOne">ספרים שעוד לא החזרתי</label></li>  
   </ul> -->
@@ -31,4 +34,5 @@
     </div>
   </div>
 </div>
+<app-signinmessage *ngIf="isRegistered==false"></app-signinmessage>
 </body>

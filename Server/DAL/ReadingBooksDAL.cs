@@ -25,6 +25,7 @@ namespace DAL
                         NameBook = item.NameBook,
                         IsBorrowed = item.IsBorrowed,
                         LengthBook = item.LengthBook,
+                        ImgBook = item.ImgBook,
                         Author = new AuthorsDTO
                         {
                             CodeAuthor = item.Authors.CodeAuthor,

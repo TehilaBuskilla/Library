@@ -33,7 +33,7 @@ export class ServiceService {
 
   }
   like(item: ReadingBooks) { //דחיפה של ספרים שאהב לספרים שאהב ולספרים שפתח
-    this.wishListSer.Post(new WishList(0, item.CodeBook, this.userIn.IdUser));
+    this.wishListSer.Post(new WishList(0,item.CodeBook, this.userIn.IdUser));
     this.bookToUserList.push(new BookToUser(0, item.CodeBook, this.userIn.IdUser, true, new Date(), 1));
 
   }
@@ -42,23 +42,34 @@ export class ServiceService {
   }
 
   calc() {
-    this.readingBooksSer.GetAll().subscribe(x => this.listReadingBook = x);
-    this.bookToUserSer.GetById(this.currentUser.IdUser).subscribe(x => this.listBookToUser = x);
-    this.listReadingBook.filter(r => this.listBookToUser["Author"].hasOwnProperty(r.Author.CodeAuthor) &&
+    let id;
+    this.readingBooksSer.GetAll().subscribe(x => {this.listReadingBook = x});
+    this.bookToUserSer.GetById(this.currentUser.IdUser).subscribe(x => {this.listBookToUser = x});
+    if(this.listBookToUser==undefined)
+    this.listReadingBook=[];
+    else{
+         this.listReadingBook=this.listReadingBook.filter(r => this.listBookToUser["Author"].hasOwnProperty(r.Author.CodeAuthor) &&
       this.listBookToUser["Audience"].hasOwnProperty(r.Audience.CodeAudience) &&
       this.listBookToUser["KindOfBook"].hasOwnProperty(r.KindOfBook.CodeKindBook) &&
-      this.listBookToUser["StatusUser"].hasOwnProperty(r.Status.CodeStatus) &&
+      this.listBookToUser["StatusUser"].hasOwnProperty(r.StatusUser.CodeStatus) &&
       this.listBookToUser["Gender"].hasOwnProperty(r.Gender.CodeGender));
-    this.listReadingBook.forEach(dres => {
-      for (let prop in dres) {  //מעבר על ספר
-        if (typeof (dres[prop]) == 'object') { //אם מדובר בפרמטר לסינון     
-          if (this.listBookToUser[prop][dres[prop][0]] > 0) //בדוק אם קיים פרמטקר כזה עם קוד של פרמטר זה
-            this.listBookToUser[prop][dres[prop][0]]--; //אם כן השאר את הספר והורד מתוך האחוזים את ההוספה הזו
+    this.listReadingBook.forEach(readingBook => {
+      for (let prop in readingBook) {  //מעבר על ספר
+        if (typeof (readingBook[prop]) == 'object') { //אם מדובר בפרמטר לסינון     
+         for (let item in readingBook[prop]) {
+               id=readingBook[prop][item];
+           break
+         }
+          if (this.listBookToUser[prop][id] > 0) //בדוק אם קיים פרמטקר כזה עם קוד של פרמטר זה
+            this.listBookToUser[prop][id]--; //אם כן השאר את הספר והורד מתוך האחוזים את ההוספה הזו
           else
-            this.listReadingBook.filter(d => d != dres);//להסיר ספר זה
+          this.listReadingBook=this.listReadingBook.filter(d => d != readingBook);//להסיר ספר זה
         }
       }
     });
+    console.log(this.listReadingBook)
+    }
+ 
   }
 
 
@@ -77,7 +88,7 @@ export class ServiceService {
   get currentUser() {
     return this.userIn;
   }
-  logIn(u: Users) {
+  SignUp(u: Users) {
     this.userIn = u;
     this.loginevent.emit(true)
   }

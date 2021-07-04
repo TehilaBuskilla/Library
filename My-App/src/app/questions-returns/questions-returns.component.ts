@@ -9,6 +9,8 @@ import { ServiceService } from '../services/service.service';
   styleUrls: ['./questions-returns.component.css']
 })
 export class QuestionsReturnsComponent implements OnInit {
+  isRegistered = false
+  currentUser
 
   constructor(public serviseSer:ServiceService,
     private borrowedBooksSer:BorrowedBooksService ) { }
@@ -16,6 +18,12 @@ export class QuestionsReturnsComponent implements OnInit {
 
   ngOnInit(): void {
     this.borrowedBooksSer.GetAll().subscribe(x=>{this.listBorrowedBooks=x});
+    this.isRegistered=this.serviseSer.isLogIn;
+    if(this.isRegistered){
+      this.currentUser=this.serviseSer.currentUser
+    }
+    this.serviseSer.loginevent.subscribe(val=>{this.isRegistered=val
+    this.currentUser=this.serviseSer.currentUser})
   }
 
 }

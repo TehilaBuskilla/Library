@@ -79,45 +79,7 @@ export class CatalogComponent implements OnInit {
   
   
 
-//   algo() {                     //אלגוריתם
-//       this.listMone = new Map()
-//       for (let item in this.listReadingBook[0]) {
-//         this.listMone.set(item, new Map());
-//       }
-//       this.listReadingBook.forEach(element => {
-//         for (let item in element) {
-//           let val = this.listMone.get(item)
-//           let innerval = 0;
-//           if (typeof (element[item]) == 'object') {
-//             for (let key in element[item]) {
-//               if (key.indexOf('Id') != -1) {
 
-//                 innerval = val.get(element[item][key])
-//                 if (innerval != undefined) {
-//                   innerval += 1;
-                  
-//                 }
-//                 else {
-//                   innerval = 1;
-//                 }
-//                 val.set(element[item][key], innerval)
-//               }
-//             }
-//           }
-//           if(element[item]=='IdUser')
-//           {
-//             innerval = val.get(element[item])
-//             if (innerval != undefined) {
-//               innerval += 1;
-//             }
-//             else {
-//               innerval = 1;
-//             }
-//             val.set(element[item], innerval)
-//           }
-//         }
-       
-//       });  
 // this.close();
 //   }
 //   close(){
@@ -135,32 +97,8 @@ export class CatalogComponent implements OnInit {
   //     // this.algo();
   // }
 
-  //אלגוריתם
-  //when the widow is close
-  ///
-  //  MapAudience=new Map();
-  //  MapAuthor = new Map();
-  //  MapKindOfBook=new Map();
-  //  MapStatus = new Map();
+  
 
-  // addMone(item: number,myMap:Map<number,number>) {
-  //   if (myMap.get(item) > 0)
-  //     myMap.set(item, myMap.get(item) + 1);
-  //   else
-  //     myMap.set(item, 1);
-  // }
-
-  ///
-//   algo() {
-//    // אמור לשלוח את כל המפות לקונטרולר
-//     // this.likebookList.forEach(element => {
-//     //   //איך אני בודקת מה משותף
-//     //   this.addMone(element.Author.CodeAuthor,this.MapAuthor);
-//     //   this.addMone(element.Status.CodeStatus,this.MapStatus);
-//     // });
-// //צריךלמצוא פונקציה יעילה שתמצא לי את הערך המקסימלי
-//   Math.max(...this.moneStatus);
-// }
 
 // likebookList: Array<number> = new Array<number>();
 // BookToUserList: Array<BookToUser> = new Array<BookToUser>();

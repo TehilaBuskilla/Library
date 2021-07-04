@@ -11,70 +11,56 @@
             <select class="list">
               <option *ngFor="let item of listAuthor">{{item.NameAuthor}} </option>
             </select> -->
-            <form>
-              <input type="text" name="search" (input)="filteritem.author=$event.target.value" placeholder="חפש מחבר...">
-              
-            </form>
-          
+          <form>
+            <input type="text" name="search" (input)="filteritem.author=$event.target.value" placeholder="חפש מחבר...">
+
+          </form>
+
         </div>
 
         <form>
           <input type="text" name="search" (input)="filteritem.bookname=$event.target.value" placeholder="חפש ספר...">
-          
+
         </form>
 
         <hr>
         <h3>סוג ספר</h3>
         <i id="n" class="fas fa-plus" style="display: none;"></i>
         <div class="list">
-          <div *ngFor="let item of listKindBook" class="list-item" [class.selected]="filteritem.kind!=undefined&&filteritem.kind==item" (click)="filterBooks('kind',item)">{{item.KindBook}}
+          <div *ngFor="let item of listKindBook" class="list-item"
+            [class.selected]="filteritem.kind!=undefined&&filteritem.kind==item" (click)="filterBooks('kind',item)">
+            {{item.KindBook}}
           </div>
         </div>
 
         <div class="list">
           <hr>
           <h3>קהל יעד</h3>
-          <div *ngFor="let item of listAudience" class="list-item" [class.selected]="filteritem.audience!=undefined&&filteritem.audience==item" (click)="filterBooks('audience',item)">
+          <div *ngFor="let item of listAudience" class="list-item"
+            [class.selected]="filteritem.audience!=undefined&&filteritem.audience==item"
+            (click)="filterBooks('audience',item)">
             {{item.KindAudience}} </div>
         </div>
         <hr>
         <div>
-          
-        <input  type="button" class="clearFilter"  value="נקה סינון" (click)="clearFilter()" >
+
+          <input type="button" class="clearFilter" value="נקה סינון" (click)="clearFilter()">
         </div>
       </div>
 
       <div class="col-sm-10 text-right">
         <h1><i class="fas fa-book-reader"></i> ספרים בספריה</h1>
-        <div class="book" *ngFor="let item of listBooks|filterbooklist:filteritem; let i = index"> 
-        
-           <img src="http://localhost:65319/Content/Images/{{item.ImgBook}}" >  
-            <!-- <img src="../../assets/images/{{}}"> -->
-             <!-- <img src="http://localhost:65319/Content/Images/1.png" > -->
-          <!-- <img src="http://localhost:65319/Content/Images/3.png" >
-          <img src="http://localhost:65319/Content/Images/4.png" >
-          <img src="http://localhost:65319/Content/Images/5.png" >
-          <img src="http://localhost:65319/Content/Images/6.png" >
-          <img src="http://localhost:65319/Content/Images/7.png" >
-          <img src="http://localhost:65319/Content/Images/8.png" >
-          <img src="http://localhost:65319/Content/Images/9.png" >
-          <img src="http://localhost:65319/Content/Images/10.png" >
-          <img src="http://localhost:65319/Content/Images/11.png" >
-          <img src="http://localhost:65319/Content/Images/12.png" >
-          <img src="http://localhost:65319/Content/Images/13.png" >
-          <img src="http://localhost:65319/Content/Images/14.png" >
-          <img src="http://localhost:65319/Content/Images/15.png" >
-          <img src="http://localhost:65319/Content/Images/16.png" >
-          <img src="http://localhost:65319/Content/Images/17.png" >
-           <img src="http://localhost:65319/Content/Images/18.png" >
-          <img src="http://localhost:65319/Content/Images/19.png" >   --> 
-          <div class="content">
-           <div class="content1">
-            <i class="fas fa-info-circle" data-toggle="modal" data-target="#myModal" (click)="selectedBook = item" (click)="serviceSer.BookToUser(item)"
-             id="meida">מידע</i>
-            <i class="far fa-thumbs-up" (click)="serviceSer.like(item)">אהבתי</i>
-          </div>
-      
+        <div class="book" *ngFor="let item of listBooks|filterbooklist:filteritem; let i = index">
+
+          <img src="http://localhost:65319/Content/Images/{{item.ImgBook}}">
+
+          <div class="content" >
+            <div class="content1" style="display: flex; justify-content: center;">
+              <i style="color: black;" class="fas fa-info-circle"  data-toggle="modal" data-target="#myModal" (click)="selectedBook = item"
+                (click)="serviceSer.BookToUser(item)" id="meida">מידע</i>
+              <i style="color: black;" class="far fa-thumbs-up" (click)="serviceSer.like(item)">אהבתי</i>
+            </div>
+
           </div>
 
 
