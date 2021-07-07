@@ -15,7 +15,7 @@ namespace API.Controllers
 
     public class KindsOfBooksController : ApiController
     {
-        //שליפה
+        //Get
         // GET: api/KindsOfBooks
         [Route("GetAll")]
         [HttpGet]
@@ -25,16 +25,7 @@ namespace API.Controllers
             return KindsOfBooksBL.GetAll();
         }
 
-        //שליפה ע"י נתון
-        // GET: api/KindsOfBooks/5
-        //[Route("Get/{}")]
-        //[HttpGet]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
-
-        //הוספה
+        //Add
         // POST: api/KindsOfBooks
         [Route("{newKindOfBook}")]
         [HttpPost]
@@ -44,7 +35,7 @@ namespace API.Controllers
             return KindsOfBooksBL.Add(newKindOfBook);
         }
 
-        //עדכון
+        //Update
         // PUT: api/KindsOfBooks/5
         [Route("{upKindOfBook}")]
         [HttpPut]
@@ -55,8 +46,8 @@ namespace API.Controllers
 
         }
 
-        //מחיקה
-        // DELETE: api/KindsOfBooksKindsOfBooks/5
+        //Delete
+        // DELETE: api/KindsOfBooks/5
         [Route("Delete/{CodeKindsOfBooks}")]
         [HttpDelete]
         public bool Delete(int CodeKindsOfBooks)

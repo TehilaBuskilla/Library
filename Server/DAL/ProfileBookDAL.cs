@@ -9,8 +9,8 @@ namespace DAL
 {
    public class ProfileBookDAL
     {
-       
-        //שליפה להכל
+
+        // Get
         public static List<ProfileBook> GetAll()
         {
             using (var context = new LibraryDBEntities1())

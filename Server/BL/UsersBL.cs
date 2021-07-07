@@ -10,13 +10,13 @@ namespace BL
 {
     public class UsersBL
     {
-        //הוספה
+        //Add
         public static string Add(UsersDTO usersDTO)
         {
             return UsersDAL.Add(Convert(usersDTO));
         }
 
-        //שליפה
+        //Get
         public static List<UsersDTO> GetAll()
         {
             List<UsersDTO> listUsersDTO = new List<UsersDTO>();
@@ -30,19 +30,19 @@ namespace BL
             return listUsersDTO;
         }
 
-        //התחברות משתמש
-        public static UsersDTO GetByCode(UsersDTO existUser)
+        //GetByCode
+        public static UsersDTO GetByCode(UsersDTO existUser)   //user signIn
         {
 
             return UsersDAL.GetById(existUser.IdUser);
         }
-        //מחיקה
+        //Delete
         public static bool Delete(string IdUser)
         {
             return UsersDAL.Delete(IdUser);
         }
 
-        //עדכון
+        //Update
         public static bool Update(UsersDTO usersDTO)
         {
             Users user = new Users();

@@ -17,9 +17,9 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ReadingBooks()
         {
+            this.BookToUser = new HashSet<BookToUser>();
             this.BorrowedBooks = new HashSet<BorrowedBooks>();
             this.ProfileBook = new HashSet<ProfileBook>();
-            this.BookToUser = new HashSet<BookToUser>();
             this.WishList = new HashSet<WishList>();
         }
     
@@ -29,7 +29,6 @@ namespace DAL
         public int KindBookCode { get; set; }
         public int AudienceCode { get; set; }
         public int LengthBook { get; set; }
-        public bool IsBorrowed { get; set; }
         public int StatusCode { get; set; }
         public int GenderCode { get; set; }
         public string ImgBook { get; set; }
@@ -37,14 +36,14 @@ namespace DAL
         public virtual Audiences Audiences { get; set; }
         public virtual Authors Authors { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BookToUser> BookToUser { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BorrowedBooks> BorrowedBooks { get; set; }
         public virtual Genders Genders { get; set; }
         public virtual KindsOfBooks KindsOfBooks { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProfileBook> ProfileBook { get; set; }
         public virtual StatusUser StatusUser { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BookToUser> BookToUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WishList> WishList { get; set; }
     }

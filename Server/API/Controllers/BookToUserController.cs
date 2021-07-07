@@ -17,35 +17,57 @@ namespace API.Controllers
     public class BookToUserController : ApiController
     {
 
-        //שליפה
+        //Get
         // GET: api/BookToUser
-        [Route("GetAll/{id}")]
-        
+        [Route("GetAll/{id}/{love}")]
         [HttpGet]
-        public List<ReadingBooksDTO> GetAll(string id)
+        public List<ReadingBooksDTO> GetAll(string id,bool? love)
         {
-            return BookToUserBL.GetAll(id);
+            return BookToUserBL.GetAll(id,love);
         }
 
-
-        [Route("GetById/{id}")]
+        //GetById
+        // GET: api/BookToUser
+        [Route("GetById/{id}")]   
         [HttpGet]
-        public Dictionary<string, Dictionary<int, int>> GetById(string id)
+        public Dictionary<string, Dictionary<int, int>> GetById(string id) //create dictionary : key and value 
         {
             return BookToUserBL.GetById(id);
         }
 
-        //הוספה
+        //Add
         // POST: api/BookToUser
         [Route("Post")]
         [HttpPost]
-        public void Post(List <BookToUserDTO> newBookToUser)
+        public void Post( BookToUserDTO newBookToUser)
         {
              BookToUserBL.Add(newBookToUser);
 
         }
 
-    
+        //Update
+        // PUT: api/BookToUser/5
+        [Route("Put")]
+        [HttpPut]
+        public bool Put(BookToUserDTO newBookToUser)
+        {
+           return BookToUserBL.Update(newBookToUser);
+
+        }
+        //Delete
+        // DELETE: api/BookToUser/5
+        [Route("Delete/{CodeBookToUser}")]
+        [HttpDelete]
+        public bool Delete(int CodeBookToUser)
+        {
+
+
+            return BookToUserBL.Delete(CodeBookToUser);
+        }
+
+
+
+
 
     }
 }

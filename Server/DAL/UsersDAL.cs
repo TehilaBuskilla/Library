@@ -10,7 +10,7 @@ namespace DAL
 {
    public class UsersDAL
     {
-        //שליפה להכל
+        // Get
         public static List<Users> GetAll()
         {
             using (var context = new LibraryDBEntities1())
@@ -24,7 +24,7 @@ namespace DAL
 
         }
 
-        //שליפה ע"י נתון
+        // GetById 
 
         public static UsersDTO GetById(string id)
         {
@@ -45,24 +45,20 @@ namespace DAL
             }
               
         }
-        //הוספה
+        //Add
         public static string Add(Users user)
         {
             using (var context = new LibraryDBEntities1())
             {
                 context.Users.Add(user);
                 context.SaveChanges();
-                //int code = 0;
-                //foreach (Users item in context.Users)
-                //{
-                //    code = item.IdUser;
-                //}
+            
                 return "";
             }
 
         }
 
-        //מחיקה
+        //Delete
 
         public static bool Delete(string code)
         {
@@ -86,7 +82,7 @@ namespace DAL
 
 
 
-        //עדכון
+        //Update
         public static bool Update(Users user)
         {
             try

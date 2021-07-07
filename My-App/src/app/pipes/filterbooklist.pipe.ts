@@ -5,7 +5,8 @@ import { ReadingBooks } from '../class/readingBooks';
 
 @Pipe({
   name: 'filterbooklist',
-  pure:false
+  pure:false 
+  
 })
 export class FilterbooklistPipe implements PipeTransform {
 
@@ -31,7 +32,7 @@ export class FilterbooklistPipe implements PipeTransform {
         
       }
     }
-
+ 
     return list;
 
 

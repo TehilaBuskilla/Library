@@ -16,7 +16,7 @@ namespace API.Controllers
 
     public  class AudiencesController : ApiController
     {
-        //שליפה
+        //Get
         // GET: api/Audiences
         [Route("GetAll")]
         [HttpGet]
@@ -25,16 +25,7 @@ namespace API.Controllers
             return AudiencesBL.GetAll();
         }
 
-        //שליפה ע"י נתון
-        // GET: api/Audiences/5
-        //[Route("Get/{}")]
-        //[HttpGet]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
-
-        //הוספה
+        //Add
         // POST: api/Audiences
         [Route("{newAudience}")]
         [HttpPost]
@@ -43,7 +34,7 @@ namespace API.Controllers
             return AudiencesBL.Add(newAudience);
         }
 
-        //עדכון
+        //Update
         // PUT: api/Audiences/5
         [Route("{upAudience}")]
         [HttpPut]
@@ -54,7 +45,7 @@ namespace API.Controllers
 
         }
 
-        //מחיקה
+        //Delete
         // DELETE: api/Audiences/5
         [Route("Delete/{CodeAudience}")]
         [HttpDelete]

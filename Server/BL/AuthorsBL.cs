@@ -10,13 +10,13 @@ namespace BL
 {
     public class AuthorsBL
     {
-        //הוספה
+        //Add
         public static int Add(AuthorsDTO authorsDTO)
         {
             return AuthorsDAL.Add(Convert(authorsDTO));
         }
 
-        //שליפה
+        //Get
         public static List<AuthorsDTO> GetAll()
         {
             List<AuthorsDTO> listAuthorsDTO = new List<AuthorsDTO>();
@@ -30,13 +30,13 @@ namespace BL
             return listAuthorsDTO;
         }
 
-        //מחיקה
+        //Delete
         public static bool Delete(int CodeAuthor)
         {
             return AuthorsDAL.Delete(CodeAuthor);
         }
 
-        //עדכון
+        //Update
         public static bool Update(AuthorsDTO authorsDTO)
         {
             Authors author = new Authors();

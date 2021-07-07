@@ -5,77 +5,52 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace DAL
 {
    public class BookToUserDAL
     {
 
-        //שליפה להכל
-        //public static List<BookToUserDTO> GetAll()
-        //{
-        //    using (var context = new LibraryDBEntities1())
-        //    {
-        //        List<BookToUser> listBookToUser = context.BookToUser.ToList();
-        //        List<BookToUserDTO> listBookToUserDTO = new List<BookToUserDTO>();
-        //        foreach (var item in listBookToUser)
-        //        {
-        //            listBookToUserDTO.Add(
-        //                new BookToUserDTO
-        //                {
-        //                    CodeBookToUser = item.CodeBookToUser,
-        //                    BookCode = new ReadingBooksDTO
-        //                    {
-        //                        CodeBook = item.ReadingBooks.CodeBook,
-        //                        NameBook = item.ReadingBooks.NameBook
-        //                    },
-
-        //                    UserId = new UsersDTO {
-        //                        IdUser = item.Users.IdUser
-        //                    }
-        //                });
-        //        }
-        //        return listBookToUserDTO;
-        //    }
-
-        //}
-        public static List<BookToUser> GetAll()
-        {
-            using(var context= new LibraryDBEntities1() )
-            {
-                List<BookToUser> list = context.BookToUser.ToList();
-                return list;
-            }
-           
-        }
-
-        
-
-        //שליפת נתון
-
-        //public static Get()
-        // {
-        //using (var context = new LibraryDBEntities())
-        //{
-        //    return context.Audiences.
-        //}
-        //  }
-        //הוספה
+        //Add
         public static int Add(BookToUser bookToUser)
         {
             using (var context = new LibraryDBEntities1())
             {
-                DbChangeTracker tracker = context.ChangeTracker;
 
                 context.BookToUser.Add(bookToUser);
                 context.SaveChanges();
-              
-                return bookToUser.BookCode;
+                int id = 0;
+                foreach (BookToUser item in context.BookToUser)
+                {
+                    id = item.CodeBookToUser;
+                }
+
+                return id;
             }
 
         }
 
-        //מחיקה
+        // Get
+        public static List<BookToUser> GetAll()
+        {
+            using (var context = new LibraryDBEntities1())
+            {
+                List<BookToUser> listBookToUser = context.BookToUser
+                    .Include(b => b.ReadingBooks)
+                    .Include(b => b.ReadingBooks.Authors)
+                    .Include(b => b.ReadingBooks.Audiences)
+                    .Include(b => b.ReadingBooks.StatusUser)
+                    .Include(b => b.ReadingBooks.Genders)
+                    .Include(b => b.ReadingBooks.KindsOfBooks)
+                     .ToList();
+                return listBookToUser;
+
+
+
+            }
+        }
+        //Delete
 
         public static bool Delete(int code)
         {
@@ -99,7 +74,7 @@ namespace DAL
 
 
 
-        //עדכון
+        //Update
         public static bool Update(BookToUser bookToUser)
         {
             try
@@ -113,7 +88,7 @@ namespace DAL
                     {
                         old.BookCode = bookToUser.BookCode;
                         old.UserId = bookToUser.UserId;
-                        if (old.Like == true)
+                        if (old.Like == true|| bookToUser.Like==true)
                             old.Like = true;
                         else
                             old.Like = false;

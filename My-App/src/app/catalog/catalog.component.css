@@ -1,3 +1,4 @@
+
 body{ 
   text-align: center;
   margin: auto;
@@ -12,41 +13,42 @@ h1{
   bottom:105px;
 }
 .book {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 30%;
-  height: 9.5% ;
-  margin: 1%;
-  float: right;
-  bottom: 65px;
-  align-content: center;
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  width: 30% !important;
+  height: 9.5% !important;
+  margin: 1% !important;
+  float: right !important;
+  bottom: 65px !important;
+  align-content: center !important;
  
-  border-radius: 10px;
+  border-radius: 10px !important;
 }
 
 .book img {
-  vertical-align: middle;
-  width: 72%;
-  margin:auto
-  
+  vertical-align: middle !important;
+  width: 69% !important;
+  margin:auto !important;
+  box-shadow: 9px 12px 22px 7px;
+  border-radius: 10px;
   
 }
 
 .book .content {
-  position: absolute;
-  top: 0;
-  right:0;
-  background: rgb(0, 0, 0); /* Fallback color */
-  background: initial; /* Black background with 0.5 opacity */
-  color: #f1f1f1;
-  width: 90%;
-  padding: 1%;
+  position: absolute !important;
+  top: 0 !important;
+  right:0 !important;
+  background: rgb(0, 0, 0) !important; /* Fallback color */
+  background: initial !important; /* Black background with 0.5 opacity */
+  color: #f1f1f1 !important;
+  width: 90% !important;
+  padding: 1% !important;
 }
 
 .modal{
-  top:20%;
+  top:20% !important;
 }
  /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
  .row.content {height: 450px}
@@ -54,8 +56,8 @@ h1{
  /* Set gray background color and 100% height */
  .sidenav {
 
-   height: 100%;
-   float: right;
+   height: 100% !important;
+   float: right !important;
  }
  /* סינון */
  .list{
@@ -250,7 +252,7 @@ i{
 
 }
 .content1{
-position: relative;
-top:345px;
-left: 52px;
+position: relative !important;
+top:345px !important;
+left: 59px !important;
 }

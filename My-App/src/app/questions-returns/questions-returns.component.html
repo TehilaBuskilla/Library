@@ -1,38 +1,32 @@
-
 <body>
- 
-<div class="container" *ngIf="isRegistered" >
-  
-  
-  <h2>כאן תוכל לצפות בספרים שהשאלת </h2>
 
-  <!-- <ul class="ks-cboxtags">
-    <li><input type="checkbox" id="checkboxOne" value="Rainbow Dash"><label for="checkboxOne">ספרים שעוד לא החזרתי</label></li>  
-  </ul> -->
+  <div class="container" *ngIf="isRegistered">
+    <h2>כאן תוכל לצפות בספרים שהשאלת </h2>
     <div class="row">
-    <div class="col-xs-12">
-      <div class="table-responsive text-center" >
-        <table  class="table table-bordered table-hover">
-          <thead >
-            <tr>
-              <th data-priority="1"> שם ספר</th>            
-              <th data-priority="2"> תאריך השאלה</th>
-              <th data-priority="3">תאריך החזרה</th>
-              <th data-priority="4" >אהבתי</th>
-            </tr>
-          </thead>
-          <tbody *ngFor="let item of listBorrowedBooks">
-            <tr>
-              <td>{{item.BookCode.NameBook}}</td>
-              <td>{{item.BorrowingDate}}</td>
-              <td><input type="date" value="2021-01-21"> </td>
-              <td id="td"><button><i class="far fa-thumbs-up" style="cursor: pointer;"></i></button></td>
-            </tr>     
-          </tbody>
-        </table>
-      </div><!--end of .table-responsive-->
+      <div class="col-xs-12">
+        <div class="table-responsive text-center">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th data-priority="1"> שם ספר</th>
+                <th data-priority="2"> תאריך השאלה</th>
+                <th data-priority="3">תאריך החזרה</th>
+                <th data-priority="4">אהבתי</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let item of listBorrowedBooks">
+              <tr>
+                <td>{{item.BookCode.NameBook}}</td>
+                <td>{{item.BorrowingDate}}</td>
+                <td><input type="date" value="2021-01-21"> </td>
+                <td id="td"><button><i class="far fa-thumbs-up" style="cursor: pointer;"></i></button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!--end of .table-responsive-->
+      </div>
     </div>
   </div>
-</div>
-<app-signinmessage *ngIf="isRegistered==false"></app-signinmessage>
+  <app-signinmessage *ngIf="isRegistered==false"></app-signinmessage>
 </body>

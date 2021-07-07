@@ -10,10 +10,6 @@ import { Audiences } from '../class/audiences';
 export class AudiencesService {
 
   
-
-
-
-
   url="http://localhost:65319/api/Audiences/";
 
   constructor(private myhttp:HttpClient,private myrouter: Router) { }

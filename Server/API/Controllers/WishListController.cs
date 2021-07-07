@@ -30,12 +30,12 @@ namespace API.Controllers
 
         //שליפה ע"י נתון
         // GET: api/WishList/5
-        //[Route("Get/{}")]
-        //[HttpGet]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
+        [Route("GetById/{id}")]
+        [HttpGet]
+        public List<WishListDTO> GetById(string id)
+        {
+            return WishListBL.GetById(id);
+        }
 
 
         //הוספה

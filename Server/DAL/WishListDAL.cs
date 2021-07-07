@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataObject;
 
 namespace DAL
 {
@@ -21,13 +22,23 @@ namespace DAL
 
         //שליפת נתון
 
-        //public static Get()
-        // {
-        //using (var context = new LibraryDBEntities())
+        //public static List<WishListDTO> GetById(string id)
         //{
-        //    return context.WishList.
+        //    using (var context = new LibraryDBEntities1())
+        //    {
+        //        if (context.WishList.FirstOrDefault(x => x.UserId == id) == null)
+        //        { return null; }
+        //        WishListDTO wishList = new WishListDTO();
+        //        WishList wL = context.WishList.FirstOrDefault(x => x.UserId == id);
+        //        wishList.UserId = wL.UserId;
+        //        wishList.CodeWishList = wL.CodeWishList;
+        //        wishList.BookCode = wL.BookCode;
+        //        return  wishList;
+
+        //    }
         //}
-        //  }
+
+
         //הוספה
         public static int Add(WishList wishList)
         {

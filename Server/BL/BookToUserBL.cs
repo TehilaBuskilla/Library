@@ -13,43 +13,37 @@ namespace BL
     public class BookToUserBL
     {
 
-        //הוספה
-        public static void Add(List<BookToUserDTO> bookToUserDTO)
+        //Add
+        public static void Add(BookToUserDTO bookToUserDTO)
         {
             List<BookToUser> bookToUser = BookToUserDAL.GetAll();
-            List<BookToUserDTO> listbookToUserDTO = new List<BookToUserDTO>();
-            bookToUser.ForEach(x => listbookToUserDTO.Add(Convert(x)));
-            bookToUserDTO.ForEach(x =>
-            {
-                if (listbookToUserDTO.FirstOrDefault(i => i.UserId == x.UserId && i.BookCode == x.BookCode) == null)
-                    BookToUserDAL.Add(Convert(x));
+            var bookToUserItem = bookToUser.FirstOrDefault(r => r.UserId == bookToUserDTO.UserId && r.BookCode == bookToUserDTO.BookCode);
+                if (bookToUserItem==null)
+                    BookToUserDAL.Add(Convert(bookToUserDTO));
                 //if the book exist add else update
                 else
-                    BookToUserDAL.Update(Convert(x));
+                    BookToUserDAL.Update(bookToUserItem);
 
-            });
+           
 
         }
-        //public static List<BookToUser> getById(int id)
-        //{
-        //    List<BookToUser> listBookToUser = BookToUserDAL.GetAll();
-        //    return listBookToUser.FindAll(x => int.Parse(x.UserId) == id);
-        //}
-
-        public static List<ReadingBooksDTO> GetAll(string id)
+        
+        //Get
+        public static List<ReadingBooksDTO> GetAll(string id,bool? love)
         {
-            //List<BookToUserDTO> listBookToUserDTO = new List<BookToUserDTO>();
-            //return listBookToUserDTO;
-            return BookToUserDAL.GetAll().Select(r => ReadingBooksBL.Convert(r.ReadingBooks)).ToList();
+            List<BookToUser> bookToUsers = BookToUserDAL.GetAll().FindAll(a => a.UserId == id);
+            if (love == true)
+                bookToUsers = bookToUsers.Where(x => x.Like == true).ToList();
+            return bookToUsers.Select(r => ReadingBooksBL.Convert(r.ReadingBooks)).ToList();
         }
 
 
-        //שליפה
+        //Algorithm
         public static Dictionary<string, Dictionary<int, int>> GetById(string id)
         {
             List<BookToUserDTO> listBookToUserDTO = new List<BookToUserDTO>();
-           
-            List <BookToUser> listBookToUser = BookToUserDAL.GetAll().FindAll(x =>x.UserId==id && DateTime.Compare(x.LastDate.Value, DateTime.Today.AddMonths(-3)) >= 1);  //שליפה של הספרים שראה מלפני 3 חודש ומעלה
+           //create list of all books from history of user and filter books only from last 3 month.
+            List <BookToUser> listBookToUser = BookToUserDAL.GetAll().FindAll(x =>x.UserId==id && DateTime.Compare(x.LastDate.Value, DateTime.Today.AddMonths(-3)) >= 1);     
             foreach (var item in listBookToUser)
             {
                 listBookToUserDTO.Add(Convert(item));
@@ -57,42 +51,39 @@ namespace BL
 
             Dictionary<string, Dictionary<int, int>> dictionaryOfBookToUser = new Dictionary<string, Dictionary<int, int>>();
             dictionaryOfBookToUser.Add("Author", new Dictionary<int, int>());
-            dictionaryOfBookToUser.Add("Audience", new Dictionary<int, int>());
+            dictionaryOfBookToUser.Add("Audience", new Dictionary<int, int>());//create dictionary that contain the all parameters 
             dictionaryOfBookToUser.Add("KindOfBook", new Dictionary<int, int>());
             dictionaryOfBookToUser.Add("StatusUser", new Dictionary<int, int>());
             dictionaryOfBookToUser.Add("Gender", new Dictionary<int, int>());
 
             listBookToUserDTO.ForEach(x =>
             {
-                ReadingBooksDTO readingBooks = ReadingBooksBL.GetById(x.BookCode);
-                if (x.Like == true)
+                ReadingBooksDTO readingBooks = ReadingBooksBL.GetById(x.BookCode);    
+                if (x.Like == true)  //for on every book :if this book is like -add to count 
                     x.Count++;
-                foreach (PropertyInfo prop in readingBooks.GetType().GetProperties())
+                foreach (PropertyInfo prop in readingBooks.GetType().GetProperties()) //bring the book from database and for on it
                 {
                     var type = Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType;
                     if (type.BaseType.Name == "Object"&&prop.PropertyType.Name!="String")
-                    {
-                        PropertyInfo obj = prop.PropertyType.GetProperties()[0];
-                        int codeObj = (int)obj.GetValue(prop.GetValue(readingBooks, null), null);
-                        if (dictionaryOfBookToUser[prop.Name].ContainsKey(codeObj))   //  אם קיים לך קוד של אובגקט מסוים אז סימן שכבר נכנס פעם אחת לזה 
-                            dictionaryOfBookToUser[prop.Name][codeObj]+=x.Count;        //מוסיפים אחד לכמות הקיימת
-                        else                                  //אם לא אז מוסיפים אחד
-                            dictionaryOfBookToUser[prop.Name].Add(codeObj, x.Count);
+                    {//if this object
+                        PropertyInfo obj = prop.PropertyType.GetProperties()[0];//insert code parameter to obj
+                        int codeObj = (int)obj.GetValue(prop.GetValue(readingBooks, null), null); //insert value of code parameter to codeObj
+                        if (dictionaryOfBookToUser[prop.Name].ContainsKey(codeObj))  //if exist in dictionary this key :
+                            dictionaryOfBookToUser[prop.Name][codeObj]+=x.Count;        //  insert count to this key 
+                        else                                                           //if no exist in dictionary:
+                            dictionaryOfBookToUser[prop.Name].Add(codeObj, x.Count);   //add in key the count
                     }
                 }
             });
-            int mone = 0;
+            int mone = 0;                                          //dictionary of percents
             Dictionary<string, Dictionary<int, int>> percent = new Dictionary<string, Dictionary<int, int>>();
-            foreach (var key in dictionaryOfBookToUser.Keys)   //מי שהכמות של הקוד הזה קטן משתיים אני מסירה אותו כי זה מאד מינורי ולא צריך להתייחס לכמות כזו
+            foreach (var key in dictionaryOfBookToUser.Keys)   
             {
                 percent.Add(key, new Dictionary<int, int>());
                 foreach (var count in dictionaryOfBookToUser[key])
-                {
-                    //if (count.Value <= 2)
-                    //    key.Remove(count.Value);
-                    //else                            //אם לא קטן משתיים תספור לי כמה היה מזה
+                {                                                                      
                         mone += count.Value;
-                }
+                }                                                      //change the count to percents
                 foreach (var count in dictionaryOfBookToUser[key])
                 {
                     percent[key].Add(count.Key, (count.Value * 100) / mone);
@@ -100,13 +91,13 @@ namespace BL
                 }
                 mone = 0;
             }
-            return percent;
+            return percent;                                       //return dictionary of percents
 
         }
 
 
 
-        //עדכון
+        //Update
         public static bool Update(BookToUserDTO bookToUserDTO)
         {
             BookToUser bookToUser = new BookToUser();
@@ -115,12 +106,20 @@ namespace BL
 
         }
 
+        //Delete
+        public static bool Delete(int CodeBookToUser)
+        {
+            return BookToUserDAL.Delete(CodeBookToUser);
+        }
         public static BookToUser Convert(BookToUserDTO bookToUserDTO)
         {
             BookToUser bookToUser = new BookToUser();
             bookToUser.CodeBookToUser = bookToUserDTO.CodeBookToUser;
-            bookToUser.BookCode = bookToUserDTO.CodeBookToUser;
+            bookToUser.BookCode = bookToUserDTO.BookCode;
             bookToUser.UserId = bookToUserDTO.UserId;
+            bookToUser.LastDate = bookToUserDTO.LastDate;
+            bookToUser.Count = bookToUserDTO.Count;
+            bookToUser.Like = bookToUserDTO.Like;
             return bookToUser;
 
 

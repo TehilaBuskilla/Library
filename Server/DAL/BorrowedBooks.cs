@@ -18,7 +18,6 @@ namespace DAL
         public int BookCode { get; set; }
         public string UserId { get; set; }
         public System.DateTime BorrowingDate { get; set; }
-        public bool IsBorrowed { get; set; }
     
         public virtual ReadingBooks ReadingBooks { get; set; }
         public virtual Users Users { get; set; }

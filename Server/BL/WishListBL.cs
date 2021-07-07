@@ -33,10 +33,19 @@ namespace BL
             return listWishListDTO;
         }
 
+        public static List<WishListDTO> GetById(string id)
+        {
+            
+           
+            return GetAll().FindAll(w => w.UserId == id);
+            //return WishList.FindAll(x => x.codeuser == iduser);
+
+        }
+
         //מחיקה
         public static bool Delete(int CodeWishList)
         {
-            return ProfileBookDAL.Delete(CodeWishList);
+            return WishListDAL.Delete(CodeWishList);
         }
 
         //עדכון
@@ -64,7 +73,7 @@ namespace BL
             WishListDTO wishListDTO = new WishListDTO();
             wishListDTO.CodeWishList = wishList.CodeWishList;
             wishListDTO.BookCode = wishList.BookCode;
-            wishListDTO.UserId = int.Parse(wishList.UserId);
+            wishListDTO.UserId = (string)wishList.UserId;
             
             return wishListDTO;
         }

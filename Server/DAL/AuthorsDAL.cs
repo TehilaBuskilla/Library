@@ -8,7 +8,7 @@ namespace DAL
 {
    public class AuthorsDAL
     {
-        //שליפה להכל
+        //Get
         public static List<Authors> GetAll()
         {
             using (var context = new LibraryDBEntities1())
@@ -19,16 +19,7 @@ namespace DAL
 
         }
 
-        //שליפת נתון
-
-        //public static Get()
-        // {
-        //using (var context = new LibraryDBEntities())
-        //{
-        //    return context.Authors.
-        //}
-        //  }
-        //הוספה
+        //Add
         public static int Add(Authors author)
         {
             using (var context = new LibraryDBEntities1())
@@ -45,7 +36,7 @@ namespace DAL
 
         }
 
-        //מחיקה
+        //Delete
 
         public static bool Delete(int code)
         {
@@ -67,9 +58,7 @@ namespace DAL
         }
 
 
-
-
-        //עדכון
+        //Update
         public static bool Update(Authors author)
         {
             try

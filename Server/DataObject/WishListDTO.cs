@@ -12,7 +12,7 @@ namespace DataObject
 
         public int BookCode { get; set; }
 
-        public int UserId { get; set; }
+        public string UserId { get; set; }
 
     }
 }

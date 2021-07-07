@@ -16,7 +16,7 @@ namespace API.Controllers
     public class ProfileBookController : ApiController
     {
         //שליפה
-        // GET: api/ProfileBook
+
         [Route("GetAll")]
         [HttpGet]
         public List<ProfileBookDTO> GetAll()

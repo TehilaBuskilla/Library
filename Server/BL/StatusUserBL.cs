@@ -10,13 +10,13 @@ namespace BL
 {
     public class StatusUserBL
     {
-        //הוספה
+        //Add
         public static int Add(StatusUserDTO statusUserDTO)
         {
             return StatusUserDAL.Add(Convert(statusUserDTO));
         }
 
-        //שליפה
+        //Get
         public static List<StatusUserDTO> GetAll()
         {
             List<StatusUserDTO> listStatusUserDTO = new List<StatusUserDTO>();
@@ -30,13 +30,13 @@ namespace BL
             return listStatusUserDTO;
         }
 
-        //מחיקה
+        //Delete
         public static bool Delete(int CodeStatus)
         {
             return StatusUserDAL.Delete(CodeStatus);
         }
 
-        //עדכון
+        //Update
         public static bool Update(StatusUserDTO statusUserDTO)
         {
             StatusUser statusUser = new StatusUser();

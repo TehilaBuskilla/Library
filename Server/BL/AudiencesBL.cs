@@ -12,13 +12,13 @@ namespace BL
     public class AudiencesBL
     {
 
-        //הוספה
+        //Add
         public static int Add(AudiencesDTO audiencesDTO)
         {
             return AudiencesDAL.Add(Convert(audiencesDTO));
         }
 
-        //שליפה
+        //Get
         public static List<AudiencesDTO> GetAll()
         {
             List<AudiencesDTO> listAudiencesDTO = new List<AudiencesDTO>();
@@ -32,13 +32,13 @@ namespace BL
             return listAudiencesDTO;
         }
 
-        //מחיקה
+        //Delete
         public static bool Delete(int CodeAudience)
         {
             return AudiencesDAL.Delete(CodeAudience);
         }
 
-        //עדכון
+        //Update
         public static bool Update(AudiencesDTO audiencesDTO)
         {
             Audiences audience = new Audiences();

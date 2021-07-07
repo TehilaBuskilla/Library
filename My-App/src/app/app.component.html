@@ -3,7 +3,7 @@
     <div>
       <img src="../../assets/images/logo1.png" alt="לוגו" id="logoImg">
     </div>
-    <ul class="menu"  routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <ul class="menu"  >
       <li><a [routerLink]="['/mycatalog']" routerLinkActive #rla="routerLinkActive" (click)="showThis()"><i class="fas fa-book-reader"></i>הספרים שלנו{{rla.isActive? '':''}}</a></li>
       <li><a [routerLink]="['/myespecially_for_you']"  (click)="showThis()"><i class="fas fa-user-shield"></i>במיוחד בשבילך</a></li>
       <li><a [routerLink]="['/myquestions_returns']" (click)="showThis()"><i class="fas fa-exchange-alt"></i>השאלות והחזרות</a></li>
@@ -11,13 +11,15 @@
           הרשמה/התחברות</a>
           <a *ngIf="showRegistration==false" (click)="exit()"><i class="fas fa-sign-out-alt"></i>
             יציאה</a></li>
+      <li><a [routerLink]="['/myhistory']" ><a><i class="fas fa-history"></i></a></a></li>
+
      
      
     </ul>
   </nav>
   <div class= "content" (click)="showModal(0)" >
     
-    <button class="history"><a><i class="fas fa-history"></i></a></button>
+    
 
   <router-outlet></router-outlet>
 
@@ -43,6 +45,10 @@
             <div class="group">
               <label for="pass" class="label">סיסמא</label>
               <input id="pass" type="password" formControlName="password" class="input" data-type="password" placeholder="סיסמא"  >
+            </div>
+            <div class="group">
+              <label for="pass" class="label">אישור סיסמא</label>
+              <input id="pass" type="password" formControlName="passwordAgain" class="input" data-type="password" placeholder="אישור סיסמא"  >
             </div>
             <div class="group">
               <input id="check" type="checkbox" class="check" checked formControlName="connected">
@@ -76,19 +82,19 @@
               <form class="gander">
               <label for="pass" class="label">מגדר</label>
               <div class="form-check-inline">
-                 <label class="form-check-label" for="radio1">
+                 <!-- <label class="form-check-label" for="radio1">
                 <input type="radio" class="form-check-input" id="radio1" name="optradio" value="1" checked [(ngModel)]="newUser.Gender">
                 זכר
                 </label> 
                 <label class="form-check-label" for="radio1">
-                  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="1" checked [(ngModel)]="newUser.Gender">
+                  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="2" checked [(ngModel)]="newUser.Gender">
                   נקבה
-                  </label> 
-                <!-- <span *ngFor="let g of allGenders">
+                  </label>  -->
+                <span *ngFor="let g of allGenders">
                 <label class="form-check-label" [for]="g.KindGender">
                 <input type="radio" class="form-check-input" [id]="g.KindGender" name="optradio" [value]="g" [(ngModel)]="newUser.Gender">{{g.KindGender}}
                 </label>
-              </span> -->
+              </span> 
               </div>
               </form>
             </div>
@@ -96,19 +102,19 @@
               <form class="atatus">
               <label for="pass" class="label">סטטוס</label>
               <div class="form-check-inline">
-                 <label class="form-check-label" for="radio1">
-                <input type="radio" class="form-check-input" id="radio1" name="optradio" value="נשוי" checked [(ngModel)]="newUser.Status">
+                 <!-- <label class="form-check-label" for="radio1">
+                <input type="radio" class="form-check-input" id="radio1" name="optradio" value="נשוי/ה" checked [(ngModel)]="newUser.Status">
                נשוי/אה
                 </label> 
                 <label class="form-check-label" for="radio1">
-                  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="נשוי" checked [(ngModel)]="newUser.Status">
+                  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="רווק/ה" checked [(ngModel)]="newUser.Status">
                   רווק/ה
-                  </label> 
-                <!-- <span *ngFor="let su of allStatusUser">
+                  </label>  -->
+                <span *ngFor="let su of allStatusUser">
                 <label class="form-check-label" [for]="su.KindStatus">
                 <input type="radio" class="form-check-input" [id]="su.KindStatus" name="optradio" [value]="su" [(ngModel)]="newUser.Status">{{su.KindStatus}}
                 </label>
-              </span> -->
+              </span> 
               </div>
               </form>
             </div>

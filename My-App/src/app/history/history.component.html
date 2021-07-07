@@ -1,0 +1,42 @@
+<div class="container" *ngIf="isRegistered"></div>
+<h3>{{"שלום,"+" "+currentUser.NameUser}}</h3>
+<div class="book" *ngFor="let item of listBooks; let i = index">
+
+  <img src="http://localhost:65319/Content/Images/{{item.ImgBook}}">
+
+  <div class="content">
+    <div class="content1" style="display: flex; justify-content: center;">
+      <i style="color: black;" class="fas fa-info-circle" data-toggle="modal" data-target="#myModal"
+        (click)="selectedBook = item" (click)="bookToUser(item.BookCode)" id="meida">מידע</i>
+
+    </div>
+
+  </div>
+
+
+  <!-- Modal -->
+
+</div>
+<div *ngIf="selectedBook!=undefined">
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div>
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"> שם הספר:{{selectedBook.NameBook}}</h4>
+          </div>
+          <div class="modal-body text-right he">
+            <li><i class="fas fa-book"></i>סוג ספר:{{selectedBook.KindOfBook.KindBook}}</li>
+            <li><i class="fas fa-users"> </i>קהל יעד:{{selectedBook.Audience.KindAudience}}</li>
+            <li> <i class="fas fa-file-alt"></i> אורך ספר: {{selectedBook.LengthBook}}</li>
+            <li><i class="far fa-edit"></i>שם המחבר:{{selectedBook.Author.NameAuthor}}</li>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-signinmessage *ngIf="isRegistered==false"></app-signinmessage>

@@ -16,7 +16,7 @@ namespace API.Controllers
 
     public class AuthorsController : ApiController
     {
-        //שליפה
+        //Get
         // GET: api/Authors
         [Route("GetAll")]
         [HttpGet]
@@ -27,16 +27,7 @@ namespace API.Controllers
 
         }
 
-        //שליפה ע"י נתון
-        // GET: api/Authors/5
-        //[Route("Get/{}")]
-        //[HttpGet]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
-
-        //הוספה
+        //Add
         // POST: api/Authors
         [Route("{newAuthor}")]
         [HttpPost]
@@ -47,7 +38,7 @@ namespace API.Controllers
 
         }
 
-        //עדכון
+        //Update
         // PUT: api/Authors/5
         [Route("{upAuthor}")]
         [HttpPut]
@@ -57,7 +48,7 @@ namespace API.Controllers
             return AuthorsBL.Update(upAuthor);
         }
 
-        //מחיקה
+        //Delete
         // DELETE: api/Authors/5
         [Route("Delete/{CodeAuthor}")]
         [HttpDelete]

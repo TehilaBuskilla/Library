@@ -16,7 +16,7 @@ namespace API.Controllers
 
     public class BorrowedBooksController : ApiController
     {
-        //שליפה
+        //Get
         // GET: api/BorrowedBooks
         [Route("GetAll")]
         [HttpGet]
@@ -27,16 +27,7 @@ namespace API.Controllers
             return BorrowedBooksBL.GetAll();
         }
 
-        //שליפה ע"י נתון
-        // GET: api/BorrowedBooks/5
-        //[Route("Get/{}")]
-        //[HttpGet]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
-
-        //הוספה
+        //Add
         // POST: api/BorrowedBooks
         [Route("{newBorrowedBook}")]
         [HttpPost]
@@ -47,7 +38,7 @@ namespace API.Controllers
 
         }
 
-        //עדכון
+        //Update
         // PUT: api/BorrowedBooks/5
         [Route("{upBorrowedBook}")]
         [HttpPut]
@@ -57,7 +48,7 @@ namespace API.Controllers
             return BorrowedBooksBL.Update(upBorrowedBook);
         }
 
-        //מחיקה
+        //Delete
         // DELETE: api/BorrowedBooks/5
         [Route("Delete/{CodeBorrowedBooks}")]
         [HttpDelete]

@@ -10,13 +10,13 @@ namespace BL
 {
     public class ReadingBooksBL
     {
-        //הוספה
+        //Add
         public static int Add(ReadingBooksDTO readingBooksDTO)
         {
             return ReadingBooksDAL.Add(Convert(readingBooksDTO));
         }
 
-        //שליפה
+        //Update
         public static List<ReadingBooksDTO> GetAll()
         {
             List<ReadingBooksDTO> listReadingBooksDTO = ReadingBooksDAL.GetAll();
@@ -36,13 +36,13 @@ namespace BL
             return listReadingBooksDTO;
         }
 
-        //מחיקה
+        //Delete
         public static bool Delete(int CodeBook)
         {
             return ReadingBooksDAL.Delete(CodeBook);
         }
 
-        //עדכון
+        //Update
         public static bool Update(ReadingBooksDTO readingBooksDTO)
         {
             ReadingBooks readingBook = new ReadingBooks();
@@ -61,7 +61,7 @@ namespace BL
             readingBook.KindBookCode = readingBooksDTO.KindOfBook.CodeKindBook;
             readingBook.AudienceCode = readingBooksDTO.Audience.CodeAudience;
             readingBook.LengthBook = readingBooksDTO.LengthBook;
-            readingBook.IsBorrowed = readingBooksDTO.IsBorrowed;
+           
             readingBook.StatusCode = readingBooksDTO.StatusUser.CodeStatus;
             readingBook.GenderCode = readingBooksDTO.Gender.CodeGender;
             readingBook.ImgBook = readingBooksDTO.ImgBook;
@@ -69,21 +69,49 @@ namespace BL
 
 
         }
-        public static ReadingBooksDTO Convert(ReadingBooks readingBook)
+        public static ReadingBooksDTO Convert(ReadingBooks item)
         {
-            ReadingBooksDTO readingBooksDTO = new ReadingBooksDTO();
+            return new ReadingBooksDTO
+            {
+                NameBook = item.NameBook,
+                CodeBook = item.CodeBook,
+                LengthBook = item.LengthBook,
+                ImgBook = item.ImgBook,
 
-            //readingBooksDTO.NameBook = readingBook.NameBook;
-            //readingBooksDTO.CodeBook = readingBook.CodeBook;
-            //readingBooksDTO.AuthorCode = readingBook.AuthorCode;
-            //readingBooksDTO.KindBookCode = readingBook.KindBookCode;
-            //readingBooksDTO.AudienceCode = readingBook.AudienceCode;
-            //readingBooksDTO.LengthBook = readingBook.LengthBook;
-            //readingBooksDTO.IsBorrowed = readingBook.IsBorrowed;
-            //readingBooksDTO.StatusCode = readingBook.StatusCode;
-            //readingBooksDTO.GenderCode = readingBook.GenderCode;
-            readingBooksDTO.ImgBook = readingBook.ImgBook;
-            return readingBooksDTO;
+
+                Author = new AuthorsDTO
+                {
+                    CodeAuthor = item.Authors.CodeAuthor,
+                    NameAuthor = item.Authors.NameAuthor
+                },
+                KindOfBook = new KindsOfBooksDTO
+                {
+                    CodeKindBook = item.KindsOfBooks.CodeKindBook,
+                    KindBook = item.KindsOfBooks.KindBook
+                },
+                Audience = new AudiencesDTO
+                {
+                    CodeAudience = item.Audiences.CodeAudience,
+                    KindAudience = item.Audiences.KindAudience,
+                    Age = item.Audiences.Age
+                },
+                StatusUser = new StatusUserDTO
+                {
+                    CodeStatus = item.StatusUser.CodeStatus,
+                    KindStatus = item.StatusUser.KindStatus
+                },
+                Gender = new GendersDTO
+                {
+                    CodeGender = item.Genders.CodeGender,
+                    KindGender = item.Genders.KindGender
+                }
+
+
+
+
+
+
+            }; 
         }
     }
 }

@@ -19,9 +19,11 @@ import { ReadingBooksService } from './services/reading-books.service';
 import { StatusUserService } from './services/status-user.service';
 import { UsersService } from './services/users.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HebrewBooleanPipe } from './pipes/hebrew.boolean.pipe';
+
 import { FilterbooklistPipe } from './pipes/filterbooklist.pipe';
 import { SigninmessageComponent } from './signinmessage/signinmessage.component';
+import { HistoryComponent } from './history/history.component';
+import { BookToUserService } from './services/bookToUser.service';
 
 
 
@@ -31,11 +33,11 @@ import { SigninmessageComponent } from './signinmessage/signinmessage.component'
     AppComponent,
     CatalogComponent,
     EspeciallyForYouComponent,
-   
     QuestionsReturnsComponent,
-    HebrewBooleanPipe,
+    
     FilterbooklistPipe,
     SigninmessageComponent,
+    HistoryComponent,
     
     
   ],
@@ -55,6 +57,7 @@ import { SigninmessageComponent } from './signinmessage/signinmessage.component'
     ProfileBookService,
     ReadingBooksService,
     StatusUserService,
+    BookToUserService,
     UsersService],
   bootstrap: [AppComponent]
 })

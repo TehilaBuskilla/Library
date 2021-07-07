@@ -10,13 +10,13 @@ namespace BL
 {
     public class BorrowedBooksBL
     {
-        //הוספה
+        //Add
         public static int Add(BorrowedBooksDTO borrowedBooksDTO)
         {
             return BorrowedBooksDAL.Add(Convert(borrowedBooksDTO));
         }
 
-        //שליפה
+        //Get
         public static List<BorrowedBooksDTO> GetAll()
         {
             List<BorrowedBooksDTO> listBorrowedBooksDTO = new List<BorrowedBooksDTO>();
@@ -29,14 +29,26 @@ namespace BL
             }
             return listBorrowedBooksDTO;
         }
+        //public static List<BorrowedBooksDTO> GetBy(string code)
+        //{
 
-        //מחיקה
+        //    List<BorrowedBooksDTO> listBorroedBooksDTO = BorrowedBooksBL.GetAll().FindAll(a => a.UserId == code);
+        //    foreach (var item in listBorroedBooks)
+        //    {
+
+        //    }
+
+        //    //return listBorroedBooks;
+        //}
+
+
+        //Delete
         public static bool Delete(int CodeBorrowedBooks)
         {
             return BorrowedBooksDAL.Delete(CodeBorrowedBooks);
         }
 
-        //עדכון
+        //Update
         public static bool Update(BorrowedBooksDTO borrowedBooksDTO)
         {
             BorrowedBooks borrowedBook = new BorrowedBooks();
@@ -52,7 +64,6 @@ namespace BL
             borrowedBook.BookCode = borrowedBooksDTO.BookCode;
             borrowedBook.UserId = borrowedBooksDTO.UserId;
             borrowedBook.BorrowingDate = borrowedBooksDTO.BorrowingDate;
-            borrowedBook.IsBorrowed = borrowedBooksDTO.IsBorrowed;
             return borrowedBook;
 
 
@@ -64,7 +75,6 @@ namespace BL
             borrowedBooksDTO.BookCode = borrowedBook.BookCode;
             borrowedBooksDTO.UserId = borrowedBook.UserId;
             borrowedBooksDTO.BorrowingDate = borrowedBook.BorrowingDate;
-            borrowedBooksDTO.IsBorrowed = borrowedBook.IsBorrowed;
             return borrowedBooksDTO;
         }
     }

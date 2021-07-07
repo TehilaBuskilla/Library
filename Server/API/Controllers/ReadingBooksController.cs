@@ -7,6 +7,7 @@ using System.Web.Http;
 using DataObject;
 using BL;
 using System.Web.Http.Cors;
+using Newtonsoft.Json;
 
 namespace API.Controllers
 {
@@ -16,7 +17,7 @@ namespace API.Controllers
 
     public class ReadingBooksController : ApiController
     {
-        //שליפה
+        //Get
         // GET: api/ReadingBooks
         [Route("GetAll")]
         [HttpGet]
@@ -26,17 +27,17 @@ namespace API.Controllers
             return ReadingBooksBL.GetAll();
         }
 
-        //שליפה ע"י נתון
-        // GET: api/ReadingBooks/5
-        [Route("GetBottom10")]
+        //GetByCode
+        // GET: api/ReadingBooks
+        [Route("GetByCode")]
         [HttpGet]
-        public IEnumerable<ReadingBooksDTO> GetBottom10()
+        public IEnumerable<ReadingBooksDTO> GetByCode()
         {
             var a = ReadingBooksBL.GetAll();
              return a.OrderByDescending(b=>b.CodeBook).Take(10);
         }
 
-        //הוספה
+        //Add
         // POST: api/ReadingBooks
         [Route("{newReadingBook}")]
         [HttpPost]
@@ -47,7 +48,7 @@ namespace API.Controllers
         }
 
 
-        //עדכון
+        //Update
         // PUT: api/ReadingBooks/5
         [Route("{upReadingBook}")]
         [HttpPut]
@@ -58,7 +59,7 @@ namespace API.Controllers
 
         }
 
-        //מחיקה
+        //Delete
         // DELETE: api/ReadingBooks/5
         [Route("Delete/{CodeReadingBook}")]
         [HttpDelete]

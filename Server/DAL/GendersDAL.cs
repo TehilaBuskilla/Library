@@ -9,7 +9,7 @@ namespace DAL
 {
    public class GendersDAL
     {
-        //שליפה להכל
+        // Get
         public static List<Genders> GetAll()
         {
             using (var context = new LibraryDBEntities1())
@@ -20,16 +20,7 @@ namespace DAL
 
         }
 
-        //שליפת נתון
-
-        //public static Get()
-        // {
-        //using (var context = new LibraryDBEntities())
-        //{
-        //    return context.Genders.
-        //}
-        //  }
-        //הוספה
+        //Add
         public static int Add(Genders gender)
         {
             using (var context = new LibraryDBEntities1())
@@ -46,7 +37,7 @@ namespace DAL
 
         }
 
-        //מחיקה
+        //Delete
 
         public static bool Delete(int code)
         {
@@ -70,7 +61,7 @@ namespace DAL
 
 
 
-        //עדכון
+        //Update
         public static bool Update(Genders gender)
         {
             try

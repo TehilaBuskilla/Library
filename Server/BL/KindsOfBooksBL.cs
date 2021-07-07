@@ -10,13 +10,13 @@ namespace BL
 {
     public class KindsOfBooksBL
     {
-        //הוספה
+        //Add
         public static int Add(KindsOfBooksDTO kindsOfBooksDTO)
         {
             return KindsOfBooksDAL.Add(Convert(kindsOfBooksDTO));
         }
 
-        //שליפה
+        //Get
         public static List<KindsOfBooksDTO> GetAll()
         {
             List<KindsOfBooksDTO> listkindsOfBooksDTO = new List<KindsOfBooksDTO>();
@@ -30,13 +30,13 @@ namespace BL
             return listkindsOfBooksDTO;
         }
 
-        //מחיקה
+        //Delete
         public static bool Delete(int CodeKindBook)
         {
             return KindsOfBooksDAL.Delete(CodeKindBook);
         }
 
-        //עדכון
+        //Update
         public static bool Update(KindsOfBooksDTO kindsOfBooksDTO)
         {
             KindsOfBooks kindOfBook = new KindsOfBooks();

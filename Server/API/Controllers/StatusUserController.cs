@@ -16,7 +16,7 @@ namespace API.Controllers
 
     public class StatusUserController : ApiController
     {
-        //שליפה
+        //Get
         // GET: api/StatusUser
         [Route("GetAll")]
         [HttpGet]
@@ -26,16 +26,7 @@ namespace API.Controllers
             return StatusUserBL.GetAll();
         }
 
-        //שליפה ע"י נתון
-        // GET: api/StatusUser/5
-        //[Route("Get/{}")]
-        //[HttpGet]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
-
-        //הוספה
+        //Add
         // POST: api/StatusUser
         [Route("{newStatusUser}")]
         [HttpPost]
@@ -45,7 +36,7 @@ namespace API.Controllers
             return StatusUserBL.Add(newStatusUser);
         }
 
-        //עדכון
+        //Update
         // PUT: api/StatusUser/5
         [Route("{upStatusUser}")]
         [HttpPut]
@@ -56,7 +47,7 @@ namespace API.Controllers
 
         }
 
-        //מחיקה
+        //Delete
         // DELETE: api/StatusUser/5
         [Route("Delete/{CodeStatusUser}")]
         [HttpDelete]

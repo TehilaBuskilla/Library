@@ -17,7 +17,7 @@ namespace API.Controllers
 
     public class GendersController : ApiController
     {
-        //שליפה
+        //Get
         // GET: api/Genders
         [Route("GetAll")]
         [HttpGet]
@@ -27,16 +27,7 @@ namespace API.Controllers
             return GendersBL.GetAll();
         }
 
-        //שליפה ע"י נתון
-        // GET: api/Genders/5
-        //[Route("Get/{}")]
-        //[HttpGet]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
-
-        //הוספה
+        //Add
         // POST: api/Genders
         [Route("{newGender}")]
         [HttpPost]
@@ -46,7 +37,7 @@ namespace API.Controllers
             return GendersBL.Add(newGender);
         }
 
-        //עדכון
+        //Update
         // PUT: api/Genders/5
         [Route("{upGender}")]
         [HttpPut]
@@ -58,7 +49,7 @@ namespace API.Controllers
 
         }
 
-        //מחיקה
+        //Delete
         // DELETE: api/Genders/5
         [Route("Delete/{CodeGender}")]
         [HttpDelete]

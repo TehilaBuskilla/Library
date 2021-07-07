@@ -9,13 +9,10 @@ import { KindsOfBooks } from '../class/kindsOfBooks';
 })
 export class KindsOfBooksService {
   
-
   url = "http://localhost:65319/api/KindsOfBooks/";
 
   constructor(private myhttp: HttpClient, private myrouter: Router) { }
 
-
-  
   GetAll():Observable<KindsOfBooks[]>
   {
     return this.myhttp.get<KindsOfBooks[]>(this.url+"GetAll");

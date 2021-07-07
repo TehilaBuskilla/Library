@@ -5,12 +5,7 @@
     <div class="row content">
       <div class="col-sm-2 sidenav text-right">
         <div class="dropdown">
-          <!-- <button ondblclick="document.getElementById('myDropdown').style.display='none'"
-            onclick="document.getElementById('myDropdown').style.display='block'" class="dropbtn">שם מחבר </button>
-          <div id="myDropdown" class="dropdown-content" style="display: none;">
-            <select class="list">
-              <option *ngFor="let item of listAuthor">{{item.NameAuthor}} </option>
-            </select> -->
+
           <form>
             <input type="text" name="search" (input)="filteritem.author=$event.target.value" placeholder="חפש מחבר...">
 
@@ -49,16 +44,18 @@
       </div>
 
       <div class="col-sm-10 text-right">
+        
         <h1><i class="fas fa-book-reader"></i> ספרים בספריה</h1>
+
         <div class="book" *ngFor="let item of listBooks|filterbooklist:filteritem; let i = index">
 
           <img src="http://localhost:65319/Content/Images/{{item.ImgBook}}">
 
-          <div class="content" >
+          <div class="content">
             <div class="content1" style="display: flex; justify-content: center;">
-              <i style="color: black;" class="fas fa-info-circle"  data-toggle="modal" data-target="#myModal" (click)="selectedBook = item"
-                (click)="serviceSer.BookToUser(item)" id="meida">מידע</i>
-              <i style="color: black;" class="far fa-thumbs-up" (click)="serviceSer.like(item)">אהבתי</i>
+              <i style="color: black;" class="fas fa-info-circle" data-toggle="modal" data-target="#myModal"
+                (click)="selectedBook = item" (click)="bookToUser(item.CodeBook)" id="meida">מידע</i>
+              <i style="color: black;" class="far fa-thumbs-up" (click)="like(item.CodeBook)">אהבתי</i>
             </div>
 
           </div>
@@ -67,6 +64,10 @@
           <!-- Modal -->
 
         </div>
+      
+        
+      
+
         <div *ngIf="selectedBook!=undefined">
           <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog modal-sm">
@@ -81,8 +82,8 @@
                     <li><i class="fas fa-users"> </i>קהל יעד:{{selectedBook.Audience.KindAudience}}</li>
                     <li> <i class="fas fa-file-alt"></i> אורך ספר: {{selectedBook.LengthBook}}</li>
                     <li><i class="far fa-edit"></i>שם המחבר:{{selectedBook.Author.NameAuthor}}</li>
-                    <li><i class="fas fa-exchange-alt"></i>פנוי: {{selectedBook.IsBorrowed|hebrewBoolean: true}}</li>
-                    <li><i class="fas fa-user-edit"></i>ביקורת</li>
+
+
                   </div>
                 </div>
               </div>

@@ -84,63 +84,63 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Audiences.cs">
-      <DependentUpon>LibraryDBModel.tt</DependentUpon>
+      <DependentUpon>BookSmartModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AudiencesDAL.cs" />
     <Compile Include="Authors.cs">
-      <DependentUpon>LibraryDBModel.tt</DependentUpon>
+      <DependentUpon>BookSmartModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AuthorsDAL.cs" />
+    <Compile Include="BookSmartModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookSmartModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BookSmartModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookSmartModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BookSmartModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookSmartModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="BookToUser.cs">
-      <DependentUpon>LibraryDBModel.tt</DependentUpon>
+      <DependentUpon>BookSmartModel.tt</DependentUpon>
     </Compile>
     <Compile Include="BookToUserDAL.cs" />
     <Compile Include="BorrowedBooks.cs">
-      <DependentUpon>LibraryDBModel.tt</DependentUpon>
+      <DependentUpon>BookSmartModel.tt</DependentUpon>
     </Compile>
     <Compile Include="BorrowedBooksDAL.cs" />
     <Compile Include="Genders.cs">
-      <DependentUpon>LibraryDBModel.tt</DependentUpon>
+      <DependentUpon>BookSmartModel.tt</DependentUpon>
     </Compile>
     <Compile Include="GendersDAL.cs" />
     <Compile Include="KindsOfBooks.cs">
-      <DependentUpon>LibraryDBModel.tt</DependentUpon>
+      <DependentUpon>BookSmartModel.tt</DependentUpon>
     </Compile>
     <Compile Include="KindsOfBooksDAL.cs" />
-    <Compile Include="LibraryDBModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LibraryDBModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="LibraryDBModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LibraryDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="LibraryDBModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LibraryDBModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="ProfileBook.cs">
-      <DependentUpon>LibraryDBModel.tt</DependentUpon>
+      <DependentUpon>BookSmartModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ProfileBookDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadingBooks.cs">
-      <DependentUpon>LibraryDBModel.tt</DependentUpon>
+      <DependentUpon>BookSmartModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ReadingBooksDAL.cs" />
     <Compile Include="StatusUser.cs">
-      <DependentUpon>LibraryDBModel.tt</DependentUpon>
+      <DependentUpon>BookSmartModel.tt</DependentUpon>
     </Compile>
     <Compile Include="StatusUserDAL.cs" />
     <Compile Include="Users.cs">
-      <DependentUpon>LibraryDBModel.tt</DependentUpon>
+      <DependentUpon>BookSmartModel.tt</DependentUpon>
     </Compile>
     <Compile Include="UsersDAL.cs" />
     <Compile Include="WishList.cs">
-      <DependentUpon>LibraryDBModel.tt</DependentUpon>
+      <DependentUpon>BookSmartModel.tt</DependentUpon>
     </Compile>
     <Compile Include="WishListDAL.cs" />
   </ItemGroup>
@@ -148,14 +148,14 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <EntityDeploy Include="LibraryDBModel.edmx">
+    <EntityDeploy Include="BookSmartModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>LibraryDBModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>BookSmartModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ClassDiagram1.cd" />
-    <None Include="LibraryDBModel.edmx.diagram">
-      <DependentUpon>LibraryDBModel.edmx</DependentUpon>
+    <None Include="BookSmartModel.edmx.diagram">
+      <DependentUpon>BookSmartModel.edmx</DependentUpon>
     </None>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -168,18 +168,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="LibraryDBModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>LibraryDBModel.edmx</DependentUpon>
-      <LastGenOutput>LibraryDBModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="LibraryDBModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>LibraryDBModel.edmx</DependentUpon>
-      <LastGenOutput>LibraryDBModel.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
@@ -190,6 +178,18 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BookSmartModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BookSmartModel.edmx</DependentUpon>
+      <LastGenOutput>BookSmartModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="BookSmartModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BookSmartModel.edmx</DependentUpon>
+      <LastGenOutput>BookSmartModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

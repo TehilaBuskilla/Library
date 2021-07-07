@@ -16,10 +16,15 @@ export class BorrowedBooksService {
   {
     return this.myhttp.get<BorrowedBooks[]>(this.url+"GetAll");
   }
+  GetBy(code:string):Observable<BorrowedBooks[]>
+  {
+    return this.myhttp.get<BorrowedBooks[]>(this.url+"GetBy/"+code);
+  }
+
 
   Post(newBorrowedBook:BorrowedBooks):Observable<number>
   {
-    return this.myhttp.post<number>(this.url+"Post",newBorrowedBook);
+    return this.myhttp.post<number>(this.url+"Post/",newBorrowedBook);
   }
 
   Put(upBorrowedBook:BorrowedBooks):Observable<boolean>

@@ -19,8 +19,8 @@ export class AppComponent {
 
   signInFrm: FormGroup
   constructor(private userSer: UsersService,
-    private genderService: GendersService,
-    private statusUserService: StatusUserService,
+    private genderSer: GendersService,
+    private statusUserSer: StatusUserService,
     public ServiceSer: ServiceService,
     private router:Router
   ) {
@@ -43,11 +43,10 @@ export class AppComponent {
       })
     }
 
-
-
     this.signInFrm = new FormGroup({
       username: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
+      passwordAgain:new FormControl('',Validators.required),
       connected: new FormControl(true)
     })
   }
@@ -65,16 +64,16 @@ export class AppComponent {
   }
 
   loadGenders() {
-    this.genderService.GetAll().subscribe(res => this.allGenders = res)
+    this.genderSer.GetAll().subscribe(res => this.allGenders = res)
+    
   }
 
   loadStatusUsers() {
-    this.statusUserService.GetAll().subscribe(res => this.allStatusUser = res)
-
+    this.statusUserSer.GetAll().subscribe(res => this.allStatusUser = res)
+    
   }
 
   showModal(flag: number) {
-    console.log(flag);
     if (flag == 1)
       this.modalShow = true;
     else
@@ -93,11 +92,14 @@ export class AppComponent {
       }
     )
     this.ServiceSer.SignUp(this.newUser);
+    this.router.navigate(['myespecially_for_you']);
+    this.showModal(0);
+
   }
 
   exit(){
     this.showRegistration= true;
-    this.ServiceSer.sendList();
+    // this.ServiceSer.sendList();
     this.ServiceSer.logOut();
     localStorage.clear();
   }
@@ -107,7 +109,7 @@ export class AppComponent {
     this.newUser.NameUser = this.signInFrm.controls['username'].value.trim()
     let connect = this.signInFrm.controls['connected'].value
     this.userSer.SignIn(this.newUser).subscribe(x => {
-      console.log('x:', x)
+   
       if (x != null) {
         this.newUser = x
         this.ServiceSer.SignUp(this.newUser);
@@ -118,7 +120,7 @@ export class AppComponent {
 
           localStorage.setItem('user', this.newUser.IdUser)
         }
-        this.showModal(0)
+        
       }
       else {
         document.querySelector('#tab-2').setAttribute('checked', 'checked')

@@ -20,9 +20,9 @@ export class ReadingBooksService {
     return this.myhttp.get<ReadingBooks[]>(this.url+"GetAll");
   }
 
-  GetBottom10():Observable<ReadingBooks[]>    
+  GetByCode(Code:number):Observable<ReadingBooks[]>    
   {
-    return this.myhttp.get<ReadingBooks[]> (this.url+"GetBottom10");
+    return this.myhttp.get<ReadingBooks[]> (this.url+"GetByCode/"+Code);
   }
 
   Post(newReadingBook:ReadingBooks):Observable<number>
@@ -40,11 +40,5 @@ export class ReadingBooksService {
     return this.myhttp.delete<boolean>(this.url+"Delete"+CodeReadingBook);
   }
 
-  // public uploadImage(image: File): Observable<Object> {//Response היה לפני
-  //   const formData = new FormData();
-
-  //   formData.append('image', image);
-
-  //   return this.myhttp.post('/api/Content/Images', formData);
-  // }
+  
 }

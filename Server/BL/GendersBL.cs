@@ -10,13 +10,13 @@ namespace BL
 {
     public class GendersBL
     {
-        //הוספה
+        //Add
         public static int Add(GendersDTO gendersDTO)
         {
             return GendersDAL.Add(Convert(gendersDTO));
         }
 
-        //שליפה
+        //Get
         public static List<GendersDTO> GetAll()
         {
             List<GendersDTO> listGendersDTO = new List<GendersDTO>();
@@ -30,13 +30,14 @@ namespace BL
             return listGendersDTO;
         }
 
-        //מחיקה
+
+        //Delete
         public static bool Delete(int CodeGender)
         {
             return GendersDAL.Delete(CodeGender);
         }
 
-        //עדכון
+        //Update
         public static bool Update(GendersDTO gendersDTO)
         {
             Genders gender = new Genders();

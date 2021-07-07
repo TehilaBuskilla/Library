@@ -1,0 +1,851 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LibraryDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Audiences">
+          <Key>
+            <PropertyRef Name="CodeAudience" />
+          </Key>
+          <Property Name="CodeAudience" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KindAudience" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Authors">
+          <Key>
+            <PropertyRef Name="CodeAuthor" />
+          </Key>
+          <Property Name="CodeAuthor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameAuthor" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BookToUser">
+          <Key>
+            <PropertyRef Name="CodeBookToUser" />
+          </Key>
+          <Property Name="CodeBookToUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BookCode" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="Like" Type="bit" />
+          <Property Name="LastDate" Type="date" />
+          <Property Name="Count" Type="int" />
+        </EntityType>
+        <EntityType Name="BorrowedBooks">
+          <Key>
+            <PropertyRef Name="CodeBorrowedBooks" />
+          </Key>
+          <Property Name="CodeBorrowedBooks" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BookCode" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="BorrowingDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Genders">
+          <Key>
+            <PropertyRef Name="CodeGender" />
+          </Key>
+          <Property Name="CodeGender" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KindGender" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KindsOfBooks">
+          <Key>
+            <PropertyRef Name="CodeKindBook" />
+          </Key>
+          <Property Name="CodeKindBook" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KindBook" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProfileBook">
+          <Key>
+            <PropertyRef Name="CodeProfileBook" />
+          </Key>
+          <Property Name="CodeProfileBook" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BookCode" Type="int" Nullable="false" />
+          <Property Name="KindBook" Type="int" Nullable="false" />
+          <Property Name="AudienceAge" Type="int" Nullable="false" />
+          <Property Name="AudienceStatus" Type="int" Nullable="false" />
+          <Property Name="AudienceGender" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReadingBooks">
+          <Key>
+            <PropertyRef Name="CodeBook" />
+          </Key>
+          <Property Name="CodeBook" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameBook" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AuthorCode" Type="int" Nullable="false" />
+          <Property Name="KindBookCode" Type="int" Nullable="false" />
+          <Property Name="AudienceCode" Type="int" Nullable="false" />
+          <Property Name="LengthBook" Type="int" Nullable="false" />
+          <Property Name="StatusCode" Type="int" Nullable="false" />
+          <Property Name="GenderCode" Type="int" Nullable="false" />
+          <Property Name="ImgBook" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="StatusUser">
+          <Key>
+            <PropertyRef Name="CodeStatus" />
+          </Key>
+          <Property Name="CodeStatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KindStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="IdUser" />
+          </Key>
+          <Property Name="IdUser" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="NameUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AgeUser" Type="int" Nullable="false" />
+          <Property Name="GenderCode" Type="int" Nullable="false" />
+          <Property Name="StatusCode" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WishList">
+          <Key>
+            <PropertyRef Name="CodeWishList" />
+          </Key>
+          <Property Name="CodeWishList" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BookCode" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="12" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__BookToUse__BookC__6E565CE8">
+          <End Role="ReadingBooks" Type="Self.ReadingBooks" Multiplicity="1" />
+          <End Role="BookToUser" Type="Self.BookToUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReadingBooks">
+              <PropertyRef Name="CodeBook" />
+            </Principal>
+            <Dependent Role="BookToUser">
+              <PropertyRef Name="BookCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BookToUse__UserI__6D6238AF">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="BookToUser" Type="Self.BookToUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="BookToUser">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BorrowedB__BookC__361203C5">
+          <End Role="ReadingBooks" Type="Self.ReadingBooks" Multiplicity="1" />
+          <End Role="BorrowedBooks" Type="Self.BorrowedBooks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReadingBooks">
+              <PropertyRef Name="CodeBook" />
+            </Principal>
+            <Dependent Role="BorrowedBooks">
+              <PropertyRef Name="BookCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BorrowedB__UserI__4924D839">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="BorrowedBooks" Type="Self.BorrowedBooks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="BorrowedBooks">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProfileBo__BookC__55BFB948">
+          <End Role="ReadingBooks" Type="Self.ReadingBooks" Multiplicity="1" />
+          <End Role="ProfileBook" Type="Self.ProfileBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReadingBooks">
+              <PropertyRef Name="CodeBook" />
+            </Principal>
+            <Dependent Role="ProfileBook">
+              <PropertyRef Name="BookCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ReadingBo__Audie__7908F585">
+          <End Role="Audiences" Type="Self.Audiences" Multiplicity="1" />
+          <End Role="ReadingBooks" Type="Self.ReadingBooks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Audiences">
+              <PropertyRef Name="CodeAudience" />
+            </Principal>
+            <Dependent Role="ReadingBooks">
+              <PropertyRef Name="AudienceCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ReadingBo__Autho__79FD19BE">
+          <End Role="Authors" Type="Self.Authors" Multiplicity="1" />
+          <End Role="ReadingBooks" Type="Self.ReadingBooks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Authors">
+              <PropertyRef Name="CodeAuthor" />
+            </Principal>
+            <Dependent Role="ReadingBooks">
+              <PropertyRef Name="AuthorCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ReadingBo__Gende__7AF13DF7">
+          <End Role="Genders" Type="Self.Genders" Multiplicity="1" />
+          <End Role="ReadingBooks" Type="Self.ReadingBooks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genders">
+              <PropertyRef Name="CodeGender" />
+            </Principal>
+            <Dependent Role="ReadingBooks">
+              <PropertyRef Name="GenderCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ReadingBo__KindB__7BE56230">
+          <End Role="KindsOfBooks" Type="Self.KindsOfBooks" Multiplicity="1" />
+          <End Role="ReadingBooks" Type="Self.ReadingBooks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KindsOfBooks">
+              <PropertyRef Name="CodeKindBook" />
+            </Principal>
+            <Dependent Role="ReadingBooks">
+              <PropertyRef Name="KindBookCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ReadingBo__Statu__7CD98669">
+          <End Role="StatusUser" Type="Self.StatusUser" Multiplicity="1" />
+          <End Role="ReadingBooks" Type="Self.ReadingBooks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusUser">
+              <PropertyRef Name="CodeStatus" />
+            </Principal>
+            <Dependent Role="ReadingBooks">
+              <PropertyRef Name="StatusCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__GenderCod__4C0144E4">
+          <End Role="Genders" Type="Self.Genders" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genders">
+              <PropertyRef Name="CodeGender" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="GenderCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__StatusCod__4CF5691D">
+          <End Role="StatusUser" Type="Self.StatusUser" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusUser">
+              <PropertyRef Name="CodeStatus" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="StatusCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WishList__BookCo__39AD8A7F">
+          <End Role="ReadingBooks" Type="Self.ReadingBooks" Multiplicity="1" />
+          <End Role="WishList" Type="Self.WishList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReadingBooks">
+              <PropertyRef Name="CodeBook" />
+            </Principal>
+            <Dependent Role="WishList">
+              <PropertyRef Name="BookCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WishList__UserId__3AA1AEB8">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="WishList" Type="Self.WishList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="WishList">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LibraryDBModelStoreContainer">
+          <EntitySet Name="Audiences" EntityType="Self.Audiences" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Authors" EntityType="Self.Authors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BookToUser" EntityType="Self.BookToUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BorrowedBooks" EntityType="Self.BorrowedBooks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Genders" EntityType="Self.Genders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KindsOfBooks" EntityType="Self.KindsOfBooks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProfileBook" EntityType="Self.ProfileBook" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReadingBooks" EntityType="Self.ReadingBooks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatusUser" EntityType="Self.StatusUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WishList" EntityType="Self.WishList" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__BookToUse__BookC__6E565CE8" Association="Self.FK__BookToUse__BookC__6E565CE8">
+            <End Role="ReadingBooks" EntitySet="ReadingBooks" />
+            <End Role="BookToUser" EntitySet="BookToUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BookToUse__UserI__6D6238AF" Association="Self.FK__BookToUse__UserI__6D6238AF">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="BookToUser" EntitySet="BookToUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BorrowedB__BookC__361203C5" Association="Self.FK__BorrowedB__BookC__361203C5">
+            <End Role="ReadingBooks" EntitySet="ReadingBooks" />
+            <End Role="BorrowedBooks" EntitySet="BorrowedBooks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BorrowedB__UserI__4924D839" Association="Self.FK__BorrowedB__UserI__4924D839">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="BorrowedBooks" EntitySet="BorrowedBooks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProfileBo__BookC__55BFB948" Association="Self.FK__ProfileBo__BookC__55BFB948">
+            <End Role="ReadingBooks" EntitySet="ReadingBooks" />
+            <End Role="ProfileBook" EntitySet="ProfileBook" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ReadingBo__Audie__7908F585" Association="Self.FK__ReadingBo__Audie__7908F585">
+            <End Role="Audiences" EntitySet="Audiences" />
+            <End Role="ReadingBooks" EntitySet="ReadingBooks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ReadingBo__Autho__79FD19BE" Association="Self.FK__ReadingBo__Autho__79FD19BE">
+            <End Role="Authors" EntitySet="Authors" />
+            <End Role="ReadingBooks" EntitySet="ReadingBooks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ReadingBo__Gende__7AF13DF7" Association="Self.FK__ReadingBo__Gende__7AF13DF7">
+            <End Role="Genders" EntitySet="Genders" />
+            <End Role="ReadingBooks" EntitySet="ReadingBooks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ReadingBo__KindB__7BE56230" Association="Self.FK__ReadingBo__KindB__7BE56230">
+            <End Role="KindsOfBooks" EntitySet="KindsOfBooks" />
+            <End Role="ReadingBooks" EntitySet="ReadingBooks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ReadingBo__Statu__7CD98669" Association="Self.FK__ReadingBo__Statu__7CD98669">
+            <End Role="StatusUser" EntitySet="StatusUser" />
+            <End Role="ReadingBooks" EntitySet="ReadingBooks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__GenderCod__4C0144E4" Association="Self.FK__Users__GenderCod__4C0144E4">
+            <End Role="Genders" EntitySet="Genders" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__StatusCod__4CF5691D" Association="Self.FK__Users__StatusCod__4CF5691D">
+            <End Role="StatusUser" EntitySet="StatusUser" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WishList__BookCo__39AD8A7F" Association="Self.FK__WishList__BookCo__39AD8A7F">
+            <End Role="ReadingBooks" EntitySet="ReadingBooks" />
+            <End Role="WishList" EntitySet="WishList" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WishList__UserId__3AA1AEB8" Association="Self.FK__WishList__UserId__3AA1AEB8">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="WishList" EntitySet="WishList" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LibraryDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Audiences">
+          <Key>
+            <PropertyRef Name="CodeAudience" />
+          </Key>
+          <Property Name="CodeAudience" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KindAudience" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ReadingBooks" Relationship="Self.FK__ReadingBo__Audie__7908F585" FromRole="Audiences" ToRole="ReadingBooks" />
+        </EntityType>
+        <EntityType Name="Authors">
+          <Key>
+            <PropertyRef Name="CodeAuthor" />
+          </Key>
+          <Property Name="CodeAuthor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameAuthor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ReadingBooks" Relationship="Self.FK__ReadingBo__Autho__79FD19BE" FromRole="Authors" ToRole="ReadingBooks" />
+        </EntityType>
+        <EntityType Name="BookToUser">
+          <Key>
+            <PropertyRef Name="CodeBookToUser" />
+          </Key>
+          <Property Name="CodeBookToUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BookCode" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Like" Type="Boolean" />
+          <Property Name="LastDate" Type="DateTime" Precision="0" />
+          <Property Name="Count" Type="Int32" />
+          <NavigationProperty Name="ReadingBooks" Relationship="Self.FK__BookToUse__BookC__6E565CE8" FromRole="BookToUser" ToRole="ReadingBooks" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__BookToUse__UserI__6D6238AF" FromRole="BookToUser" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="BorrowedBooks">
+          <Key>
+            <PropertyRef Name="CodeBorrowedBooks" />
+          </Key>
+          <Property Name="CodeBorrowedBooks" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BookCode" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BorrowingDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="ReadingBooks" Relationship="Self.FK__BorrowedB__BookC__361203C5" FromRole="BorrowedBooks" ToRole="ReadingBooks" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__BorrowedB__UserI__4924D839" FromRole="BorrowedBooks" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Genders">
+          <Key>
+            <PropertyRef Name="CodeGender" />
+          </Key>
+          <Property Name="CodeGender" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KindGender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ReadingBooks" Relationship="Self.FK__ReadingBo__Gende__7AF13DF7" FromRole="Genders" ToRole="ReadingBooks" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__GenderCod__4C0144E4" FromRole="Genders" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="KindsOfBooks">
+          <Key>
+            <PropertyRef Name="CodeKindBook" />
+          </Key>
+          <Property Name="CodeKindBook" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KindBook" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ReadingBooks" Relationship="Self.FK__ReadingBo__KindB__7BE56230" FromRole="KindsOfBooks" ToRole="ReadingBooks" />
+        </EntityType>
+        <EntityType Name="ProfileBook">
+          <Key>
+            <PropertyRef Name="CodeProfileBook" />
+          </Key>
+          <Property Name="CodeProfileBook" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BookCode" Type="Int32" Nullable="false" />
+          <Property Name="KindBook" Type="Int32" Nullable="false" />
+          <Property Name="AudienceAge" Type="Int32" Nullable="false" />
+          <Property Name="AudienceStatus" Type="Int32" Nullable="false" />
+          <Property Name="AudienceGender" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ReadingBooks" Relationship="Self.FK__ProfileBo__BookC__55BFB948" FromRole="ProfileBook" ToRole="ReadingBooks" />
+        </EntityType>
+        <EntityType Name="ReadingBooks">
+          <Key>
+            <PropertyRef Name="CodeBook" />
+          </Key>
+          <Property Name="CodeBook" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameBook" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AuthorCode" Type="Int32" Nullable="false" />
+          <Property Name="KindBookCode" Type="Int32" Nullable="false" />
+          <Property Name="AudienceCode" Type="Int32" Nullable="false" />
+          <Property Name="LengthBook" Type="Int32" Nullable="false" />
+          <Property Name="StatusCode" Type="Int32" Nullable="false" />
+          <Property Name="GenderCode" Type="Int32" Nullable="false" />
+          <Property Name="ImgBook" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Audiences" Relationship="Self.FK__ReadingBo__Audie__7908F585" FromRole="ReadingBooks" ToRole="Audiences" />
+          <NavigationProperty Name="Authors" Relationship="Self.FK__ReadingBo__Autho__79FD19BE" FromRole="ReadingBooks" ToRole="Authors" />
+          <NavigationProperty Name="BookToUser" Relationship="Self.FK__BookToUse__BookC__6E565CE8" FromRole="ReadingBooks" ToRole="BookToUser" />
+          <NavigationProperty Name="BorrowedBooks" Relationship="Self.FK__BorrowedB__BookC__361203C5" FromRole="ReadingBooks" ToRole="BorrowedBooks" />
+          <NavigationProperty Name="Genders" Relationship="Self.FK__ReadingBo__Gende__7AF13DF7" FromRole="ReadingBooks" ToRole="Genders" />
+          <NavigationProperty Name="KindsOfBooks" Relationship="Self.FK__ReadingBo__KindB__7BE56230" FromRole="ReadingBooks" ToRole="KindsOfBooks" />
+          <NavigationProperty Name="ProfileBook" Relationship="Self.FK__ProfileBo__BookC__55BFB948" FromRole="ReadingBooks" ToRole="ProfileBook" />
+          <NavigationProperty Name="StatusUser" Relationship="Self.FK__ReadingBo__Statu__7CD98669" FromRole="ReadingBooks" ToRole="StatusUser" />
+          <NavigationProperty Name="WishList" Relationship="Self.FK__WishList__BookCo__39AD8A7F" FromRole="ReadingBooks" ToRole="WishList" />
+        </EntityType>
+        <EntityType Name="StatusUser">
+          <Key>
+            <PropertyRef Name="CodeStatus" />
+          </Key>
+          <Property Name="CodeStatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KindStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ReadingBooks" Relationship="Self.FK__ReadingBo__Statu__7CD98669" FromRole="StatusUser" ToRole="ReadingBooks" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__StatusCod__4CF5691D" FromRole="StatusUser" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="IdUser" />
+          </Key>
+          <Property Name="IdUser" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NameUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AgeUser" Type="Int32" Nullable="false" />
+          <Property Name="GenderCode" Type="Int32" Nullable="false" />
+          <Property Name="StatusCode" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BookToUser" Relationship="Self.FK__BookToUse__UserI__6D6238AF" FromRole="Users" ToRole="BookToUser" />
+          <NavigationProperty Name="BorrowedBooks" Relationship="Self.FK__BorrowedB__UserI__4924D839" FromRole="Users" ToRole="BorrowedBooks" />
+          <NavigationProperty Name="Genders" Relationship="Self.FK__Users__GenderCod__4C0144E4" FromRole="Users" ToRole="Genders" />
+          <NavigationProperty Name="StatusUser" Relationship="Self.FK__Users__StatusCod__4CF5691D" FromRole="Users" ToRole="StatusUser" />
+          <NavigationProperty Name="WishList" Relationship="Self.FK__WishList__UserId__3AA1AEB8" FromRole="Users" ToRole="WishList" />
+        </EntityType>
+        <EntityType Name="WishList">
+          <Key>
+            <PropertyRef Name="CodeWishList" />
+          </Key>
+          <Property Name="CodeWishList" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BookCode" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ReadingBooks" Relationship="Self.FK__WishList__BookCo__39AD8A7F" FromRole="WishList" ToRole="ReadingBooks" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__WishList__UserId__3AA1AEB8" FromRole="WishList" ToRole="Users" />
+        </EntityType>
+        <Association Name="FK__ReadingBo__Audie__7908F585">
+          <End Role="Audiences" Type="Self.Audiences" Multiplicity="1" />
+          <End Role="ReadingBooks" Type="Self.ReadingBooks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Audiences">
+              <PropertyRef Name="CodeAudience" />
+            </Principal>
+            <Dependent Role="ReadingBooks">
+              <PropertyRef Name="AudienceCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ReadingBo__Autho__79FD19BE">
+          <End Role="Authors" Type="Self.Authors" Multiplicity="1" />
+          <End Role="ReadingBooks" Type="Self.ReadingBooks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Authors">
+              <PropertyRef Name="CodeAuthor" />
+            </Principal>
+            <Dependent Role="ReadingBooks">
+              <PropertyRef Name="AuthorCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BookToUse__BookC__6E565CE8">
+          <End Role="ReadingBooks" Type="Self.ReadingBooks" Multiplicity="1" />
+          <End Role="BookToUser" Type="Self.BookToUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReadingBooks">
+              <PropertyRef Name="CodeBook" />
+            </Principal>
+            <Dependent Role="BookToUser">
+              <PropertyRef Name="BookCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BookToUse__UserI__6D6238AF">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="BookToUser" Type="Self.BookToUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="BookToUser">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BorrowedB__BookC__361203C5">
+          <End Role="ReadingBooks" Type="Self.ReadingBooks" Multiplicity="1" />
+          <End Role="BorrowedBooks" Type="Self.BorrowedBooks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReadingBooks">
+              <PropertyRef Name="CodeBook" />
+            </Principal>
+            <Dependent Role="BorrowedBooks">
+              <PropertyRef Name="BookCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BorrowedB__UserI__4924D839">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="BorrowedBooks" Type="Self.BorrowedBooks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="BorrowedBooks">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ReadingBo__Gende__7AF13DF7">
+          <End Role="Genders" Type="Self.Genders" Multiplicity="1" />
+          <End Role="ReadingBooks" Type="Self.ReadingBooks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genders">
+              <PropertyRef Name="CodeGender" />
+            </Principal>
+            <Dependent Role="ReadingBooks">
+              <PropertyRef Name="GenderCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__GenderCod__4C0144E4">
+          <End Role="Genders" Type="Self.Genders" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genders">
+              <PropertyRef Name="CodeGender" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="GenderCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ReadingBo__KindB__7BE56230">
+          <End Role="KindsOfBooks" Type="Self.KindsOfBooks" Multiplicity="1" />
+          <End Role="ReadingBooks" Type="Self.ReadingBooks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KindsOfBooks">
+              <PropertyRef Name="CodeKindBook" />
+            </Principal>
+            <Dependent Role="ReadingBooks">
+              <PropertyRef Name="KindBookCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProfileBo__BookC__55BFB948">
+          <End Role="ReadingBooks" Type="Self.ReadingBooks" Multiplicity="1" />
+          <End Role="ProfileBook" Type="Self.ProfileBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReadingBooks">
+              <PropertyRef Name="CodeBook" />
+            </Principal>
+            <Dependent Role="ProfileBook">
+              <PropertyRef Name="BookCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ReadingBo__Statu__7CD98669">
+          <End Role="StatusUser" Type="Self.StatusUser" Multiplicity="1" />
+          <End Role="ReadingBooks" Type="Self.ReadingBooks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusUser">
+              <PropertyRef Name="CodeStatus" />
+            </Principal>
+            <Dependent Role="ReadingBooks">
+              <PropertyRef Name="StatusCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WishList__BookCo__39AD8A7F">
+          <End Role="ReadingBooks" Type="Self.ReadingBooks" Multiplicity="1" />
+          <End Role="WishList" Type="Self.WishList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReadingBooks">
+              <PropertyRef Name="CodeBook" />
+            </Principal>
+            <Dependent Role="WishList">
+              <PropertyRef Name="BookCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__StatusCod__4CF5691D">
+          <End Role="StatusUser" Type="Self.StatusUser" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusUser">
+              <PropertyRef Name="CodeStatus" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="StatusCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WishList__UserId__3AA1AEB8">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="WishList" Type="Self.WishList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="WishList">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LibraryDBEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Audiences" EntityType="Self.Audiences" />
+          <EntitySet Name="Authors" EntityType="Self.Authors" />
+          <EntitySet Name="BookToUser" EntityType="Self.BookToUser" />
+          <EntitySet Name="BorrowedBooks" EntityType="Self.BorrowedBooks" />
+          <EntitySet Name="Genders" EntityType="Self.Genders" />
+          <EntitySet Name="KindsOfBooks" EntityType="Self.KindsOfBooks" />
+          <EntitySet Name="ProfileBook" EntityType="Self.ProfileBook" />
+          <EntitySet Name="ReadingBooks" EntityType="Self.ReadingBooks" />
+          <EntitySet Name="StatusUser" EntityType="Self.StatusUser" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="WishList" EntityType="Self.WishList" />
+          <AssociationSet Name="FK__ReadingBo__Audie__7908F585" Association="Self.FK__ReadingBo__Audie__7908F585">
+            <End Role="Audiences" EntitySet="Audiences" />
+            <End Role="ReadingBooks" EntitySet="ReadingBooks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ReadingBo__Autho__79FD19BE" Association="Self.FK__ReadingBo__Autho__79FD19BE">
+            <End Role="Authors" EntitySet="Authors" />
+            <End Role="ReadingBooks" EntitySet="ReadingBooks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BookToUse__BookC__6E565CE8" Association="Self.FK__BookToUse__BookC__6E565CE8">
+            <End Role="ReadingBooks" EntitySet="ReadingBooks" />
+            <End Role="BookToUser" EntitySet="BookToUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BookToUse__UserI__6D6238AF" Association="Self.FK__BookToUse__UserI__6D6238AF">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="BookToUser" EntitySet="BookToUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BorrowedB__BookC__361203C5" Association="Self.FK__BorrowedB__BookC__361203C5">
+            <End Role="ReadingBooks" EntitySet="ReadingBooks" />
+            <End Role="BorrowedBooks" EntitySet="BorrowedBooks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BorrowedB__UserI__4924D839" Association="Self.FK__BorrowedB__UserI__4924D839">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="BorrowedBooks" EntitySet="BorrowedBooks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ReadingBo__Gende__7AF13DF7" Association="Self.FK__ReadingBo__Gende__7AF13DF7">
+            <End Role="Genders" EntitySet="Genders" />
+            <End Role="ReadingBooks" EntitySet="ReadingBooks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__GenderCod__4C0144E4" Association="Self.FK__Users__GenderCod__4C0144E4">
+            <End Role="Genders" EntitySet="Genders" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ReadingBo__KindB__7BE56230" Association="Self.FK__ReadingBo__KindB__7BE56230">
+            <End Role="KindsOfBooks" EntitySet="KindsOfBooks" />
+            <End Role="ReadingBooks" EntitySet="ReadingBooks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProfileBo__BookC__55BFB948" Association="Self.FK__ProfileBo__BookC__55BFB948">
+            <End Role="ReadingBooks" EntitySet="ReadingBooks" />
+            <End Role="ProfileBook" EntitySet="ProfileBook" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ReadingBo__Statu__7CD98669" Association="Self.FK__ReadingBo__Statu__7CD98669">
+            <End Role="StatusUser" EntitySet="StatusUser" />
+            <End Role="ReadingBooks" EntitySet="ReadingBooks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WishList__BookCo__39AD8A7F" Association="Self.FK__WishList__BookCo__39AD8A7F">
+            <End Role="ReadingBooks" EntitySet="ReadingBooks" />
+            <End Role="WishList" EntitySet="WishList" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__StatusCod__4CF5691D" Association="Self.FK__Users__StatusCod__4CF5691D">
+            <End Role="StatusUser" EntitySet="StatusUser" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WishList__UserId__3AA1AEB8" Association="Self.FK__WishList__UserId__3AA1AEB8">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="WishList" EntitySet="WishList" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LibraryDBModelStoreContainer" CdmEntityContainer="LibraryDBEntities1">
+          <EntitySetMapping Name="Authors">
+            <EntityTypeMapping TypeName="LibraryDBModel.Authors">
+              <MappingFragment StoreEntitySet="Authors">
+                <ScalarProperty Name="CodeAuthor" ColumnName="CodeAuthor" />
+                <ScalarProperty Name="NameAuthor" ColumnName="NameAuthor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BookToUser">
+            <EntityTypeMapping TypeName="LibraryDBModel.BookToUser">
+              <MappingFragment StoreEntitySet="BookToUser">
+                <ScalarProperty Name="CodeBookToUser" ColumnName="CodeBookToUser" />
+                <ScalarProperty Name="BookCode" ColumnName="BookCode" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Like" ColumnName="Like" />
+                <ScalarProperty Name="LastDate" ColumnName="LastDate" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BorrowedBooks">
+            <EntityTypeMapping TypeName="LibraryDBModel.BorrowedBooks">
+              <MappingFragment StoreEntitySet="BorrowedBooks">
+                <ScalarProperty Name="CodeBorrowedBooks" ColumnName="CodeBorrowedBooks" />
+                <ScalarProperty Name="BookCode" ColumnName="BookCode" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="BorrowingDate" ColumnName="BorrowingDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genders">
+            <EntityTypeMapping TypeName="LibraryDBModel.Genders">
+              <MappingFragment StoreEntitySet="Genders">
+                <ScalarProperty Name="CodeGender" ColumnName="CodeGender" />
+                <ScalarProperty Name="KindGender" ColumnName="KindGender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KindsOfBooks">
+            <EntityTypeMapping TypeName="LibraryDBModel.KindsOfBooks">
+              <MappingFragment StoreEntitySet="KindsOfBooks">
+                <ScalarProperty Name="CodeKindBook" ColumnName="CodeKindBook" />
+                <ScalarProperty Name="KindBook" ColumnName="KindBook" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfileBook">
+            <EntityTypeMapping TypeName="LibraryDBModel.ProfileBook">
+              <MappingFragment StoreEntitySet="ProfileBook">
+                <ScalarProperty Name="CodeProfileBook" ColumnName="CodeProfileBook" />
+                <ScalarProperty Name="BookCode" ColumnName="BookCode" />
+                <ScalarProperty Name="KindBook" ColumnName="KindBook" />
+                <ScalarProperty Name="AudienceAge" ColumnName="AudienceAge" />
+                <ScalarProperty Name="AudienceStatus" ColumnName="AudienceStatus" />
+                <ScalarProperty Name="AudienceGender" ColumnName="AudienceGender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReadingBooks">
+            <EntityTypeMapping TypeName="LibraryDBModel.ReadingBooks">
+              <MappingFragment StoreEntitySet="ReadingBooks">
+                <ScalarProperty Name="CodeBook" ColumnName="CodeBook" />
+                <ScalarProperty Name="NameBook" ColumnName="NameBook" />
+                <ScalarProperty Name="AuthorCode" ColumnName="AuthorCode" />
+                <ScalarProperty Name="KindBookCode" ColumnName="KindBookCode" />
+                <ScalarProperty Name="AudienceCode" ColumnName="AudienceCode" />
+                <ScalarProperty Name="LengthBook" ColumnName="LengthBook" />
+                <ScalarProperty Name="StatusCode" ColumnName="StatusCode" />
+                <ScalarProperty Name="GenderCode" ColumnName="GenderCode" />
+                <ScalarProperty Name="ImgBook" ColumnName="ImgBook" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatusUser">
+            <EntityTypeMapping TypeName="LibraryDBModel.StatusUser">
+              <MappingFragment StoreEntitySet="StatusUser">
+                <ScalarProperty Name="CodeStatus" ColumnName="CodeStatus" />
+                <ScalarProperty Name="KindStatus" ColumnName="KindStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="LibraryDBModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="NameUser" ColumnName="NameUser" />
+                <ScalarProperty Name="AgeUser" ColumnName="AgeUser" />
+                <ScalarProperty Name="GenderCode" ColumnName="GenderCode" />
+                <ScalarProperty Name="StatusCode" ColumnName="StatusCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WishList">
+            <EntityTypeMapping TypeName="LibraryDBModel.WishList">
+              <MappingFragment StoreEntitySet="WishList">
+                <ScalarProperty Name="CodeWishList" ColumnName="CodeWishList" />
+                <ScalarProperty Name="BookCode" ColumnName="BookCode" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Audiences">
+            <EntityTypeMapping TypeName="IsTypeOf(LibraryDBModel.Audiences)">
+              <MappingFragment StoreEntitySet="Audiences">
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="KindAudience" ColumnName="KindAudience" />
+                <ScalarProperty Name="CodeAudience" ColumnName="CodeAudience" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

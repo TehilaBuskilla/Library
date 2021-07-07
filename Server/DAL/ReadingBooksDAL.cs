@@ -10,7 +10,7 @@ namespace DAL
 {
     public class ReadingBooksDAL
     {
-        //שליפה להכל
+        //Get
         public static List<ReadingBooksDTO> GetAll()
         {
             using (var context = new LibraryDBEntities1())
@@ -23,7 +23,6 @@ namespace DAL
                     {
                         CodeBook = item.CodeBook,
                         NameBook = item.NameBook,
-                        IsBorrowed = item.IsBorrowed,
                         LengthBook = item.LengthBook,
                         ImgBook = item.ImgBook,
                         Author = new AuthorsDTO
@@ -60,16 +59,7 @@ namespace DAL
 
         }
 
-        //שליפת נתון
-
-        //public static Get()
-        // {
-        //using (var context = new LibraryDBEntities())
-        //{
-        //    return context.ReadingBooks.
-        //}
-        //  }
-        //הוספה
+        //Add
         public static int Add(ReadingBooks readingBook)
         {
             using (var context = new LibraryDBEntities1())
@@ -86,7 +76,7 @@ namespace DAL
 
         }
 
-        //מחיקה
+        //Delete
 
         public static bool Delete(int code)
         {
@@ -110,7 +100,7 @@ namespace DAL
 
 
 
-        //עדכון
+        //Update
         public static bool Update(ReadingBooks readingBook)
         {
             try
@@ -127,7 +117,6 @@ namespace DAL
                         old.KindBookCode = readingBook.KindBookCode;
                         old.AudienceCode = readingBook.AudienceCode;
                         old.LengthBook = readingBook.LengthBook;
-                        old.IsBorrowed = readingBook.IsBorrowed;
                         old.StatusCode = readingBook.StatusCode;
                         old.GenderCode = readingBook.GenderCode;
 

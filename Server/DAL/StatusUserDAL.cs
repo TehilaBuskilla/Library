@@ -10,7 +10,7 @@ namespace DAL
    public class StatusUserDAL
     {
 
-        //שליפה להכל
+        // Get
         public static List<StatusUser> GetAll()
         {
             using (var context = new LibraryDBEntities1())
@@ -21,16 +21,7 @@ namespace DAL
 
         }
 
-        //שליפת נתון
-
-        //public static Get()
-        // {
-        //using (var context = new LibraryDBEntities())
-        //{
-        //    return context.StatusUser.
-        //}
-        //  }
-        //הוספה
+        //Add
         public static int Add(StatusUser statusUser)
         {
             using (var context = new LibraryDBEntities1())
@@ -47,7 +38,7 @@ namespace DAL
 
         }
 
-        //מחיקה
+        //Delete
 
         public static bool Delete(int code)
         {
@@ -71,7 +62,7 @@ namespace DAL
 
 
 
-        //עדכון
+        //Update
         public static bool Update(StatusUser statusUser)
         {
             try

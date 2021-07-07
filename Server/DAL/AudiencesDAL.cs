@@ -10,7 +10,7 @@ namespace DAL
 {
    public class AudiencesDAL
     {
-        //שליפה להכל
+        //Get
         public static List<Audiences> GetAll()
         {
             using (var context = new LibraryDBEntities1())
@@ -21,16 +21,7 @@ namespace DAL
             
         }
 
-        //שליפת נתון
-
-            //public static Get()
-            // {
-            //using (var context = new LibraryDBEntities())
-            //{
-            //    return context.Audiences.
-            //}
-            //  }
-        //הוספה
+        //Add
         public static int Add(Audiences audience)
         {
             using (var context = new LibraryDBEntities1())
@@ -47,7 +38,7 @@ namespace DAL
                 
         }
 
-        //מחיקה
+        //Delete
 
         public static bool Delete(int code)
         {
@@ -69,9 +60,9 @@ namespace DAL
         }
 
 
-       
 
-        //עדכון
+
+        //Update
         public static bool Update(Audiences audience)
         {
             try

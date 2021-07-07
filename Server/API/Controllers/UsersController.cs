@@ -15,7 +15,7 @@ namespace API.Controllers
 
     public class UsersController : ApiController
     {
-        //שליפה
+        //Get
         // GET: api/Users
         [Route("GetAll")]
         [HttpGet]
@@ -25,19 +25,19 @@ namespace API.Controllers
             return UsersBL.GetAll();
         }
 
-        //התחברות משתמש
+        // Get
         // GET: api/Users/5
         [Route("Connect")]
         [HttpPost]
-        public UsersDTO Connect([FromBody]UsersDTO existUser)
+        public UsersDTO Connect([FromBody]UsersDTO existUser)//user signIn
         {
           
           return UsersBL.GetByCode(existUser);
         }
 
-        //הוספה
+        //Add
         // POST: api/Users
-  
+
         [Route("Post")]
         [HttpPost]
         public string Post(UsersDTO newUser)
@@ -46,7 +46,7 @@ namespace API.Controllers
             return UsersBL.Add(newUser);
         }
 
-        //עדכון
+        //Update
         // PUT: api/Users/5
         [Route("{upUser}")]
         [HttpPut]
@@ -57,7 +57,7 @@ namespace API.Controllers
 
         }
 
-        //מחיקה
+        //Delete
         // DELETE: api/Users/5
         [Route("Delete/{IdUser}")]
         [HttpDelete]

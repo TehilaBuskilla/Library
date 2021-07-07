@@ -9,7 +9,7 @@ namespace DAL
 {
    public class BorrowedBooksDAL
     {
-        //שליפה להכל
+        //Get
         public static List<BorrowedBooks> GetAll()
         {
             using (var context = new LibraryDBEntities1())
@@ -20,16 +20,7 @@ namespace DAL
 
         }
 
-        //שליפת נתון
-
-        //public static Get()
-        // {
-        //using (var context = new LibraryDBEntities())
-        //{
-        //    return context.Audiences.
-        //}
-        //  }
-        //הוספה
+        //Add
         public static int Add(BorrowedBooks borrowedBook)
         {
             using (var context = new LibraryDBEntities1())
@@ -46,7 +37,7 @@ namespace DAL
 
         }
 
-        //מחיקה
+        //Delete
 
         public static bool Delete(int code)
         {
@@ -70,7 +61,7 @@ namespace DAL
 
 
 
-        //עדכון
+        //Update
         public static bool Update(BorrowedBooks borrowedBook)
         {
             try
@@ -85,8 +76,7 @@ namespace DAL
                         old.BookCode = borrowedBook.BookCode;
                         old.UserId = borrowedBook.UserId;
                         old.BorrowingDate = borrowedBook.BorrowingDate;
-                        old.IsBorrowed = borrowedBook.IsBorrowed;
-                        context.SaveChanges();
+                         context.SaveChanges();
                     }
 
                 }

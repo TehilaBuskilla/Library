@@ -17,8 +17,8 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Users()
         {
-            this.BorrowedBooks = new HashSet<BorrowedBooks>();
             this.BookToUser = new HashSet<BookToUser>();
+            this.BorrowedBooks = new HashSet<BorrowedBooks>();
             this.WishList = new HashSet<WishList>();
         }
     
@@ -29,11 +29,11 @@ namespace DAL
         public int StatusCode { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BookToUser> BookToUser { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BorrowedBooks> BorrowedBooks { get; set; }
         public virtual Genders Genders { get; set; }
         public virtual StatusUser StatusUser { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BookToUser> BookToUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WishList> WishList { get; set; }
     }

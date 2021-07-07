@@ -10,7 +10,6 @@ import { Observable } from 'rxjs';
 export class AuthorsService {
 
   
-
   url="http://localhost:65319/api/Authors/";
 
   constructor(private myhttp:HttpClient,private myrouter: Router) { }

@@ -9,7 +9,7 @@ namespace DAL
 {
    public class KindsOfBooksDAL
     {
-        //שליפה להכל
+        //Get
         public static List<KindsOfBooks> GetAll()
         {
             using (var context = new LibraryDBEntities1())
@@ -20,16 +20,7 @@ namespace DAL
 
         }
 
-        //שליפת נתון
-
-        //public static Get()
-        // {
-        //using (var context = new LibraryDBEntities())
-        //{
-        //    return context.KindsOfBooks.
-        //}
-        //  }
-        //הוספה
+        //Add
         public static int Add(KindsOfBooks kindsOfBook)
         {
             using (var context = new LibraryDBEntities1())
@@ -46,7 +37,7 @@ namespace DAL
 
         }
 
-        //מחיקה
+        //Delete
 
         public static bool Delete(int code)
         {
@@ -70,7 +61,7 @@ namespace DAL
 
 
 
-        //עדכון
+        //Update
         public static bool Update(KindsOfBooks kindsOfBook)
         {
             try
